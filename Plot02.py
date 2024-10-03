@@ -92,5 +92,7 @@ plt.show()
 
 #-------------------- Question a 3 ----------------------------#
 
-
-print
+Hydro_com = np.zeros(len(df.iloc[0:,]))
+molor_flow = np.zeros(len(df.iloc[0:,]))
+for i in range( len(df.iloc[0:,])):
+    molor_flow
