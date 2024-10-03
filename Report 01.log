@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  3 OCT 2024 00:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  3 OCT 2024 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1469,139 +1469,183 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 85.
 
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Speed_1.png, id=42, 413.74574pt x 299.1978pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Speed_1.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Speed_1.png>
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Speed_
+1.png, id=42, 413.74574pt x 299.1978pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/S
+peed_1.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Sp
+eed_1.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Speed_1.png  used on input line 125.
+ Technology/PEMFC/Speed_1.png  used on input line 125.
 (pdftex.def)             Requested size: 241.70557pt x 174.79031pt.
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Speed ms-1_1.png, id=44, 410.4936pt x 299.1978pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Speed ms-1_1.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Speed ms-1_1.png>
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Speed 
+ms-1_1.png, id=44, 410.4936pt x 299.1978pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/S
+peed ms-1_1.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Sp
+eed ms-1_1.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Speed ms-1_1.png  used on input line 126.
+ Technology/PEMFC/Speed ms-1_1.png  used on input line 126.
 (pdftex.def)             Requested size: 241.70557pt x 176.17363pt.
 
 Overfull \hbox (33.35315pt too wide) in paragraph at lines 124--130
  [][] 
  []
 
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/2.png, id=46, 273.68916pt x 117.10417pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/2.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/2.png>
-Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/2.png  used on input line 142.
-(pdftex.def)             Requested size: 352.48889pt x 150.82018pt.
+
+LaTeX Warning: File `E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Tec
+hnology/Report 01 (17-09-24/2.png' not found on input line 142.
+
+
+! Package pdftex.def Error: File `E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UG
+A/02. New Technology/Report 01 (17-09-24/2.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 ...New Technology/Report 01 (17-09-24/2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01
- (17-09-24/Speed_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Speed ms-1_1.png>]
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Acceleration_1.png, id=66, 425.30894pt x 298.4751pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Acceleration_1.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Acceleration_1.png>
-Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Acceleration_1.png  used on input line 176.
-(pdftex.def)             Requested size: 327.30946pt x 229.71268pt.
+[2 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Spe
+ed_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PE
+MFC/Speed ms-1_1.png>]
+
+LaTeX Warning: File `E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Tec
+hnology/Report 01 (17-09-24/Acceleration_1.png' not found on input line 176.
+
+
+! Package pdftex.def Error: File `E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UG
+A/02. New Technology/Report 01 (17-09-24/Acceleration_1.png' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.176 ...y/Report 01 (17-09-24/Acceleration_1.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 ! Double subscript.
 l.186 ... = \frac{1}{2}\times1.2\times 	v^2_{m/s}_
                                                   {,t}\times0.29\times 2.25 ...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-[3 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01
- (17-09-24/2.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Techn
-ology/Report 01 (17-09-24/Acceleration_1.png>]
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Fair_1.png, id=92, 413.02306pt x 299.1978pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Fair_1.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Fair_1.png>
+[3]
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fair_1
+.png, id=89, 413.02306pt x 299.1978pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/F
+air_1.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fa
+ir_1.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Fair_1.png  used on input line 209.
+ Technology/PEMFC/Fair_1.png  used on input line 209.
 (pdftex.def)             Requested size: 241.70557pt x 175.09619pt.
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Total_Force_1.png, id=93, 428.5611pt x 302.8113pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Total_Force_1.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Total_Force_1.png>
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Total_
+Force_1.png, id=90, 428.5611pt x 302.8113pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/T
+otal_Force_1.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/To
+tal_Force_1.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Total_Force_1.png  used on input line 210.
+ Technology/PEMFC/Total_Force_1.png  used on input line 210.
 (pdftex.def)             Requested size: 241.70557pt x 170.78836pt.
 
 Overfull \hbox (33.35315pt too wide) in paragraph at lines 208--214
  [][] 
  []
 
-[4 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01
- (17-09-24/Fair_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New 
-Technology/Report 01 (17-09-24/Total_Force_1.png>]
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Power_1.png, id=110, 426.93503pt x 303.71468pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Power_1.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Power_1.png>
+[4]
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_
+1.png, id=105, 426.93503pt x 303.71468pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/P
+ower_1.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Po
+wer_1.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Power_1.png  used on input line 240.
+ Technology/PEMFC/Power_1.png  used on input line 240.
 (pdftex.def)             Requested size: 352.48889pt x 250.76695pt.
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/DC.jpg, id=111, 927.465pt x 560.0925pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/DC.jpg Graphic file (type jpg)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/DC.jpg>
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC.jpg
+, id=106, 927.465pt x 560.0925pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/D
+C.jpg Graphic file (type jpg)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC
+.jpg>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/DC.jpg  used on input line 253.
+ Technology/PEMFC/DC.jpg  used on input line 253.
 (pdftex.def)             Requested size: 402.84775pt x 243.27931pt.
- [5 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Power_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. Ne
-w Technology/Report 01 (17-09-24/DC.jpg>]
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Question_B.png, id=118, 722.7pt x 433.62pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Question_B.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Question_B.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fai
+r_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEM
+FC/Total_Force_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New T
+echnology/PEMFC/Power_1.png>]
+
+LaTeX Warning: File `E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Tec
+hnology/Report 01 (17-09-24/Question_B.png' not found on input line 260.
+
+
+! Package pdftex.def Error: File `E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UG
+A/02. New Technology/Report 01 (17-09-24/Question_B.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 ...ology/Report 01 (17-09-24/Question_B.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
+on_C.png, id=116, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
+uestion_C.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
+estion_C.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Question_B.png  used on input line 260.
-(pdftex.def)             Requested size: 503.55777pt x 302.13585pt.
- [6 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Question_B.png>]
-<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 01 (1
-7-09-24/Question_C.png, id=127, 722.7pt x 578.16pt>
-File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 
-01 (17-09-24/Question_C.png Graphic file (type png)
-<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Question_C.png>
-Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
- Technology/Report 01 (17-09-24/Question_C.png  used on input line 283.
+ Technology/PEMFC/Question_C.png  used on input line 283.
 (pdftex.def)             Requested size: 503.55777pt x 402.8478pt.
- [7 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/Report 0
-1 (17-09-24/Question_C.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC.
+jpg>] [7] [8 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology
+/PEMFC/Question_C.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
-
-(./Report 01.aux)
+ (./Report 01.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
-Package rerunfilecheck Info: File `"Report 01".out' has not changed.
-(rerunfilecheck)             Checksum: E2A39F7B89C16A2805D958A8B2276CD0;659.
+
+
+Package rerunfilecheck Warning: File `"Report 01".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Report 01".out':
+(rerunfilecheck)             Before: 6BE7686330AC2F5F36DD58F664183086;664
+(rerunfilecheck)             After:  E2A39F7B89C16A2805D958A8B2276CD0;659.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
  )
 (\end occurred inside a group at level 1)
@@ -1609,13 +1653,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
 ### simple group (level 1) entered at line 236 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 24867 strings out of 480608
- 464218 string characters out of 5907536
- 910975 words of memory out of 5000000
- 40218 multiletter control sequences out of 15000+600000
- 545189 words of font info for 74 fonts, out of 8000000 for 9000
+ 24915 strings out of 480608
+ 466983 string characters out of 5907536
+ 911976 words of memory out of 5000000
+ 40249 multiletter control sequences out of 15000+600000
+ 545358 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,14n,71p,932b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,14n,71p,932b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 s1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c
 :/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive
@@ -1626,11 +1670,12 @@ public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texliv
-e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "Report 01.pdf" (7 pages, 1875969 bytes).
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2020/te
+xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on "Report 01.pdf" (8 pages, 1408537 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
