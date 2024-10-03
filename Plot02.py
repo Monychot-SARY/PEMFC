@@ -97,4 +97,21 @@ molar_flow = np.zeros(len(df.iloc[0:,]))
 for i in range( len(df.iloc[0:,])):
     molar_flow[i] = df['i (A/cm²)'][i]/(2*data['Faraday_const'][0])
     Hydro_com[i] = molar_flow[i]*data['Molar_mass_dihydrogen'][0]*data['N_cell'][0]*data['Area_stack'][0]
-def
+
+# Fit a 5th-degree polynomial to the hydrogen consumption data
+coefficients = np.polyfit(df['i (A/cm²)'], Hydro_com, 5)
+polynomial = np.poly1d(coefficients)
+
+# Generate fitted values for plotting
+i_fit = np.linspace(min(df['i (A/cm²)']), max(df['i (A/cm²)']), 100)
+hydro_fit = polynomial(i_fit)
+
+# Plot the hydrogen consumption and the fitted polynomial
+plt.figure(figsize=(6, 6))
+plt.plot(df['i (A/cm²)'], Hydro_com, 'bo', label='Hydrogen Consumption Data')
+plt.plot(i_fit, hydro_fit, 'r-', label='5th Degree Polynomial Fit')
+plt.title('Hydrogen Consumption vs Current Density')
+plt.xlabel('Current Density (A/cm²)')
+plt.ylabel('Hydrogen Consumption (g)')
+plt.legend()
+plt.show()
