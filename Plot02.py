@@ -93,12 +93,7 @@ plt.show()
 #-------------------- Question a 3 ----------------------------#
 
 Hydro_com = np.zeros(len(df.iloc[0:,]))
-molor_flow = np.zeros(len(df.iloc[0:,]))
+molar_flow = np.zeros(len(df.iloc[0:,]))
 for i in range( len(df.iloc[0:,])):
-    molor_flow[i] = df['i (A/cm²)'][i]/(2*data['Faraday_const'][0])
-    
-plt.plot(molor_flow, 'r-')  # Use range(len(df)) for the x-axis
-plt.xlim([0, len(df.iloc[0:,])])
-plt.xlabel('')
-plt.ylabel('')
-plt.show()
+    molar_flow[i] = df['i (A/cm²)'][i]/(2*data['Faraday_const'][0])
+    Hydro_com[i] = molar_flow[i]*data['Molar_mass_dihydrogen'][0]*data['N_cell'][0]*data['Area_stack'][0]
