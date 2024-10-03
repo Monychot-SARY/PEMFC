@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}\underline {Calculation of the power demand inside the vechicle}}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Calculate and plot the instant power provided by the vechicle powertrain for the road cycles " WLTC " }{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Calculation}{2}{subsubsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Calculate the instant power provide (positive) or received (negative) by the electric hybrid power source. }{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Calculate and Plot as a function of time : The power of the battery (kW), The power of the fuel cell system (kW), The SOC battery (\%) }{6}{subsection.1.3}%
