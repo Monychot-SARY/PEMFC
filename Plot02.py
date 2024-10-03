@@ -97,3 +97,4 @@ molar_flow = np.zeros(len(df.iloc[0:,]))
 for i in range( len(df.iloc[0:,])):
     molar_flow[i] = df['i (A/cm²)'][i]/(2*data['Faraday_const'][0])
     Hydro_com[i] = molar_flow[i]*data['Molar_mass_dihydrogen'][0]*data['N_cell'][0]*data['Area_stack'][0]
+def
