@@ -41,7 +41,8 @@ def calculate_forces(t, v):
     v_s = v * 1000 / 3600  # Convert speed to m/s
     delta_v = np.diff(v_s)
     delta_t = np.diff(t)
-    acceleration = delta_v / delta_t
+    acceleration = np.zeros_like(v_s)
+    acceleration[1:] = delta_v / delta_t  # Adjust length by 1
 
     Fair = 0.5 * rho * v_s**2 * Cd * A  # Air resistance
     Frolling = mass * Cr * g * np.cos(alpha)  # Rolling resistance (constant)
@@ -51,7 +52,7 @@ def calculate_forces(t, v):
 
 # Function to calculate total force and power
 def calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl):
-    F_total = Fcl + Frolling + Fair[1:] + mass * acceleration  # Total force
+    F_total = Fcl + Frolling + Fair[1:] + mass * acceleration[1:]  # Total force
     InP = v_s[1:] * F_total  # Instant power in Watts
     InP = np.insert(InP, 0, 0)  # Set first value to zero
 
@@ -59,7 +60,7 @@ def calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl):
     Pgen, Pdemand, Bat_motor_gen, Bat_motor_demand, InP_Hybrid = np.zeros((5, len(t)))
     Bat = aux_output_power / converter_efficiency
 
-    for i in range(len(t)):
+    for i in range(1, len(t)):
         if InP[i] <= 0:
             Pgen[i] = InP[i]
             Bat_motor_gen[i] = Pgen[i] * converter_efficiency
@@ -105,7 +106,7 @@ def simulate_soc_and_power(t, InP):
     return SoC, power_battery, power_fuel_cell, power_hybrid
 
 # Function to plot results
-def plot_results(t, v, v_s, acceleration, Fair, Frolling, F_total, InP, SoC, power_battery, power_fuel_cell, power_hybrid):
+def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid):
     plt.figure(figsize=(10, 15))
 
     # Plot speed and forces
@@ -122,7 +123,7 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, F_total, InP, SoC, pow
     plt.legend()
 
     plt.subplot(5, 1, 3)
-    plt.plot(t[1:], acceleration, 'g-', label='Acceleration (m/s²)')
+    plt.plot(t[1:], acceleration[1:], 'g-', label='Acceleration (m/s²)')
     plt.xlabel('Time (s)')
     plt.ylabel('Acceleration (m/s²)')
     plt.legend()
