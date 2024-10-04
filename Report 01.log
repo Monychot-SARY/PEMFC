@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  3 OCT 2024 21:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  4 OCT 2024 10:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1584,14 +1584,14 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  [6 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_B.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_C.png, id=127, 722.7pt x 578.16pt>
+on_C.png, id=127, 722.7pt x 722.7pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_C.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_C.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Question_C.png  used on input line 283.
-(pdftex.def)             Requested size: 503.55777pt x 402.8478pt.
+(pdftex.def)             Requested size: 503.55777pt x 503.55974pt.
  [7 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_C.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
@@ -1602,10 +1602,6 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `"Report 01".out' has not changed.
 (rerunfilecheck)             Checksum: E2A39F7B89C16A2805D958A8B2276CD0;659.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
  )
 (\end occurred inside a group at level 1)
@@ -1631,7 +1627,7 @@ fonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texliv
 e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "Report 01.pdf" (7 pages, 1875969 bytes).
+Output written on "Report 01.pdf" (7 pages, 1953169 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  141 compressed objects within 2 object streams
