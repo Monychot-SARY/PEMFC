@@ -99,8 +99,10 @@ def simulate_soc_and_power(t, InP):
             max_charging_power = charge_power_battery_10C if SoC[i - 1] < 55 else charge_power_battery_6C
             power_battery[i] = -min(charging_power, max_charging_power)
 
-        # Update SoC
-        SoC[i] = np.clip(SoC[i - 1] - (power_battery[i] / battery_capacity) * (1 / 3600), SoC_min, SoC_max)
+        # # Update SoC
+        # SoC[i] = np.clip(SoC[i - 1] - (power_battery[i] / battery_capacity) * (1 / 3600), SoC_min, SoC_max)
+        SoC[i] = min(SoC_max, max(SoC_min, SoC[i - 1] - ((power_battery[i] * 1 / 3600) / battery_capacity) +
+                (( -power_demand[i] * 1 / 3600) / battery_capacity)))
         power_hybrid[i] = power_battery[i] + power_fuel_cell[i]
 
     return SoC, power_battery, power_fuel_cell, power_hybrid
@@ -108,38 +110,67 @@ def simulate_soc_and_power(t, InP):
 # Function to plot results
 def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid):
     plt.figure(figsize=(10, 15))
-
+    time = len(t)
     # Plot speed and forces
     plt.subplot(5, 1, 1)
     plt.plot(t, v, 'r-', label='Speed (km/h)')
     plt.xlabel('Time (s)')
     plt.ylabel('Speed (km/h)')
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(v):.2f} km/h', xy=(t[np.argmin(v)], min(v)), xytext=(t[np.argmin(v)], min(v) + 5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(v):.2f} km/h', xy=(t[np.argmax(v)], max(v)), xytext=(t[np.argmax(v)], max(v) - 5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(5, 1, 2)
     plt.plot(t, v_s, 'b-', label='Speed (m/s)')
     plt.xlabel('Time (s)')
     plt.ylabel('Speed (m/s)')
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(v_s):.2f} m/s', xy=(t[np.argmin(v_s)], min(v_s)), xytext=(t[np.argmin(v_s)], min(v_s) + 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(v_s):.2f} m/s', xy=(t[np.argmax(v_s)], max(v_s)), xytext=(t[np.argmax(v_s)], max(v_s) - 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(5, 1, 3)
     plt.plot(t[1:], acceleration[1:], 'g-', label='Acceleration (m/s²)')
     plt.xlabel('Time (s)')
     plt.ylabel('Acceleration (m/s²)')
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(acceleration):.2f} m/s²', xy=(t[1:][np.argmin(acceleration)], min(acceleration)), 
+                 xytext=(t[1:][np.argmin(acceleration)], min(acceleration) + 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(acceleration):.2f} m/s²', xy=(t[1:][np.argmax(acceleration)], max(acceleration)), 
+                 xytext=(t[1:][np.argmax(acceleration)], max(acceleration) - 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(5, 1, 4)
     plt.plot(t, Fair / 1000, 'y-', label='Air Resistance (kN)')
     plt.xlabel('Time (s)')
     plt.ylabel('Air Resistance (kN)')
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(Fair / 1000):.2f} kN', xy=(t[np.argmin(Fair)], min(Fair / 1000)), 
+                 xytext=(t[np.argmin(Fair)], min(Fair / 1000) + 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(Fair / 1000):.2f} kN', xy=(t[np.argmax(Fair)], max(Fair / 1000)), 
+                 xytext=(t[np.argmax(Fair)], max(Fair / 1000) - 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(5, 1, 5)
-    plt.plot(t, Frolling / 1000, 'k-', label='Rolling Resistance (kN)')
+    plt.plot(t, Frolling * np.ones_like(t) / 1000, 'k-', label='Rolling Resistance (kN)')
     plt.xlabel('Time (s)')
     plt.ylabel('Rolling Resistance (kN)')
+    plt.xlim([t[0], time])
     plt.legend()
-
+    
     plt.tight_layout()
     plt.show()
 
@@ -150,28 +181,62 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_b
     plt.plot(t, power_hybrid, label="Hybrid Power (kW)")
     plt.xlabel("Time (s)")
     plt.ylabel("Power (kW)")
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(power_hybrid):.2f} kW', xy=(t[np.argmin(power_hybrid)], min(power_hybrid)), 
+                 xytext=(t[np.argmin(power_hybrid)], min(power_hybrid) + 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(power_hybrid):.2f} kW', xy=(t[np.argmax(power_hybrid)], max(power_hybrid)), 
+                 xytext=(t[np.argmax(power_hybrid)], max(power_hybrid) - 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(4, 1, 2)
     plt.plot(t, power_battery, label="Battery Power (kW)", color="orange")
     plt.xlabel("Time (s)")
     plt.ylabel("Power (kW)")
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(power_battery):.2f} kW', xy=(t[np.argmin(power_battery)], min(power_battery)), 
+                 xytext=(t[np.argmin(power_battery)], min(power_battery) + 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(power_battery):.2f} kW', xy=(t[np.argmax(power_battery)], max(power_battery)), 
+                 xytext=(t[np.argmax(power_battery)], max(power_battery) - 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(4, 1, 3)
     plt.plot(t, power_fuel_cell, label="Fuel Cell Power (kW)", color="green")
     plt.xlabel("Time (s)")
     plt.ylabel("Power (kW)")
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(power_fuel_cell):.2f} kW', xy=(t[np.argmin(power_fuel_cell)], min(power_fuel_cell)), 
+                 xytext=(t[np.argmin(power_fuel_cell)], min(power_fuel_cell) + 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(power_fuel_cell):.2f} kW', xy=(t[np.argmax(power_fuel_cell)], max(power_fuel_cell)), 
+                 xytext=(t[np.argmax(power_fuel_cell)], max(power_fuel_cell) - 0.5),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.subplot(4, 1, 4)
     plt.plot(t, SoC, label="SoC (%)", color="red")
     plt.xlabel("Time (s)")
     plt.ylabel("SoC (%)")
+    plt.xlim([t[0], time])
     plt.legend()
+    # Annotate min and max values
+    plt.annotate(f'Min: {min(SoC):.2f} %', xy=(t[np.argmin(SoC)], min(SoC)), 
+                 xytext=(t[np.argmin(SoC)], min(SoC) + 1),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
+    plt.annotate(f'Max: {max(SoC):.2f} %', xy=(t[np.argmax(SoC)], max(SoC)), 
+                 xytext=(t[np.argmax(SoC)], max(SoC) - 1),
+                 arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=10, color='black')
 
     plt.tight_layout()
+    plt.savefig('Question_C.png', dpi=200)
     plt.show()
+
 
 # Main execution flow
 def main():
