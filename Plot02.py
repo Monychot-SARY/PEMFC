@@ -38,7 +38,6 @@ for i in range(len(df.iloc[0:,])):
                (data['Gamma'][0] / (data['Gamma'][0] - 1)) * \
                (data['R'][0] * data['Ambient_temperature'][0]) * \
                ((df['P air (bar)'][i]/data['P_atm'][0])** ((data['Gamma'][0]-1) / (data['Gamma'][0]))-1)*data['Area_stack'][0]/1000
-aa = (1 / data['Air_compressor_efficiency'][0])
 # Plot the compressor power (P_com)
 plt.figure(figsize=(6, 6))
 plt.subplot(2, 1, 1)
@@ -103,7 +102,7 @@ coefficients = np.polyfit(df['i (A/cm²)'], Hydro_com, 5)
 polynomial = np.poly1d(coefficients)
 
 # Generate fitted values for plotting
-i_fit = np.linspace(min(df['i (A/cm²)']), max(df['i (A/cm²)']), 100)
+i_fit = np.linspace(min(df['i (A/cm²)']), max(df['i (A/cm²)']), 1000)
 hydro_fit = polynomial(i_fit)
 
 # Plot the hydrogen consumption and the fitted polynomial
@@ -115,3 +114,9 @@ plt.xlabel('Current Density (A/cm²)')
 plt.ylabel('Hydrogen Consumption (g)')
 plt.legend()
 plt.show()
+
+
+# --------------------------- Parameter Question 2 ----------------------------------
+
+WLTC = pd.read_excel('Plot01.xlsx', sheet_name='Sheet1',header = 0)
+

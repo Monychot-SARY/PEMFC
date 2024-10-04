@@ -7,7 +7,7 @@ try:
     df = pd.read_excel('Plot01_130.xlsx', sheet_name='Sheet1')
     t = df.iloc[:, 0]  # Assuming 1st column is time or X-axis
     v = df.iloc[:, 1]  # Assuming 2nd column is speed in km/h or Y-axis
-    alpha = 2
+    alpha = 2 # 2 degree
     time = 300
     # Filter data to include only time between 0 and 1800
     mask = (t >= 0) & (t <= len(t))
