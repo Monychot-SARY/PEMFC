@@ -134,7 +134,6 @@ try:
                 charging_power = charge_power_battery_10C
             elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C discharge rate
                 power_battery[i] = 0.30 * power_demand[i]  # 30% of total demand
-                print(i,power_battery[i] )
                 charging_power = charge_power_battery_6C
 
             # Cap battery discharge power
@@ -146,9 +145,6 @@ try:
                 power_fuel_cell[i] = fuel_cell_min_power
             else: 
                 power_fuel_cell[i] = power_demand[i] - power_battery[i]
-
-                
-                # power_battery[i] = power_demand[i]
 
         elif power_demand[i] < 0:  # Battery charging
             charging_power = -power_demand[i]

@@ -26,8 +26,9 @@ def read_data(file_name, sheet_name='Sheet1', time_limit=1800):
         df = pd.read_excel(file_name, sheet_name=sheet_name)
         t = df.iloc[:, 0]
         v = df.iloc[:, 1]
-        # Filter data by time limit
-        mask = (t >= 0) & (t <= time_limit)
+        mask = (t >= 0) & (t <= 1800)
+        t = t[mask]
+        v = v[mask]
         return t[mask], v[mask]
     except FileNotFoundError:
         print(f"File {file_name} not found.")
@@ -41,71 +42,109 @@ def calculate_forces(t, v):
     v_s = v * 1000 / 3600  # Convert speed to m/s
     delta_v = np.diff(v_s)
     delta_t = np.diff(t)
+
     acceleration = np.zeros_like(v_s)
-    acceleration[1:] = delta_v / delta_t  # Adjust length by 1
+    acceleration[1:] = delta_v / delta_t  # Calculate acceleration
 
     Fair = 0.5 * rho * v_s**2 * Cd * A  # Air resistance
-    Frolling = mass * Cr * g * np.cos(alpha)  # Rolling resistance (constant)
-    Fcl = mass * g * np.sin(alpha)  # Climbing resistance (constant)
+    Frolling = mass * Cr * g * np.cos(alpha)  # Rolling resistance
+    Fcl = mass * g * np.sin(alpha)  # Climbing resistance
 
     return v_s, acceleration, Fair, Frolling, Fcl
 
 # Function to calculate total force and power
 def calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl):
-    F_total = Fcl + Frolling + Fair[1:] + mass * acceleration[1:]  # Total force
-    InP = v_s[1:] * F_total  # Instant power in Watts
-    InP = np.insert(InP, 0, 0)  # Set first value to zero
+    F_total = Fcl + Frolling + Fair + mass * acceleration  # Total force
+    InP = v_s * F_total  # in Watts
+    InP[0] = 0
 
-    # DC/DC Converter and battery power handling
-    Pgen, Pdemand, Bat_motor_gen, Bat_motor_demand, InP_Hybrid = np.zeros((5, len(t)))
-    Bat = aux_output_power / converter_efficiency
+    # DC/DC converter
+    converter_efficiency = 0.9
+    aux_output_power = 300  # in Watts
 
-    for i in range(1, len(t)):
+    Pgen = np.zeros(len(t))
+    Pdemand = np.zeros(len(t))
+    Bat_motor_gen = np.zeros(len(t))
+    Bat_motor_demand = np.zeros(len(t))
+    InP_Hybrid = np.zeros(len(t))
+    Bat = np.ones(len(t))*aux_output_power / converter_efficiency
+
+    for i in range(len(t)):
         if InP[i] <= 0:
             Pgen[i] = InP[i]
             Bat_motor_gen[i] = Pgen[i] * converter_efficiency
-        else:
+        elif InP[i] >= 0:
             Pdemand[i] = InP[i]
-            Bat_motor_demand[i] = Pdemand[i] / converter_efficiency
+            Bat_motor_demand[i] = Pdemand[i] / converter_efficiency  # in Watts
 
-        InP_Hybrid[i] = Bat + Bat_motor_gen[i] + Bat_motor_demand[i]  # Hybrid power
-
+    for i in range(len(t)):
+        InP_Hybrid[i] = Bat[i] + Bat_motor_gen[i] + Bat_motor_demand[i]  # in Watts
+        
     return InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand
 
 # Function to simulate battery SoC and fuel cell dynamics
 def simulate_soc_and_power(t, InP_Hybrid):
     SoC = np.zeros(len(t))
-    SoC[0] = 60  # Start at 60% SoC
-    power_battery, power_fuel_cell, power_hybrid = np.zeros((3, len(t)))
+    SoC[0] = 60  # Start with maximum SoC
+
+    power_battery = np.zeros(len(t))
+    power_fuel_cell = np.zeros(len(t))
+    power_hybrid = np.zeros(len(t))
     power_fuel_cell[0] = fuel_cell_min_power
-    power_demand = InP_Hybrid / 1000  # Convert to kW
+    # Power demand
+    power_demand = InP_Hybrid/1000
 
-    for i in range(1, len(t)):
-        charging_power = 0
-
+    # Simulation loop for both charging and discharging
+    for i in range(1,len(t)):
         if power_demand[i] > 0:  # Battery discharging
-            if SoC[i - 1] < 55:
-                power_battery[i] = 0.05 * power_demand[i]
-            else:
-                power_battery[i] = 0.30 * power_demand[i]
+            if SoC[i - 1] < 55:  # SoC < 55% --> 10C discharge rate
+                power_battery[i] = 0.05 * power_demand[i]  # 5% of total demand
+                charging_power = charge_power_battery_10C
+            elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C discharge rate
+                power_battery[i] = 0.30 * power_demand[i]  # 30% of total demand
+                print(i,power_battery[i] )
+                charging_power = charge_power_battery_6C
 
-            power_battery[i] = min(power_battery[i], discharge_power_battery)
-            power_fuel_cell[i] = power_demand[i] - power_battery[i]
+            # Cap battery discharge power
+            if power_battery[i] >= discharge_power_battery:
+                power_battery[i] = discharge_power_battery
 
-            if power_fuel_cell[i] <= fuel_cell_min_power:
+            # If fuel cell power is below the minimum threshold, adjust the battery
+            if power_demand[i] - power_battery[i] <= fuel_cell_min_power:
                 power_fuel_cell[i] = fuel_cell_min_power
+            else: 
+                power_fuel_cell[i] = power_demand[i] - power_battery[i]
 
-        else:  # Battery charging
+                
+                # power_battery[i] = power_demand[i]
+
+        elif power_demand[i] < 0:  # Battery charging
             charging_power = -power_demand[i]
-            max_charging_power = charge_power_battery_10C if SoC[i - 1] < 55 else charge_power_battery_6C
-            power_battery[i] = -min(charging_power, max_charging_power)
 
-        # # Update SoC
-        # SoC[i] = np.clip(SoC[i - 1] - (power_battery[i] / battery_capacity) * (1 / 3600), SoC_min, SoC_max)
+            if SoC[i - 1] < 55:  # SoC < 55% --> 10C charging rate
+                max_charging_power = charge_power_battery_10C
+            elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C charging rate
+                max_charging_power = charge_power_battery_6C
+
+            # Cap the charging power
+            if charging_power > max_charging_power:
+                charging_power = max_charging_power
+
+            power_battery[i] = -charging_power  # Charging, negative power
+
+        # Update SoC based on your formula
+
         SoC[i] = min(SoC_max, max(SoC_min, SoC[i - 1] - ((power_battery[i] * 1 / 3600) / battery_capacity) +
-                (( -power_demand[i] * 1 / 3600) / battery_capacity)))
-        power_hybrid[i] = power_battery[i] + power_fuel_cell[i]
+                        (( -power_demand[i] * 1 / 3600) / battery_capacity)))
 
+        # Ensure SoC remains within bounds
+        if SoC[i] < SoC_min:
+                SoC[i] = SoC_min  # Cap at minimum SoC
+                power_battery[i] = 0  # Prevent further discharge
+        elif SoC[i] > SoC_max:
+                SoC[i] = SoC_max  # Cap at maximum SoC
+                power_battery[i] = 0  # Prevent further charging
+        power_hybrid[i] = power_battery[i] + power_fuel_cell[i]
     return SoC, power_battery, power_fuel_cell, power_hybrid
 
 # Function to plot results
