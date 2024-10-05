@@ -125,29 +125,28 @@ SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, In
 
 #-------------------- WLTC and Polarization Curve Analysis ----------------------------#
 # Load the WLTC and polarization curve data
-wltc_data = pd.read_excel('Plot01.xlsx', header=0)
-polarization_curve = df
+wltc_data = pd.read_excel('Plot01.xlsx', header=0)  # Ensure the path is correct
+polarization_curve = df  # Ensure df is defined correctly
 
 # Define parameters
-A_cell = data['Area_stack'].values[0]  # cm²
-N_cells = data['N_cell'].values[0]
+A_cell = data['Area_stack'].values[0]  # cm², ensure data is defined
+N_cells = data['N_cell'].values[0]  # Ensure data is defined
 threshold = 0.0001  # Convergence threshold for voltage
 
 # Initialize results
 results = []
 
-for t in range(len(wltc_data)):
+# Ensure time and Power_demand are defined
+for t in range (len(time)):
     P_demand = Power_demand[t]  # Power demand at time t
-    U_cell = 0.85  # Start with an initial guess for voltage
+    U_cell = 0.85  # Initial guess for voltage
     iteration = 0
 
     while True:
         # Calculate current
-        I_stack = P_demand / U_cell
-        
+        I_stack = P_demand / U_cell if U_cell != 0 else 0  # Prevent division by zero
         # Calculate current density
-        i_t = I_stack / A_cell
-
+        i_t = I_stack / A_cell if A_cell != 0 else 0  # Prevent division by zero
         # Find the closest matching voltage from the polarization curve
         closest_index = (polarization_curve['i (A/cm²)'] - i_t).abs().idxmin()  # Get index of the closest value
         U_cell_new = polarization_curve.loc[closest_index, 'U_cell (V)']
@@ -163,9 +162,3 @@ for t in range(len(wltc_data)):
 
 # Convert results to DataFrame for analysis
 results_df = pd.DataFrame(results)
-
-# Print the results DataFrame
-print(results_df)
-
-
-

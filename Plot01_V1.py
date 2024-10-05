@@ -73,12 +73,12 @@ def calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl):
     return InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand
 
 # Function to simulate battery SoC and fuel cell dynamics
-def simulate_soc_and_power(t, InP):
+def simulate_soc_and_power(t, InP_Hybrid):
     SoC = np.zeros(len(t))
     SoC[0] = 60  # Start at 60% SoC
     power_battery, power_fuel_cell, power_hybrid = np.zeros((3, len(t)))
     power_fuel_cell[0] = fuel_cell_min_power
-    power_demand = InP / 1000  # Convert to kW
+    power_demand = InP_Hybrid / 1000  # Convert to kW
 
     for i in range(1, len(t)):
         charging_power = 0
@@ -91,7 +91,8 @@ def simulate_soc_and_power(t, InP):
 
             power_battery[i] = min(power_battery[i], discharge_power_battery)
             power_fuel_cell[i] = power_demand[i] - power_battery[i]
-            if power_fuel_cell[i] < fuel_cell_min_power:
+
+            if power_fuel_cell[i] <= fuel_cell_min_power:
                 power_fuel_cell[i] = fuel_cell_min_power
 
         else:  # Battery charging

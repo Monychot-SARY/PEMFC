@@ -124,31 +124,30 @@ try:
     power_hybrid = np.zeros(len(t))
     power_fuel_cell[0] = fuel_cell_min_power
     # Power demand
-    power_demand = InP/1000
+    power_demand = InP_Hybrid/1000
 
     # Simulation loop for both charging and discharging
-    for i in range(1, len(t)):
+    for i in range(1,len(t)):
         if power_demand[i] > 0:  # Battery discharging
             if SoC[i - 1] < 55:  # SoC < 55% --> 10C discharge rate
                 power_battery[i] = 0.05 * power_demand[i]  # 5% of total demand
                 charging_power = charge_power_battery_10C
-            elif SoC[i - 1] > 55:  # SoC > 55% --> 6C discharge rate
+            elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C discharge rate
                 power_battery[i] = 0.30 * power_demand[i]  # 30% of total demand
+                print(i,power_battery[i] )
                 charging_power = charge_power_battery_6C
 
             # Cap battery discharge power
-            if power_battery[i] > discharge_power_battery:
+            if power_battery[i] >= discharge_power_battery:
                 power_battery[i] = discharge_power_battery
 
-            # Remaining power provided by the fuel cell
-
-            power_fuel_cell[i] = power_demand[i] - power_battery[i]
-
             # If fuel cell power is below the minimum threshold, adjust the battery
-            if power_fuel_cell[i] <= fuel_cell_min_power:
-
+            if power_demand[i] - power_battery[i] <= fuel_cell_min_power:
                 power_fuel_cell[i] = fuel_cell_min_power
+            else: 
+                power_fuel_cell[i] = power_demand[i] - power_battery[i]
 
+                
                 # power_battery[i] = power_demand[i]
 
         elif power_demand[i] < 0:  # Battery charging
