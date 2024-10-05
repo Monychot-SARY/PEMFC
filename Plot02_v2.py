@@ -125,12 +125,12 @@ SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, In
 
 #-------------------- WLTC and Polarization Curve Analysis ----------------------------#
 # Load the WLTC and polarization curve data
-wltc_data = pd.read_excel('Plot01.xlsx')
-polarization_curve = pd.read_excel('Plot02.xlsx')
+wltc_data = pd.read_excel('Plot01.xlsx', header=0)
+polarization_curve = df
 
 # Define parameters
-A_cell = data['Area_stack'] # cm²
-N_cells = data['N_cell']
+A_cell = data['Area_stack'].values[0]  # cm²
+N_cells = data['N_cell'].values[0]
 threshold = 0.0001  # Convergence threshold for voltage
 
 # Initialize results
@@ -144,12 +144,14 @@ for t in range(len(wltc_data)):
     while True:
         # Calculate current
         I_stack = P_demand / U_cell
+        
         # Calculate current density
         i_t = I_stack / A_cell
 
-        # Lookup corresponding voltage from the polarization curve
-        U_cell_new = polarization_curve.loc[polarization_curve['i (A/cm²)'] == i_t, 'U_cell (V)'].values[0]
-        
+        # Find the closest matching voltage from the polarization curve
+        closest_index = (polarization_curve['i (A/cm²)'] - i_t).abs().idxmin()  # Get index of the closest value
+        U_cell_new = polarization_curve.loc[closest_index, 'U_cell (V)']
+
         # Check for convergence
         if abs(U_cell_new - U_cell) < threshold or iteration > 100:
             break
@@ -164,3 +166,6 @@ results_df = pd.DataFrame(results)
 
 # Print the results DataFrame
 print(results_df)
+
+
+
