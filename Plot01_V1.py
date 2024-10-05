@@ -37,7 +37,7 @@ def read_data(file_name, sheet_name='Sheet1', time_limit=1800):
         return None, None
 
 # Function to calculate forces and acceleration
-def calculate_forces(t, v):
+def calculate_forces(t, v,Cd,Cr):
     v_s = v * 1000 / 3600  # Convert speed to m/s
     delta_v = np.diff(v_s)
     delta_t = np.diff(t)
@@ -244,7 +244,7 @@ def main():
     if t is None or v is None:
         return  # Exit if no data
 
-    v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(t, v)
+    v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(t, v,Cd,Cr)
     InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl)
     SoC, power_battery, power_fuel_cell, power_hybrid = simulate_soc_and_power(t, InP)
 

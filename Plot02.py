@@ -135,7 +135,7 @@ average_hydro_com_per_100km = (total_hydrogen_consumed / total_distance_km) * 10
 operating_range = data['M_tank'] / (total_hydrogen_consumed / total_distance_km)  # in km
 
 #-------------------- Average Energetic Efficiency ----------------------------#
-LHV_H2 = 120_000  # Lower heating value of H2 in kJ/kg
+LHV_H2 = (data['LHV'] / data['Molar_mass_dihydrogen']) *1000# Lower heating value of H2 in kJ/kg
 total_energy_content = total_hydrogen_consumed * LHV_H2  # Total energy content in kJ
 
 avg_power_output = np.mean(P_fuel) / 1000  # in kW
@@ -171,3 +171,61 @@ plt.ylabel('Hydrogen Consumption (kg/s)')
 plt.legend()
 plt.show()
 
+#-------------------- Question 3: Modify Parameters ----------------------------#
+def run_simulation(C, Cr, battery_capacity, battery_charging_power):
+    #-------------------- Modify Parameters ----------------------------#
+    # Assuming `C` is part of the drag calculation in `calculate_forces`
+    # You should ensure that `calculate_forces` includes these parameters
+    v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(time, speed, C,Cr)
+    
+    # Assuming battery_charging_power affects power calculations (modify calculate_power accordingly)
+    Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl, battery_charging_power=battery_charging_power)
+
+    # Recalculate hydrogen consumption
+    Hydro_com_interp = np.zeros(len(time))
+    for i in range(len(time)):
+        molar_flow = interpolated_current_density[i] / (2 * data['Faraday_const'][0])
+        Hydro_com_interp[i] = molar_flow * data['Molar_mass_dihydrogen'][0] * data['N_cell'][0] * data['Area_stack'][0] / 1000  # kg
+
+    # Total hydrogen consumption and range
+    total_hydrogen_consumed = np.sum(Hydro_com_interp * np.diff(time, prepend=0))
+    hydrogen_tank_capacity = 5.6  # in kg
+    total_distance_m = np.sum(speed * np.diff(time, prepend=0))  # Total distance in meters
+    total_distance_km = total_distance_m / 1000  # Convert to km
+    operating_range = hydrogen_tank_capacity / (total_hydrogen_consumed / total_distance_km)  # in km
+    
+    # Average energetic efficiency
+    LHV_H2 = 120_000  # Lower heating value of H2 in kJ/kg
+    total_energy_content = total_hydrogen_consumed * LHV_H2  # Total energy content in kJ
+    avg_power_output = np.mean(P_fuel) / 1000  # in kW
+    total_time_hours = np.sum(np.diff(time, prepend=0)) / 3600  # Convert to hours
+    efficiency = (avg_power_output * total_time_hours) / (total_energy_content / 3600)  # in %
+
+    return total_hydrogen_consumed, operating_range, efficiency
+
+#-------------------- Sensitivity Analysis ----------------------------#
+
+# Store the results for comparison
+results = []
+
+# Variations for C, Cr, battery charging power, and battery capacity
+C_variations = [0.25, 0.40]
+Cr_variations = [0.01, 0.014]
+battery_charging_powers = [5, 20]  # Representing 5C and 20C charging rates
+battery_capacities = [620, 1860]  # in Wh
+
+# Run simulations with each combination of parameters
+for C in C_variations:
+    for Cr in Cr_variations:
+        for power in battery_charging_powers:
+            for capacity in battery_capacities:
+                total_hydrogen, range_km, fuel_efficiency = run_simulation(C, Cr, capacity, power)
+                results.append({
+                    "C": C,
+                    "Cr": Cr,
+                    "Battery Capacity (Wh)": capacity,
+                    "Charging Power (C-rate)": power,
+                    "Total Hydrogen Consumed (kg)": total_hydrogen,
+                    "Operating Range (km)": range_km,
+                    "Fuel Cell Efficiency (%)": fuel_efficiency
+                })
