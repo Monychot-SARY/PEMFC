@@ -162,3 +162,4 @@ for t in range (len(time)):
 
 # Convert results to DataFrame for analysis
 results_df = pd.DataFrame(results)
+results_df.head(20)
