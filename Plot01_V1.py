@@ -78,6 +78,7 @@ def calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl):
             Bat_motor_demand[i] = Pdemand[i] / converter_efficiency  # in Watts
 
     for i in range(len(t)):
+        print(Bat[i])
         InP_Hybrid[i] = Bat[i] + Bat_motor_gen[i] + Bat_motor_demand[i]  # in Watts
         
     return InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand
@@ -286,7 +287,7 @@ def main():
 
     v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(t, v)
     InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl)
-    SoC, power_battery, power_fuel_cell, power_hybrid = simulate_soc_and_power(t, InP)
+    SoC, power_battery, power_fuel_cell, power_hybrid = simulate_soc_and_power(t, InP_Hybrid)
 
     plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid)
 

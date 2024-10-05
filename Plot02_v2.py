@@ -120,8 +120,8 @@ interpolated_current_density = interp_function(time)
 
 # Forces and power calculation based on speed
 v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(time, speed)
-Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl)
-SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, Instant_power)
+Instant_power, InP_Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl)
+SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, InP_Hybrid)
 
 #-------------------- WLTC and Polarization Curve Analysis ----------------------------#
 # Load the WLTC and polarization curve data
