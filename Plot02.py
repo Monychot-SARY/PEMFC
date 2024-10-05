@@ -159,7 +159,7 @@ if isinstance(total_hydrogen_consumed, pd.Series):
 #-------------------- Print Final Results ----------------------------#
 print(f"Vehicle Operating Range: {operating_range:.2f} km")
 print(f"Average Hydrogen Consumption: {average_hydro_com_per_100km:.4f} kgH2/100 km")
-print(f"Average Fuel Cell Efficiency: {efficiency:.2f}%")
+# print(f"Average Fuel Cell Efficiency: {efficiency:.4f}%")
 print(f"Total Hydrogen Consumed: {total_hydrogen_consumed:.4f} kg")
 
 
@@ -172,60 +172,78 @@ plt.legend()
 plt.show()
 
 #-------------------- Question 3: Modify Parameters ----------------------------#
-def run_simulation(C, Cr, battery_capacity, battery_charging_power):
-    #-------------------- Modify Parameters ----------------------------#
-    # Assuming `C` is part of the drag calculation in `calculate_forces`
-    # You should ensure that `calculate_forces` includes these parameters
-    v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(time, speed, C,Cr)
-    
-    # Assuming battery_charging_power affects power calculations (modify calculate_power accordingly)
-    Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl, battery_charging_power=battery_charging_power)
+rho = 1.2  # Air density (kg/m^3)
+A = 2.25  # Vehicle cross-sectional area (m^2)
+mass = 2000  # Vehicle mass (kg)
+g = 9.81  # Gravitational acceleration (m/s^2)
+alpha = 0  # Incline angle (rad)
+converter_efficiency = 0.9
+aux_output_power = 300  # in Watts
+battery_capacity = 1.24  # Battery capacity in kWh
+SoC_min = 50  # Minimum SoC percentage
+SoC_max = 65  # Maximum SoC percentage
+discharge_power_battery = 12.4   # Discharge power in Watts
+charge_power_battery_10C = 12.4   # Charge power for SoC < 55% (10C)
+charge_power_battery_6C = 7.44   # Charge power for SoC > 55% (6C)
+fuel_cell_min_power = 2.5  # Minimum fuel cell power in kW
 
-    # Recalculate hydrogen consumption
-    Hydro_com_interp = np.zeros(len(time))
-    for i in range(len(time)):
-        molar_flow = interpolated_current_density[i] / (2 * data['Faraday_const'][0])
-        Hydro_com_interp[i] = molar_flow * data['Molar_mass_dihydrogen'][0] * data['N_cell'][0] * data['Area_stack'][0] / 1000  # kg
+def calculate_forces1(t, v,Cd,Cr):
+    v_s = v * 1000 / 3600  # Convert speed to m/s
+    delta_v = np.diff(v_s)
+    delta_t = np.diff(t)
+    acceleration = np.zeros_like(v_s)
+    acceleration[1:] = delta_v / delta_t  # Adjust length by 1
 
-    # Total hydrogen consumption and range
-    total_hydrogen_consumed = np.sum(Hydro_com_interp * np.diff(time, prepend=0))
-    hydrogen_tank_capacity = 5.6  # in kg
-    total_distance_m = np.sum(speed * np.diff(time, prepend=0))  # Total distance in meters
-    total_distance_km = total_distance_m / 1000  # Convert to km
-    operating_range = hydrogen_tank_capacity / (total_hydrogen_consumed / total_distance_km)  # in km
-    
-    # Average energetic efficiency
-    LHV_H2 = 120_000  # Lower heating value of H2 in kJ/kg
-    total_energy_content = total_hydrogen_consumed * LHV_H2  # Total energy content in kJ
-    avg_power_output = np.mean(P_fuel) / 1000  # in kW
-    total_time_hours = np.sum(np.diff(time, prepend=0)) / 3600  # Convert to hours
-    efficiency = (avg_power_output * total_time_hours) / (total_energy_content / 3600)  # in %
+    Fair = 0.5 * rho * v_s**2 * Cd * A  # Air resistance
+    Frolling = mass * Cr * g * np.cos(alpha)  # Rolling resistance (constant)
+    Fcl = mass * g * np.sin(alpha)  # Climbing resistance (constant)
 
-    return total_hydrogen_consumed, operating_range, efficiency
+    return v_s, acceleration, Fair, Frolling, Fcl
 
-#-------------------- Sensitivity Analysis ----------------------------#
+# Function to calculate total force and power
+def calculate_power1(t, v_s, acceleration, Fair, Frolling, Fcl):
+    F_total = Fcl + Frolling + Fair[1:] + mass * acceleration[1:]  # Total force
+    InP = v_s[1:] * F_total  # Instant power in Watts
+    InP = np.insert(InP, 0, 0)  # Set first value to zero
 
-# Store the results for comparison
-results = []
+    # DC/DC Converter and battery power handling
+    Pgen, Pdemand, Bat_motor_gen, Bat_motor_demand, InP_Hybrid = np.zeros((5, len(t)))
+    Bat = aux_output_power / converter_efficiency
 
-# Variations for C, Cr, battery charging power, and battery capacity
+    for i in range(1, len(t)):
+        if InP[i] <= 0:
+            Pgen[i] = InP[i]
+            Bat_motor_gen[i] = Pgen[i] * converter_efficiency
+        else:
+            Pdemand[i] = InP[i]
+            Bat_motor_demand[i] = Pdemand[i] / converter_efficiency
+
+        InP_Hybrid[i] = Bat + Bat_motor_gen[i] + Bat_motor_demand[i]  # Hybrid power
+
+    return InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand
+
+v_s, acceleration, Fair, Frolling, Fcl = calculate_forces1(time, speed, C,Cr)
+
+Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power1(time, v_s, acceleration, Fair, Frolling, Fcl)
+
+
+# Sensitivity analysis parameters
 C_variations = [0.25, 0.40]
 Cr_variations = [0.01, 0.014]
 battery_charging_powers = [5, 20]  # Representing 5C and 20C charging rates
-battery_capacities = [620, 1860]  # in Wh
+battery_capacities = [0.620, 1.860]  # in Wh
 
-# Run simulations with each combination of parameters
+# Store results for plotting
+results = []
+
+# Run sensitivity analysis simulations
 for C in C_variations:
     for Cr in Cr_variations:
         for power in battery_charging_powers:
             for capacity in battery_capacities:
-                total_hydrogen, range_km, fuel_efficiency = run_simulation(C, Cr, capacity, power)
-                results.append({
-                    "C": C,
-                    "Cr": Cr,
-                    "Battery Capacity (Wh)": capacity,
-                    "Charging Power (C-rate)": power,
-                    "Total Hydrogen Consumed (kg)": total_hydrogen,
-                    "Operating Range (km)": range_km,
-                    "Fuel Cell Efficiency (%)": fuel_efficiency
-                })
+
+                v_s, acceleration, Fair, Frolling, Fcl = calculate_forces1(time, speed, C,Cr)
+
+                Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power1(time, v_s, acceleration, Fair, Frolling, Fcl)
+
+
