@@ -117,8 +117,6 @@ cell_voltage = df['U_cell (V)'].values
 interp_function = interp1d(np.linspace(0, time[-1], len(cell_voltage)), cell_voltage, kind='linear', fill_value='extrapolate')
 interpolated_cell_voltage = interp_function(time)
 
-
-
 # Forces and power calculation based on speed
 v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(time, speed)
 Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl)
@@ -127,9 +125,10 @@ hydrogen_consumption_rate = np.zeros(len(time))
 delta_H = 286 # the specific enthalpy of hydrogen (typically around 286 kJ/mol for hydrogen fuel cells).
 for i in range(len(time)):
     # Instantaneous_current = interpolated_current_density[i] / data['Area_stack']
-    hydrogen_consumption_rate[i] = (Instant_power[i]*data['Faraday_const'][0])/(cell_voltage[i]*delta_H*data['N_cell'])
+    hydrogen_consumption_rate[i] = (Instant_power[i]*data['Faraday_const'][0])/(interpolated_cell_voltage[i]*delta_H*data['N_cell'])
 plt.figure()
 plt.plot(hydrogen_consumption_rate)
+plt.show()
 #-------------------- Average Energetic Efficiency ----------------------------#
 
 
