@@ -125,8 +125,8 @@ SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, In
 
 #-------------------- WLTC and Polarization Curve Analysis ----------------------------#
 # Load the WLTC and polarization curve data
-wltc_data = pd.read_excel('BEfuelcellsystem.xlsx', sheet_name='WLTC drive cycle')
-polarization_curve = pd.read_excel('BEfuelcellsystem.xlsx', sheet_name='PEMFC system BoL')
+wltc_data = pd.read_excel('Plot01.xlsx')
+polarization_curve = pd.read_excel('Plot02.xlsx')
 
 # Define parameters
 A_cell = data['Area_stack'] # cm²
