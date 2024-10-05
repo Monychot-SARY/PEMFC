@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
-from Plot01_V1 import calculate_forces, calculate_power
+from Plot01_V1 import calculate_forces, calculate_power, simulate_soc_and_power
 
 #-------------------- Parameter Initialization ----------------------------#
 file = 'Plot02.xlsx'

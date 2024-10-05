@@ -1,12 +1,14 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 from Plot01_V1 import calculate_forces, calculate_power, simulate_soc_and_power
+
 #-------------------- Parameter Initialization ----------------------------#
 file = 'Plot02.xlsx'
 df = pd.read_excel(file, header=0)
 
+# Fuel cell system parameters
 data = pd.DataFrame({
     "M_tank": [5.6],  # kg
     "P_H2": [700],  # bar
@@ -27,15 +29,15 @@ data = pd.DataFrame({
 })
 
 #-------------------- Question a 1: Compressor Power Calculation ----------------------------#
-P_com = np.zeros(len(df.iloc[0:, ]))
+P_com = np.zeros(len(df))
 
-for i in range(len(df.iloc[0:, ])):
+for i in range(len(df)):
     P_com[i] = (1 / data['Air_compressor_efficiency'][0]) * \
-               (data['Air_stoich'][0] / data['O2_molar_fraction_ambient_air'][0]) * \
-               (data['N_cell'][0] * df['i (A/cm²)'][i]) / (4 * data['Faraday_const'][0]) * \
-               (data['Gamma'][0] / (data['Gamma'][0] - 1)) * \
-               (data['R'][0] * data['Ambient_temperature'][0]) * \
-               ((df['P air (bar)'][i] / data['P_atm'][0])**((data['Gamma'][0] - 1) / data['Gamma'][0]) - 1) * data['Area_stack'][0] / 1000
+                (data['Air_stoich'][0] / data['O2_molar_fraction_ambient_air'][0]) * \
+                (data['N_cell'][0] * df['i (A/cm²)'][i]) / (4 * data['Faraday_const'][0]) * \
+                (data['Gamma'][0] / (data['Gamma'][0] - 1)) * \
+                (data['R'][0] * data['Ambient_temperature'][0]) * \
+                ((df['P air (bar)'][i] / data['P_atm'][0])**((data['Gamma'][0] - 1) / data['Gamma'][0]) - 1) * data['Area_stack'][0] / 1000
 
 # Plot compressor power
 plt.figure(figsize=(6, 6))
@@ -57,9 +59,9 @@ plt.savefig('Power_of_Air_compressor.png', dpi=200)
 plt.show()
 
 #-------------------- Question a 2: Fuel Cell Power Calculation ----------------------------#
-P_fuel = np.zeros(len(df.iloc[0:, ]))
+P_fuel = np.zeros(len(df))
 
-for j in range(len(df.iloc[0:, ])):
+for j in range(len(df)):
     P_fuel[j] = df['U_cell (V)'][j] * df['i (A/cm²)'][j] * data['N_cell'][0] * data['Area_stack'][0]
 
 # Plot fuel cell power
@@ -82,9 +84,9 @@ plt.savefig('Power_of_Fuel_Cell.png', dpi=200)
 plt.show()
 
 #-------------------- Hydrogen Consumption Calculation ----------------------------#
-Hydro_com = np.zeros(len(df.iloc[0:, ]))
+Hydro_com = np.zeros(len(df))
 
-for i in range(len(df.iloc[0:, ])):
+for i in range(len(df)):
     molar_flow = df['i (A/cm²)'][i] / (2 * data['Faraday_const'][0])
     Hydro_com[i] = molar_flow * data['Molar_mass_dihydrogen'][0] * data['N_cell'][0] * data['Area_stack'][0]
 
@@ -110,26 +112,55 @@ plt.show()
 WLTC = pd.read_excel('Plot01.xlsx', sheet_name='Sheet1', header=0)
 speed = WLTC.iloc[:, 1].values
 time = WLTC.iloc[:, 0].values
-LHV_H2 = (data['LHV'] / data['Molar_mass_dihydrogen']) *1000# Lower heating value of H2 in kJ/kg
 
 # Interpolate current density to match WLTC time steps
-cell_voltage = df['U_cell (V)'].values
-interp_function = interp1d(np.linspace(0, time[-1], len(cell_voltage)), cell_voltage, kind='linear', fill_value='extrapolate')
-interpolated_cell_voltage = interp_function(time)
+current_density = df['i (A/cm²)'].values
+interp_function = interp1d(np.linspace(0, time[-1], len(current_density)), current_density, kind='linear', fill_value='extrapolate')
+interpolated_current_density = interp_function(time)
 
 # Forces and power calculation based on speed
 v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(time, speed)
 Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl)
-SoC, power_battery, power_fuel_cell, power_hybrid = simulate_soc_and_power(time, Instant_power)
-hydrogen_consumption_rate = np.zeros(len(time))
-delta_H = 286 # the specific enthalpy of hydrogen (typically around 286 kJ/mol for hydrogen fuel cells).
-for i in range(len(time)):
-    # Instantaneous_current = interpolated_current_density[i] / data['Area_stack']
-    hydrogen_consumption_rate[i] = (power_fuel_cell[i]*data['Faraday_const'][0])/(interpolated_cell_voltage[i]*delta_H*data['N_cell'])
-plt.figure()
-plt.plot(hydrogen_consumption_rate)
-plt.show()
-#-------------------- Average Energetic Efficiency ----------------------------#
+SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, Instant_power)
 
+#-------------------- WLTC and Polarization Curve Analysis ----------------------------#
+# Load the WLTC and polarization curve data
+wltc_data = pd.read_excel('BEfuelcellsystem.xlsx', sheet_name='WLTC drive cycle')
+polarization_curve = pd.read_excel('BEfuelcellsystem.xlsx', sheet_name='PEMFC system BoL')
 
+# Define parameters
+A_cell = data['Area_stack'] # cm²
+N_cells = data['N_cell']
+threshold = 0.0001  # Convergence threshold for voltage
 
+# Initialize results
+results = []
+
+for t in range(len(wltc_data)):
+    P_demand = Power_demand[t]  # Power demand at time t
+    U_cell = 0.85  # Start with an initial guess for voltage
+    iteration = 0
+
+    while True:
+        # Calculate current
+        I_stack = P_demand / U_cell
+        # Calculate current density
+        i_t = I_stack / A_cell
+
+        # Lookup corresponding voltage from the polarization curve
+        U_cell_new = polarization_curve.loc[polarization_curve['i (A/cm²)'] == i_t, 'U_cell (V)'].values[0]
+        
+        # Check for convergence
+        if abs(U_cell_new - U_cell) < threshold or iteration > 100:
+            break
+        
+        U_cell = U_cell_new
+        iteration += 1
+
+    results.append({'Time': t, 'P_demand': P_demand, 'I_stack': I_stack, 'i_t': i_t, 'U_cell': U_cell})
+
+# Convert results to DataFrame for analysis
+results_df = pd.DataFrame(results)
+
+# Print the results DataFrame
+print(results_df)
