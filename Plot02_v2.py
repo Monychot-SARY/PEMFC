@@ -129,37 +129,37 @@ wltc_data = pd.read_excel('Plot01.xlsx', header=0)  # Ensure the path is correct
 polarization_curve = df  # Ensure df is defined correctly
 
 # Define parameters
-A_cell = data['Area_stack'].values[0]  # cm², ensure data is defined
-N_cells = data['N_cell'].values[0]  # Ensure data is defined
-threshold = 0.0001  # Convergence threshold for voltage
+A_cell = data['Area_stack'].values # cm², ensure data is defined
+N_cells = data['N_cell'].values # Ensure data is defined
+threshold = 0.00000001  # Convergence threshold for voltage
 
-# Initialize results
-results = []
+U_cell = 0.85 * N_cells  # Initialize U_cell based on N_cells
+results = []  # Ensure results list is initialized
 
-# Ensure time and Power_demand are defined
-for t in range (len(time)):
+for t in range(len(time)):
     P_demand = Power_demand[t]  # Power demand at time t
-    U_cell = 0.85  # Initial guess for voltage
     iteration = 0
+    while abs(U_cell_new - U_cell_value) < threshold or iteration > 1000:
+        U_cell_value = U_cell 
+        # if isinstance(U_cell, pd.Series) else U_cell
+        print(f"Iteration {iteration}: U_cell_value = {U_cell_value}")
 
-    while True:
         # Calculate current
-        I_stack = P_demand / U_cell if U_cell != 0 else 0  # Prevent division by zero
-        # Calculate current density
-        i_t = I_stack / A_cell if A_cell != 0 else 0  # Prevent division by zero
-        # Find the closest matching voltage from the polarization curve
-        closest_index = (polarization_curve['i (A/cm²)'] - i_t).abs().idxmin()  # Get index of the closest value
-        U_cell_new = polarization_curve.loc[closest_index, 'U_cell (V)']
+        I_stack = P_demand / U_cell_value if U_cell_value != 0 else 0
 
-        # Check for convergence
-        if abs(U_cell_new - U_cell) < threshold or iteration > 100:
-            break
-        
-        U_cell = U_cell_new
+        # Calculate current density
+        i_t = I_stack / A_cell if A_cell != 0 else 0
+
+        # Find the closest matching voltage from the polarization curve
+        closest_index = (polarization_curve['i (A/cm²)'] - i_t).abs().idxmin()
+        U_cell_new = polarization_curve.at[closest_index, 'U_cell (V)']
+
+        U_cell = U_cell_new  # Update U_cell for the next iteration
         iteration += 1
 
-    results.append({'Time': t, 'P_demand': P_demand, 'I_stack': I_stack, 'i_t': i_t, 'U_cell': U_cell})
+    # Append the results for the current time step
+    results.append({'Time': t, 'P_demand': P_demand, 'I_stack': I_stack, 'i_t': i_t, 'U_cell': U_cell_value})
 
-# Convert results to DataFrame for analysis
 results_df = pd.DataFrame(results)
+
 print(results_df)

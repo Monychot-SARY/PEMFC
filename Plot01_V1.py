@@ -102,7 +102,6 @@ def simulate_soc_and_power(t, InP_Hybrid):
                 charging_power = charge_power_battery_10C
             elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C discharge rate
                 power_battery[i] = 0.30 * power_demand[i]  # 30% of total demand
-                print(i,power_battery[i] )
                 charging_power = charge_power_battery_6C
 
             # Cap battery discharge power
@@ -125,7 +124,6 @@ def simulate_soc_and_power(t, InP_Hybrid):
                 max_charging_power = charge_power_battery_10C
             elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C charging rate
                 max_charging_power = charge_power_battery_6C
-
             # Cap the charging power
             if charging_power > max_charging_power:
                 charging_power = max_charging_power
