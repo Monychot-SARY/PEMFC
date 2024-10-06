@@ -225,17 +225,17 @@ mass_hydro = np.zeros(len(time))
 for i in range(len(time)):
     P_demand = Result_optimization['P_demand'][i]  # Power demand at each time step
     U_cell = Result_optimization['U_cell'][i]      # Optimized cell voltage
-    if P_demand< 0: 
+    if P_demand < 0: 
         mass_hydro[i] = 0
     else: 
         if U_cell > 0:
-            I_cell[i] = P_demand / (U_cell * data['N_cell'][0])  # I_cell calculation
+            I_cell[i] = P_demand / (U_cell * data['N_cell'][0])  # Calculate current
         else:
             I_cell[i] = 0  # Avoid division by zero if U_cell is 0
         # Calculate hydrogen mass in grams and convert to kilograms
         mass_hydro[i] = ((I_cell[i] * data['N_cell'][0] * data['Molar_mass_dihydrogen'][0]) / (2 * data['Faraday_const'][0])) / 1000  # Convert to kg
-# Calculate total hydrogen consumed in kg
 
+# Calculate total hydrogen consumed in kg
 total_hydrogen_consumed = np.sum(mass_hydro)  # Total in kg
 # Constants (LHV for hydrogen, etc.)
 LHV_hydrogen = data['LHV'][0] * 1000  # Convert from kJ/mol to J/mol
@@ -256,18 +256,23 @@ for i in range(len(time)):
 
 # Calculate average efficiency over the entire cycle
 average_efficiency = np.mean(efficiency) * 100  # Convert to percentage
-distance_traveled = v_s * time
-total_distance = np.sum(distance_traveled)/1000
-print(total_distance)
-average_hydrogen_consumption = total_hydrogen_consumed*100 / total_distance if total_distance > 0 else 0
 
+distance_traveled = v_s[1:] * np.diff(time)
+total_distance = np.sum(distance_traveled)/1000
+# Calculate average hydrogen consumption in kg(H2)/100 km
+if total_distance > 0:
+    average_hydrogen_consumption = (total_hydrogen_consumed * 100) / total_distance
+else:
+    average_hydrogen_consumption = 0
+hydrogen_capacity = data['M_tank'][0]  # Hydrogen tank capacity in kg
+operation_range = hydrogen_capacity / (average_hydrogen_consumption / 100) if average_hydrogen_consumption > 0 else 0  # Range in km
 # Print results
 print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
 print(f'Average System Efficiency: {average_efficiency:.2f}%')
 print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/km')
+print(f'Operation Range: {operation_range:.2f} km')
 # Create a figure with two subplots
 plt.figure(figsize=(10, 8))
-
 # Plot hydrogen mass consumption over time (subplot 1)
 plt.subplot(2, 1, 1)
 plt.plot(time, mass_hydro, 'b-', label='Hydrogen Mass (kg/s)')
@@ -277,7 +282,6 @@ plt.ylabel('Hydrogen Mass (kg/s)')
 plt.ylim([min(mass_hydro),max(mass_hydro)*1.1])
 plt.xlim([time[0],len(time)])
 plt.legend()
-
 # Plot system efficiency over time (subplot 2)
 plt.subplot(2, 1, 2)
 plt.plot(time, efficiency * 100, 'm-', label='System Efficiency (%)')
@@ -288,11 +292,6 @@ plt.xlim([time[0],len(time)])
 plt.ylim([min(efficiency * 100), max(efficiency * 100) * 1.1])  # Corrected here
 plt.legend()
 
-# Adjust layout to prevent overlap
 plt.tight_layout()  # Adjust the rect parameter to leave space for the suptitle
-
-# Save the combined plot as an image file
 plt.savefig('Hydrogen_Mass_and_Efficiency.png', dpi=200)
-
-# Show the combined plot
 plt.show()
