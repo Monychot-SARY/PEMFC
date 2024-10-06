@@ -124,7 +124,7 @@ interpolated_current_density = interp_function(time)
 # Forces and power calculation based on speed
 v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(time, speed)
 Instant_power, InP_Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(time, v_s, acceleration, Fair, Frolling, Fcl)
-SoC, power_battery, Power_demand, power_hybrid = simulate_soc_and_power(time, InP_Hybrid)
+SoC, power_battery,power_fuel_cell, power_hybrid = simulate_soc_and_power(time, InP_Hybrid)
 
 #-------------------- WLTC and Polarization Curve Analysis ----------------------------#
 # Load the WLTC and polarization curve data
@@ -181,7 +181,7 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
                 i_t = calculate_current_density(I_stack, A_cell)  # Calculate current density
                 interpolated_value = interpolation_function(i_t.item())
                 result = (U_cell_guess - interpolated_value.item()) **2 # Squared difference for minimization
-                print(f"func({U_cell_guess}) = {result}")  # Debugging line to see the output
+                # print(f"func({U_cell_guess}) = {result}")  # Debugging line to see the output
                 return result
             
             # Perform optimization to find the root
@@ -192,7 +192,7 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
 
                 # Check for convergence
                 if abs(U_cell_new - U_cell) < threshold or iteration > 1000:
-                    print("Converged or exceeded iterations.")
+                    # print("Converged or exceeded iterations.")
                     break
                 
                 U_cell = U_cell_new  # Update U_cell for the next iteration
@@ -217,29 +217,82 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
 lb = 0  # Lower bound for U_cell
 ub = 0.85 # Upper bound for U_cell
 error =10e-10
-Result_optimization = compute_results_optimization(time, Power_demand, A_cell, polarization_curve, N_cells, lb, ub, error)
+Result_optimization = compute_results_optimization(time, Instant_power, A_cell, polarization_curve, N_cells, lb, ub, error)
 Result_optimization = pd.DataFrame(Result_optimization)
+I_cell = np.zeros(len(time))
+
 mass_hydro = np.zeros(len(time))
 for i in range(len(time)):
-    # Calculate hydrogen mass in grams and convert to kilograms
-    mass_hydro[i] = ((Result_optimization['I_stack'][i] * data['N_cell'][0] * data['Molar_mass_dihydrogen'][0]) / (2 * data['Faraday_const'][0])) / 1000  # Convert to kg
+    P_demand = Result_optimization['P_demand'][i]  # Power demand at each time step
+    U_cell = Result_optimization['U_cell'][i]      # Optimized cell voltage
+    if P_demand< 0: 
+        mass_hydro[i] = 0
+    else: 
+        if U_cell > 0:
+            I_cell[i] = P_demand / (U_cell * data['N_cell'][0])  # I_cell calculation
+        else:
+            I_cell[i] = 0  # Avoid division by zero if U_cell is 0
+        # Calculate hydrogen mass in grams and convert to kilograms
+        mass_hydro[i] = ((I_cell[i] * data['N_cell'][0] * data['Molar_mass_dihydrogen'][0]) / (2 * data['Faraday_const'][0])) / 1000  # Convert to kg
 # Calculate total hydrogen consumed in kg
 
-total_hydrogen_consumed = np.sum(mass_hydro * np.diff(time, prepend=0))  # Total in kg
+total_hydrogen_consumed = np.sum(mass_hydro)  # Total in kg
+# Constants (LHV for hydrogen, etc.)
+LHV_hydrogen = data['LHV'][0] * 1000  # Convert from kJ/mol to J/mol
+Molar_mass_h2 = data['Molar_mass_dihydrogen'][0] / 1000  # Convert to kg/mol
+
+# System efficiency calculation over time
+efficiency = np.zeros(len(time))
+
+for i in range(len(time)):
+    P_fuel_cell = Result_optimization['P_demand'][i]  # Power demand or power from the fuel cell
+    if mass_hydro[i] > 0:
+        # Energy from hydrogen (LHV * mass flow rate of H2)
+        energy_from_h2 = mass_hydro[i] * LHV_hydrogen / Molar_mass_h2
+        # System efficiency at each time step
+        efficiency[i] = P_fuel_cell / energy_from_h2 if energy_from_h2 > 0 else 0
+    else:
+        efficiency[i] = efficiency[i-1]  # Avoid division by zero
+
+# Calculate average efficiency over the entire cycle
+average_efficiency = np.mean(efficiency) * 100  # Convert to percentage
+distance_traveled = v_s * time
+total_distance = np.sum(distance_traveled)/1000
+print(total_distance)
+average_hydrogen_consumption = total_hydrogen_consumed*100 / total_distance if total_distance > 0 else 0
+
+# Print results
 print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
+print(f'Average System Efficiency: {average_efficiency:.2f}%')
+print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/km')
+# Create a figure with two subplots
+plt.figure(figsize=(10, 8))
 
-# Plot hydrogen mass over time (linear)
-plt.figure(figsize=(8, 6))
+# Plot hydrogen mass consumption over time (subplot 1)
+plt.subplot(2, 1, 1)
 plt.plot(time, mass_hydro, 'b-', label='Hydrogen Mass (kg/s)')
-plt.title('Hydrogen Mass Consumption over Time')
+plt.title(f'Hydrogen Mass Consumption over Time\nTotal hydrogen consumed: {total_hydrogen_consumed:.6f} kg', fontsize=12)
 plt.xlabel('Time (s)')
-plt.ylabel('Hydrogen Mass (kg.s)')
+plt.ylabel('Hydrogen Mass (kg/s)')
+plt.ylim([min(mass_hydro),max(mass_hydro)*1.1])
+plt.xlim([time[0],len(time)])
 plt.legend()
-plt.grid(True)
-plt.tight_layout()
 
-# Save the plot as an image file
-plt.savefig('Hydrogen_Mass_Consumption.png', dpi=200)
+# Plot system efficiency over time (subplot 2)
+plt.subplot(2, 1, 2)
+plt.plot(time, efficiency * 100, 'm-', label='System Efficiency (%)')
+plt.title(f'System Efficiency over Time\nAverage System Efficiency: {average_efficiency:.2f}%', fontsize=12)
+plt.xlabel('Time (s)')
+plt.ylabel('Efficiency (%)')
+plt.xlim([time[0],len(time)])
+plt.ylim([min(efficiency * 100), max(efficiency * 100) * 1.1])  # Corrected here
+plt.legend()
 
-# Show the plot
+# Adjust layout to prevent overlap
+plt.tight_layout()  # Adjust the rect parameter to leave space for the suptitle
+
+# Save the combined plot as an image file
+plt.savefig('Hydrogen_Mass_and_Efficiency.png', dpi=200)
+
+# Show the combined plot
 plt.show()
