@@ -139,7 +139,7 @@ results = []  # Ensure results list is initialized
 for t in range(len(time)):
     P_demand = Power_demand[t]  # Power demand at time t
     iteration = 0
-    while abs(U_cell_new - U_cell_value) < threshold or iteration > 1000:
+    while True:
         U_cell_value = U_cell 
         # if isinstance(U_cell, pd.Series) else U_cell
         print(f"Iteration {iteration}: U_cell_value = {U_cell_value}")
@@ -153,7 +153,8 @@ for t in range(len(time)):
         # Find the closest matching voltage from the polarization curve
         closest_index = (polarization_curve['i (A/cm²)'] - i_t).abs().idxmin()
         U_cell_new = polarization_curve.at[closest_index, 'U_cell (V)']
-
+        if abs(U_cell_new - U_cell_value) < threshold or iteration > 1000:
+            break
         U_cell = U_cell_new  # Update U_cell for the next iteration
         iteration += 1
 
