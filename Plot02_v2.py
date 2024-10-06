@@ -163,8 +163,8 @@ def calculate_current_density(I_stack, A_cell):
         A_cell = A_cell.item()  # Ensure A_cell is a scalar
     return I_stack / A_cell if A_cell != 0 else 0
 
-def compute_results_optimization(time, Power_demand, A_cell, polarization_curve, N_cells, lb, ub, threshold=1e-2):
-    U_cell = 0.0
+def compute_results_optimization(time, Power_demand, A_cell, polarization_curve, N_cells, lb, ub, threshold):
+    U_cell = 0.6
     results = []
 
     # Create interpolation function outside the loop
@@ -184,7 +184,7 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
                 I_stack = calculate_current(P_demand, U_cell_guess)  # Update current with new guess
                 i_t = calculate_current_density(I_stack, A_cell)  # Calculate current density
                 interpolated_value = interpolation_function(i_t.item())
-                result = (U_cell_guess - interpolated_value.item()) ** 2  # Squared difference for minimization
+                result = (U_cell_guess - interpolated_value.item()) **2 # Squared difference for minimization
                 print(f"func({U_cell_guess}) = {result}")  # Debugging line to see the output
                 return result
             
@@ -195,7 +195,7 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
                 U_cell_new = res.x  # This should be a scalar
 
                 # Check for convergence
-                if abs(U_cell_new - U_cell) < threshold or iteration > 100:
+                if abs(U_cell_new - U_cell) < threshold or iteration > 1000:
                     print("Converged or exceeded iterations.")
                     break
                 
@@ -218,16 +218,32 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
         })
 
     return results
-# Example usage
-# Define your time and power demand data
-# time = [...]  # Replace with your time data
-# Power_demand = [...]  # Replace with your power demand data
-# A_cell = ...  # Replace with your area stack value
-# polarization_curve = ...  # Replace with your polarization curve data
-# N_cells = ...  # Replace with your number of cells
 lb = 0  # Lower bound for U_cell
-ub = 280.5  # Upper bound for U_cell
-
-Result_optimization = compute_results_optimization(time, Power_demand, A_cell, polarization_curve, N_cells, lb, ub, threshold=0.01)
+ub = 0.85 # Upper bound for U_cell
+error =10e-10
+Result_optimization = compute_results_optimization(time, Power_demand, A_cell, polarization_curve, N_cells, lb, ub, error)
 Result_optimization = pd.DataFrame(Result_optimization)
-print(Result_optimization)
+mass_hydro = np.zeros(len(time))
+for i in range(len(time)):
+    # Calculate hydrogen mass in grams and convert to kilograms
+    mass_hydro[i] = ((Result_optimization['I_stack'][i] * data['N_cell'][0] * data['Molar_mass_dihydrogen'][0]) / (2 * data['Faraday_const'][0])) / 1000  # Convert to kg
+# Calculate total hydrogen consumed in kg
+
+total_hydrogen_consumed = np.sum(mass_hydro * np.diff(time, prepend=0))  # Total in kg
+print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
+
+# Plot hydrogen mass over time (linear)
+plt.figure(figsize=(8, 6))
+plt.plot(time, mass_hydro, 'b-', label='Hydrogen Mass (kg/s)')
+plt.title('Hydrogen Mass Consumption over Time')
+plt.xlabel('Time (s)')
+plt.ylabel('Hydrogen Mass (kg.s)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+
+# Save the plot as an image file
+plt.savefig('Hydrogen_Mass_Consumption.png', dpi=200)
+
+# Show the plot
+plt.show()
