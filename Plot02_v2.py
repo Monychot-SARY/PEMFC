@@ -3,8 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 from Plot01_V1 import calculate_forces, calculate_power, simulate_soc_and_power
-
+import os
 #-------------------- Parameter Initialization ----------------------------#
+plt.close('all')
+os.system('cls')  # For Windows
 file = 'Plot02.xlsx'
 df = pd.read_excel(file, header=0)
 
@@ -129,38 +131,107 @@ wltc_data = pd.read_excel('Plot01.xlsx', header=0)  # Ensure the path is correct
 polarization_curve = df  # Ensure df is defined correctly
 
 # Define parameters
-A_cell = data['Area_stack'].values # cm², ensure data is defined
-N_cells = data['N_cell'].values # Ensure data is defined
-threshold = 0.00000001  # Convergence threshold for voltage
+A_cell = data['Area_stack']
+N_cells = data['N_cell']
 
-U_cell = 0.85 * N_cells  # Initialize U_cell based on N_cells
-results = []  # Ensure results list is initialized
 
-for t in range(len(time)):
-    P_demand = Power_demand[t]  # Power demand at time t
-    iteration = 0
-    while True:
-        U_cell_value = U_cell 
-        # if isinstance(U_cell, pd.Series) else U_cell
-        print(f"Iteration {iteration}: U_cell_value = {U_cell_value}")
+# Function to create an interpolation function for the polarization curve
+def create_interpolation(polarization_curve):
+    return interp1d(polarization_curve['i (A/cm²)'], polarization_curve['U_cell (V)'], fill_value="extrapolate")
 
-        # Calculate current
-        I_stack = P_demand / U_cell_value if U_cell_value != 0 else 0
+# Function to calculate current
+def calculate_current(P_demand, U_cell_value):
+    if isinstance(U_cell_value, (pd.Series, pd.DataFrame)):
+        U_cell_value = U_cell_value.item()  # Ensure U_cell_value is a scalar
+    return P_demand / U_cell_value if U_cell_value != 0 else 0
 
-        # Calculate current density
-        i_t = I_stack / A_cell if A_cell != 0 else 0
+# Function to calculate current density
+def calculate_current_density(I_stack, A_cell):
+    if isinstance(A_cell, (pd.Series, pd.DataFrame)):
+        A_cell = A_cell.item()  # Ensure A_cell is a scalar
+    return I_stack / A_cell if A_cell != 0 else 0
 
-        # Find the closest matching voltage from the polarization curve
-        closest_index = (polarization_curve['i (A/cm²)'] - i_t).abs().idxmin()
-        U_cell_new = polarization_curve.at[closest_index, 'U_cell (V)']
-        if abs(U_cell_new - U_cell_value) < threshold or iteration > 1000:
-            break
-        U_cell = U_cell_new  # Update U_cell for the next iteration
-        iteration += 1
+# Bisection method function
+def bisection_method(func, a, b, tol=1e-5):
+    if func(a) * func(b) >= 0:
+        print("Bisection method fails.")
+        return None
+    
+    while (b - a) / 2.0 > tol:
+        midpoint = (a + b) / 2.0
+        f_mid = func(midpoint)
 
-    # Append the results for the current time step
-    results.append({'Time': t, 'P_demand': P_demand, 'I_stack': I_stack, 'i_t': i_t, 'U_cell': U_cell_value})
+        if f_mid == 0:
+            return midpoint
+        elif func(a) * f_mid < 0:
+            b = midpoint
+        else:
+            a = midpoint
 
-results_df = pd.DataFrame(results)
+    return (a + b) / 2.0
 
-print(results_df)
+# Function to compute results using bisection
+def compute_results_bisection(time, Power_demand, A_cell, polarization_curve, N_cells, threshold=1e-5):
+    U_cell = 0.80 * N_cells  # Initialize U_cell to 0.80 times N_cells
+    results = []
+
+    # Create interpolation function outside the loop
+    interpolation_function = create_interpolation(polarization_curve)
+
+    for t in range(len(time)):
+        P_demand = Power_demand[t]
+        iteration = 0
+        print(f"Time step {t}: P_demand = {P_demand}")
+
+        while True:
+            U_cell_value = U_cell
+            I_stack = calculate_current(P_demand, U_cell_value)
+            i_t = calculate_current_density(I_stack, A_cell)
+
+            # Define a function for bisection to find the root
+            def func(U_cell_guess):
+                # Ensure interpolation gives a scalar output
+                interpolated_value = interpolation_function(i_t.item())  # Ensure i_t is a scalar
+                result = U_cell_guess - interpolated_value
+                print(f"func({U_cell_guess}) = {result}")  # Debugging line to see the output
+                return result
+
+            # Ensure the function gives valid scalar results at the bounds
+            print("Evaluating func at boundaries:")
+            print(f"func(U_cell_value - 1): {func(U_cell_value - 1)}")
+            print(f"func(U_cell_value + 1): {func(U_cell_value + 1)}")
+
+            U_cell_new = bisection_method(func, U_cell_value - 1, U_cell_value + 1)
+
+            if U_cell_new is None:
+                print("Bisection method failed.")
+                break
+
+            # Check for convergence
+            if abs(U_cell_new - U_cell_value) < threshold or iteration > 1000:
+                print("Converged or exceeded iterations.")
+                break
+            
+            U_cell = U_cell_new
+            iteration += 1
+
+        results.append({
+            'Time': t,
+            'P_demand': P_demand,
+            'I_stack': I_stack,
+            'i_t': i_t,
+            'U_cell': U_cell_value
+        })
+
+    return results
+
+# Example usage
+# Define your time and power demand data
+# time = [...]  # Replace with your time data
+# Power_demand = [...]  # Replace with your power demand data
+# A_cell = ...  # Replace with your area stack value
+# polarization_curve = ...  # Replace with your polarization curve data
+# N_cells = ...  # Replace with your number of cells
+
+Result_bisection = compute_results_bisection(time, Power_demand, A_cell, polarization_curve, N_cells, threshold=0.00000001)
+print(Result_bisection)
