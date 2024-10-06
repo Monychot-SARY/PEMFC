@@ -2,9 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-from Plot01_V1 import calculate_forces, calculate_power, simulate_soc_and_power
 from scipy.optimize import minimize_scalar
-import os
 
 # Function to load and initialize data
 def load_data(file_path):
@@ -77,73 +75,6 @@ def calculate_wltc_hydrogen_consumption(WLTC_file, df):
 
     return time, speed, interpolated_current_density
 
-# Function to compute optimization results
-def compute_results_optimization(time, Power_demand, A_cell, polarization_curve, N_cells, lb, ub, threshold):
-    # Optimization routine as in the script...
-    # Ensure lb and ub are scalars
-    results = []
-    interpolation_function = create_interpolation(polarization_curve)
-    for t in range(len(time)):
-        P_demand = Power_demand[t]
-        iteration = 0
-        U_cell = 0.6
-        while True:
-            def func(U_cell_guess):
-                I_stack = calculate_current(P_demand, U_cell_guess)
-                i_t = calculate_current_density(I_stack, A_cell)
-                interpolated_value = interpolation_function(i_t.item())
-                return (U_cell_guess - interpolated_value.item()) **2
-            res = minimize_scalar(func, bounds=(lb, ub), method='bounded')
-
-            if res.success:
-                U_cell_new = res.x
-                if abs(U_cell_new - U_cell) < threshold or iteration > 1000:
-                    break
-                U_cell = U_cell_new
-                iteration += 1
-            else:
-                break
-
-        I_stack = calculate_current(P_demand, U_cell)
-        i_t = calculate_current_density(I_stack, A_cell)
-        results.append({'Time': t, 'P_demand': P_demand, 'I_stack': I_stack, 'i_t': i_t, 'U_cell': U_cell})
-
-    return pd.DataFrame(results)
-
-# Function to calculate total hydrogen consumption and efficiency
-def calculate_hydrogen_and_efficiency(time, Result_optimization, data):
-    I_cell = np.zeros(len(time))
-    mass_hydro = np.zeros(len(time))
-    
-    for i in range(len(time)):
-        P_demand = Result_optimization['P_demand'][i]
-        U_cell = Result_optimization['U_cell'][i]
-        if P_demand < 0:
-            mass_hydro[i] = 0
-        else:
-            if U_cell > 0:
-                I_cell[i] = P_demand / (U_cell * data['N_cell'][0])
-            else:
-                I_cell[i] = 0
-            mass_hydro[i] = ((I_cell[i] * data['N_cell'][0] * data['Molar_mass_dihydrogen'][0]) / (2 * data['Faraday_const'][0])) / 1000
-    
-    total_hydrogen_consumed = np.sum(mass_hydro)
-    
-    LHV_hydrogen = data['LHV'][0] * 1000
-    Molar_mass_h2 = data['Molar_mass_dihydrogen'][0] / 1000
-    efficiency = np.zeros(len(time))
-
-    for i in range(len(time)):
-        P_fuel_cell = Result_optimization['P_demand'][i]
-        if mass_hydro[i] > 0:
-            energy_from_h2 = mass_hydro[i] * LHV_hydrogen / Molar_mass_h2
-            efficiency[i] = P_fuel_cell / energy_from_h2 if energy_from_h2 > 0 else 0
-        else:
-            efficiency[i] = efficiency[i-1]
-
-    average_efficiency = np.mean(efficiency) * 100
-    return total_hydrogen_consumed, average_efficiency, mass_hydro, efficiency
-
 # Main function to execute all steps
 def main():
     # Load data
@@ -155,8 +86,10 @@ def main():
     # Plot compressor power
     plt.figure(figsize=(6, 6))
     plt.plot(df['U_cell (V)'], P_com, 'y-.', label='Power of Air Compressor')
-    plt.xlabel('Voltage (V)')
-    plt.ylabel('Compressor Power (kW)')
+    plt.xlabel('Cell Voltage (V)', fontsize=12)
+    plt.ylabel('Compressor Power (kW)', fontsize=12)
+    plt.title('Compressor Power vs Cell Voltage', fontsize=14)
+    plt.grid(True)
     plt.legend()
     plt.savefig('Power_of_Air_compressor.png', dpi=200)
     plt.show()
@@ -166,9 +99,11 @@ def main():
 
     # Plot fuel cell power
     plt.figure(figsize=(6, 6))
-    plt.plot(df['U_cell (V)'], P_fuel / 1000, 'b-.', label='Power by Fuel Cell')
-    plt.xlabel('Voltage (V)')
-    plt.ylabel('Power (kW)')
+    plt.plot(df['U_cell (V)'], P_fuel / 1000, 'b-.', label='Fuel Cell Power')
+    plt.xlabel('Cell Voltage (V)', fontsize=12)
+    plt.ylabel('Fuel Cell Power (kW)', fontsize=12)
+    plt.title('Fuel Cell Power vs Cell Voltage', fontsize=14)
+    plt.grid(True)
     plt.legend()
     plt.savefig('Power_of_Fuel_Cell.png', dpi=200)
     plt.show()
@@ -182,9 +117,11 @@ def main():
     # Plot hydrogen consumption
     plt.figure(figsize=(6, 6))
     plt.plot(df['i (A/cm²)'], Hydro_com, 'bo', label='Hydrogen Consumption Data')
-    plt.plot(i_fit, hydro_fit, 'b-', label='Hydrogen Consumption (fitted)')
-    plt.xlabel('Current Density (A/cm²)')
-    plt.ylabel('Hydrogen Consumption (g/s)')
+    plt.plot(i_fit, hydro_fit, 'r-', label='Hydrogen Consumption (fitted)')
+    plt.xlabel('Current Density (A/cm²)', fontsize=12)
+    plt.ylabel('Hydrogen Consumption (g/s)', fontsize=12)
+    plt.title('Hydrogen Consumption vs Current Density', fontsize=14)
+    plt.grid(True)
     plt.legend()
     plt.savefig('Hydrogen_Consumption.png', dpi=200)
     plt.show()
@@ -192,7 +129,7 @@ def main():
     # Calculate WLTC hydrogen consumption
     time, speed, interpolated_current_density = calculate_wltc_hydrogen_consumption('WLTC.xlsx', df)
 
-    # More code following to calculate total hydrogen consumption and efficiency...
+    # Additional processing for WLTC and hydrogen consumption analysis can go here
 
 if __name__ == "__main__":
     main()
