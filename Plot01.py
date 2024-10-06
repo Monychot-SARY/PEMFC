@@ -316,10 +316,12 @@ try:
     plt.ylabel("SoC (%)")
     plt.xlabel("Time (s)")
     plt.legend()
-    plt.text(t[SoC.argmax()], SoC.max(), f'Max: {SoC.max():.1f}%', 
-            horizontalalignment='center', verticalalignment='bottom')
-    plt.text(t[SoC.argmin()], SoC.min(), f'Min: {SoC.min():.1f}%', 
-            horizontalalignment='center', verticalalignment='top')
+    plt.annotate(f'Min: {min(SoC):.2f} %', xy=(t[np.argmin(SoC)], min(SoC)), 
+                 xytext=(t[np.argmin(SoC)], min(SoC) + 1),
+                 arrowprops=dict(facecolor='black', arrowstyle=' -> '), fontsize=8, color='black')
+    plt.annotate(f'Max: {max(SoC):.2f} %', xy=(t[np.argmax(SoC)], max(SoC)), 
+                 xytext=(t[np.argmax(SoC)], max(SoC) - 1),
+                 arrowprops=dict(facecolor='black', arrowstyle=' -> '), fontsize=8, color='black')
 
     plt.tight_layout()
     plt.savefig('Question_C.png', dpi=200)

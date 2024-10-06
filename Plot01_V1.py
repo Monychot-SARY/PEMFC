@@ -146,9 +146,42 @@ def simulate_soc_and_power(t, InP_Hybrid):
     return SoC, power_battery, power_fuel_cell, power_hybrid
 
 # Function to plot results
-def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid):
-    plt.figure(figsize=(10, 15))
+def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid,Bat_motor_gen,Bat_motor_demand,InP_Hybrid):
     time = len(t)
+    plt.figure(figsize=(12, 8))
+    # Plot total force (F_total)
+    plt.subplot(3, 1, 1)  # 7 rows, 1 column, sixth subplot
+    
+    plt.plot(t, Bat_motor_gen/1000, 'r-', label='Hybrid received power (kW)')
+    plt.xlim([0, time])
+    plt.xlabel('Time (s)')
+    # plt.ylim([min(Bat_motor_gen/1000), max(Bat_motor_gen/1000)])
+    plt.ylabel('Hybrid power (kW)')
+    plt.legend()
+    
+    plt.subplot(3, 1, 2)  # 7 rows, 1 column, sixth subplot
+    
+    plt.plot(t, Bat_motor_demand/1000, 'b-', label='Hybrid provided power (kW) ')
+    plt.xlim([0, time])
+    # plt.ylim([min(Bat_motor_demand/1000), max(Bat_motor_demand/1000)])
+    plt.xlabel('Time (s)')
+    plt.ylabel('Hybrid power (kW)')
+    plt.legend()
+    
+    plt.subplot(3, 1, 3)  # 7 rows, 1 column, sixth subplot
+    
+    plt.plot(t, InP_Hybrid/1000, 'g-', label='Instant Power (kW)')
+    plt.xlim([0, time])
+    plt.xlabel('Time (s)')
+    plt.ylabel('Instant Power (kW)')
+    plt.legend()
+    
+    plt.tight_layout()
+    plt.savefig('Question_B.png', dpi=200)
+    plt.show()
+    
+    plt.figure(figsize=(10, 15))
+    
     # Plot speed and forces
     plt.subplot(5, 1, 1)
     plt.plot(t, v, 'r-', label='Speed (km/h)')
@@ -210,10 +243,11 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_b
     plt.legend()
     
     plt.tight_layout()
+    plt.savefig('Question_A.png', dpi=200)
     plt.show()
 
     # Plot hybrid power and SoC
-    plt.figure(figsize=(10, 10))
+    plt.figure(figsize=(10, 8))
 
     plt.subplot(4, 1, 1)
     plt.plot(t, power_hybrid, label="Hybrid Power (kW)")
@@ -286,7 +320,7 @@ def main():
     InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl)
     SoC, power_battery, power_fuel_cell, power_hybrid = simulate_soc_and_power(t, InP_Hybrid)
 
-    plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid)
+    plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid,Bat_motor_gen,Bat_motor_demand,InP_Hybrid)
 
 # Execute the main function
 if __name__ == "__main__":
