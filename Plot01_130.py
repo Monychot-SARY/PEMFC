@@ -128,38 +128,46 @@ try:
     power_demand = InP/1000
 
     # Simulation loop for both charging and discharging
-    for i in range(1, len(t)):
+    SoC = np.zeros(len(t))
+    SoC[0] = 60  # Start with maximum SoC
+
+    power_battery = np.zeros(len(t))
+    power_fuel_cell = np.zeros(len(t))
+    power_hybrid = np.zeros(len(t))
+    power_fuel_cell[0] = fuel_cell_min_power
+    # Power demand
+    power_demand = InP_Hybrid/1000
+
+    # Simulation loop for both charging and discharging
+    for i in range(1,len(t)):
         if power_demand[i] > 0:  # Battery discharging
             if SoC[i - 1] < 55:  # SoC < 55% --> 10C discharge rate
                 power_battery[i] = 0.05 * power_demand[i]  # 5% of total demand
                 charging_power = charge_power_battery_10C
-            elif SoC[i - 1] > 55:  # SoC > 55% --> 6C discharge rate
+            elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C discharge rate
                 power_battery[i] = 0.30 * power_demand[i]  # 30% of total demand
                 charging_power = charge_power_battery_6C
 
             # Cap battery discharge power
-            if power_battery[i] > discharge_power_battery:
+            if power_battery[i] >= discharge_power_battery:
                 power_battery[i] = discharge_power_battery
 
-            # Remaining power provided by the fuel cell
-
-            power_fuel_cell[i] = power_demand[i] - power_battery[i]
-
             # If fuel cell power is below the minimum threshold, adjust the battery
-            if power_fuel_cell[i] <= fuel_cell_min_power:
-
+            if power_demand[i] - power_battery[i] <= fuel_cell_min_power:
                 power_fuel_cell[i] = fuel_cell_min_power
+            else: 
+                power_fuel_cell[i] = power_demand[i] - power_battery[i]
 
+                
                 # power_battery[i] = power_demand[i]
 
-        elif power_demand[i] < 0:  # Battery charging
+        elif power_demand[i] <= 0:  # Battery charging
             charging_power = -power_demand[i]
 
             if SoC[i - 1] < 55:  # SoC < 55% --> 10C charging rate
                 max_charging_power = charge_power_battery_10C
-            elif SoC[i - 1] > 55:  # SoC > 55% --> 6C charging rate
+            elif SoC[i - 1] >= 55:  # SoC > 55% --> 6C charging rate
                 max_charging_power = charge_power_battery_6C
-
             # Cap the charging power
             if charging_power > max_charging_power:
                 charging_power = max_charging_power
@@ -258,10 +266,6 @@ try:
     plt.xlabel('Time (s)')
     plt.ylabel('Total Force (kN)')
     plt.legend()
-    # plt.text(t[1:][F_total.argmax()], F_total.max()/1000, f'Max: {F_total.max()/1000:.1f} kN',
-    #         horizontalalignment='center', verticalalignment='bottom')
-    # plt.text(t[1:][F_total.argmin()], F_total.min()/1000, f'Min: {F_total.min()/1000:.1f} kN',
-    #         horizontalalignment='center', verticalalignment='top')
 
     # Plot power
     plt.subplot(2, 1, 2)  
@@ -270,10 +274,6 @@ try:
     plt.xlabel('Time (s)')
     plt.ylabel('Power (kW)')
     plt.legend()
-    # plt.text(t[InP.argmax()], InP.max()/1000, f'Max: {InP.max()/1000:.1f} kW',
-    #         horizontalalignment='center', verticalalignment='bottom')
-    # plt.text(t[InP.argmin()], InP.min()/1000, f'Min: {InP.min()/1000:.1f} kW',
-    #         horizontalalignment='center', verticalalignment='top')
 
     plt.tight_layout()
     plt.savefig('Complete_Plots_130.png', dpi=200)
@@ -288,10 +288,6 @@ try:
     plt.xlim([0, time])
     plt.ylabel("Power (kW)")
     plt.legend()
-    # plt.text(t[power_hybrid.argmax()], power_hybrid.max(), f'Max: {power_hybrid.max():.1f} kW',
-    #         horizontalalignment='center', verticalalignment='bottom')
-    # plt.text(t[power_hybrid.argmin()], power_hybrid.min(), f'Min: {power_hybrid.min():.1f} kW',
-    #         horizontalalignment='center', verticalalignment='top')
 
     # Plot battery power
     plt.subplot(4, 1, 2)
@@ -299,10 +295,6 @@ try:
     plt.xlim([0, time])
     plt.ylabel("Power (kW)")
     plt.legend()
-    # plt.text(t[power_battery.argmax()], power_battery.max(), f'Max: {power_battery.max():.1f} kW',
-    #         horizontalalignment='center', verticalalignment='bottom')
-    # plt.text(t[power_battery.argmin()], power_battery.min(), f'Min: {power_battery.min():.1f} kW',
-    #         horizontalalignment='center', verticalalignment='top')
 
     # Plot fuel cell power
     plt.subplot(4, 1, 3)
@@ -310,10 +302,6 @@ try:
     plt.xlim([0, time])
     plt.ylabel("Power (kW)")
     plt.legend()
-    # plt.text(t[power_fuel_cell.argmax()], power_fuel_cell.max(), f'Max: {power_fuel_cell.max():.1f} kW',
-    #         horizontalalignment='center', verticalalignment='bottom')
-    # plt.text(t[power_fuel_cell.argmin()], power_fuel_cell.min(), f'Min: {power_fuel_cell.min():.1f} kW',
-    #         horizontalalignment='center', verticalalignment='top')
 
     # Plot SoC
     plt.subplot(4, 1, 4)
@@ -322,10 +310,6 @@ try:
     plt.ylabel("SoC (%)")
     plt.xlabel("Time (s)")
     plt.legend()
-    # plt.text(t[SoC.argmax()], SoC.max(), f'Max: {SoC.max():.1f}%',
-    #         horizontalalignment='center', verticalalignment='bottom')
-    # plt.text(t[SoC.argmin()], SoC.min(), f'Min: {SoC.min():.1f}%',
-    #         horizontalalignment='center', verticalalignment='top')
 
     plt.tight_layout()
     plt.savefig('Question_C_130.png', dpi=200)

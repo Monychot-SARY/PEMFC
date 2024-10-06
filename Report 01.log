@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  6 OCT 2024 23:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  7 OCT 2024 00:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1470,7 +1470,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 85.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Speed_
-1.png, id=50, 413.74574pt x 299.1978pt>
+1.png, id=55, 413.74574pt x 299.1978pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/S
 peed_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Sp
@@ -1479,7 +1479,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Speed_1.png  used on input line 125.
 (pdftex.def)             Requested size: 241.70557pt x 174.79031pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Speed 
-ms-1_1.png, id=52, 410.4936pt x 299.1978pt>
+ms-1_1.png, id=57, 410.4936pt x 299.1978pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/S
 peed ms-1_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Sp
@@ -1493,7 +1493,7 @@ Overfull \hbox (33.35315pt too wide) in paragraph at lines 124--130
  []
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/2.png,
- id=54, 273.68916pt x 117.10417pt>
+ id=59, 273.68916pt x 117.10417pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/2
 .png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/2.
@@ -1508,7 +1508,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ed_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PE
 MFC/Speed ms-1_1.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Accele
-ration_1.png, id=73, 425.30894pt x 298.4751pt>
+ration_1.png, id=78, 425.30894pt x 298.4751pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/A
 cceleration_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Ac
@@ -1526,7 +1526,7 @@ I treat `x_1_2' essentially like `x_1{}_2'.
 ng> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Ac
 celeration_1.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fair_1
-.png, id=98, 413.02306pt x 299.1978pt>
+.png, id=104, 413.02306pt x 299.1978pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/F
 air_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fa
@@ -1535,7 +1535,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Fair_1.png  used on input line 209.
 (pdftex.def)             Requested size: 241.70557pt x 175.09619pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Total_
-Force_1.png, id=99, 428.5611pt x 302.8113pt>
+Force_1.png, id=105, 428.5611pt x 302.8113pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/T
 otal_Force_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/To
@@ -1552,7 +1552,7 @@ Overfull \hbox (33.35315pt too wide) in paragraph at lines 208--214
 r_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEM
 FC/Total_Force_1.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_
-1.png, id=116, 426.93503pt x 303.71468pt>
+1.png, id=121, 426.93503pt x 303.71468pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/P
 ower_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Po
@@ -1561,7 +1561,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Power_1.png  used on input line 240.
 (pdftex.def)             Requested size: 352.48889pt x 250.76695pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC.jpg
-, id=117, 927.465pt x 560.0925pt>
+, id=122, 927.465pt x 560.0925pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/D
 C.jpg Graphic file (type jpg)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC
@@ -1573,7 +1573,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
 wer_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/P
 EMFC/DC.jpg>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_B.png, id=124, 722.7pt x 433.62pt>
+on_B.png, id=129, 722.7pt x 433.62pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_B.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1584,16 +1584,21 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  [6 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_B.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_C.png, id=133, 722.7pt x 722.7pt>
+on_C.png, id=138, 722.7pt x 1084.05pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_C.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_C.png>
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Question_C.png  used on input line 283.
-(pdftex.def)             Requested size: 503.55777pt x 503.55974pt.
- [7 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
-estion_C.png>]
+(pdftex.def)             Requested size: 503.55777pt x 755.33963pt.
+
+
+LaTeX Warning: Float too large for page by 31.0762pt on input line 286.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 300.
@@ -1614,14 +1619,55 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 300.
 
-[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 300.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 300.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 300.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\circ' on input line 300.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 300.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 301.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 301.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 301.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\circ' on input line 301.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 301.
+
+[7] [8 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC
+/Question_C.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 313.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 313.
  (./Report 01.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 313.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 313.
 Package rerunfilecheck Info: File `"Report 01".out' has not changed.
-(rerunfilecheck)             Checksum: AA611E942D94B2CFFED4DB5FBF2D0141;797.
+(rerunfilecheck)             Checksum: 8A132D87FE1F400194C164BBF49402DD;876.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 313.
  )
 (\end occurred inside a group at level 1)
@@ -1629,13 +1675,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 313.
 ### simple group (level 1) entered at line 236 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 24870 strings out of 480608
- 463540 string characters out of 5907536
- 910976 words of memory out of 5000000
- 40219 multiletter control sequences out of 15000+600000
+ 24872 strings out of 480608
+ 463580 string characters out of 5907536
+ 910974 words of memory out of 5000000
+ 40220 multiletter control sequences out of 15000+600000
  545189 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,14n,71p,932b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,14n,71p,932b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 s1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c
 :/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive
@@ -1647,10 +1693,10 @@ fonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texliv
 e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "Report 01.pdf" (8 pages, 1959448 bytes).
+Output written on "Report 01.pdf" (8 pages, 1587822 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 202 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
