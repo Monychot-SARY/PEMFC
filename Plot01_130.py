@@ -7,7 +7,7 @@ try:
     df = pd.read_excel('Plot01_130.xlsx', sheet_name='Sheet1')
     t = df.iloc[:, 0]  # Assuming 1st column is time or X-axis
     v = df.iloc[:, 1]  # Assuming 2nd column is speed in km/h or Y-axis
-    alpha = 2 # 2 degree
+    alpha = 0 # 2 degree
     time = 300
     # Filter data to include only time between 0 and 1800
     mask = (t >= 0) & (t <= len(t))
@@ -190,7 +190,7 @@ try:
 
     
     # Create the first figure with subplots
-    plt.figure(figsize=(10, 15))
+    plt.figure(figsize=(8, 8))
 
     # Plot speed in km/h
     plt.subplot(5, 1, 1)  
@@ -253,11 +253,44 @@ try:
             horizontalalignment='center', verticalalignment='top')
 
     plt.tight_layout()
-    plt.savefig('Complete_Plots_130.png', dpi=200)
+    plt.savefig('Complete_Plots_130_Speed.png', dpi=200)
+    plt.show()
+    
+    
+    plt.figure(figsize=(10, 6))
+    # Plot total force (F_total)
+    plt.subplot(3, 1, 1)  # 7 rows, 1 column, sixth subplot
+    
+    plt.plot(t, Bat_motor_gen/1000, 'r-', label='Hybrid received power (kW)')
+    plt.xlim([0, time])
+    plt.xlabel('Time (s)')
+    # plt.ylim([min(Bat_motor_gen/1000), max(Bat_motor_gen/1000)])
+    plt.ylabel('Hybrid power (kW)')
+    plt.legend()
+    
+    plt.subplot(3, 1, 2)  # 7 rows, 1 column, sixth subplot
+    
+    plt.plot(t, Bat_motor_demand/1000, 'b-', label='Hybrid provided power (kW) ')
+    plt.xlim([0, time])
+    # plt.ylim([min(Bat_motor_demand/1000), max(Bat_motor_demand/1000)])
+    plt.xlabel('Time (s)')
+    plt.ylabel('Hybrid power (kW)')
+    plt.legend()
+    
+    plt.subplot(3, 1, 3)  # 7 rows, 1 column, sixth subplot
+    
+    plt.plot(t, InP_Hybrid/1000, 'g-', label='Instant Power (kW)')
+    plt.xlim([0, time])
+    plt.xlabel('Time (s)')
+    plt.ylabel('Instant Power (kW)')
+    plt.legend()
+    
+    plt.tight_layout()
+    plt.savefig('Question_B_130.png', dpi=200)
     plt.show()
 
     # Create the second figure
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(8, 6))
 
     # Plot total force (F_total)
     plt.subplot(2, 1, 1)  
@@ -279,7 +312,6 @@ try:
     plt.savefig('Complete_Plots_130.png', dpi=200)
     plt.show()
 
-    # Create the third figure
     plt.figure(figsize=(10, 8))
 
     # Plot hybrid power
@@ -288,6 +320,10 @@ try:
     plt.xlim([0, time])
     plt.ylabel("Power (kW)")
     plt.legend()
+    plt.text(t[power_hybrid.argmax()], power_hybrid.max(), f'Max: {power_hybrid.max():.1f} kW', 
+            horizontalalignment='center', verticalalignment='bottom')
+    plt.text(t[power_hybrid.argmin()], power_hybrid.min(), f'Min: {power_hybrid.min():.1f} kW', 
+            horizontalalignment='center', verticalalignment='top')
 
     # Plot battery power
     plt.subplot(4, 1, 2)
@@ -295,6 +331,10 @@ try:
     plt.xlim([0, time])
     plt.ylabel("Power (kW)")
     plt.legend()
+    plt.text(t[power_battery.argmax()], power_battery.max(), f'Max: {power_battery.max():.1f} kW', 
+            horizontalalignment='center', verticalalignment='bottom')
+    plt.text(t[power_battery.argmin()], power_battery.min(), f'Min: {power_battery.min():.1f} kW', 
+            horizontalalignment='center', verticalalignment='top')
 
     # Plot fuel cell power
     plt.subplot(4, 1, 3)
@@ -302,6 +342,10 @@ try:
     plt.xlim([0, time])
     plt.ylabel("Power (kW)")
     plt.legend()
+    plt.text(t[power_fuel_cell.argmax()], power_fuel_cell.max(), f'Max: {power_fuel_cell.max():.1f} kW', 
+            horizontalalignment='center', verticalalignment='bottom')
+    plt.text(t[power_fuel_cell.argmin()], power_fuel_cell.min(), f'Min: {power_fuel_cell.min():.1f} kW', 
+            horizontalalignment='center', verticalalignment='top')
 
     # Plot SoC
     plt.subplot(4, 1, 4)
@@ -310,6 +354,10 @@ try:
     plt.ylabel("SoC (%)")
     plt.xlabel("Time (s)")
     plt.legend()
+    plt.text(t[SoC.argmax()], SoC.max(), f'Max: {SoC.max():.1f}%', 
+            horizontalalignment='center', verticalalignment='bottom')
+    plt.text(t[SoC.argmin()], SoC.min(), f'Min: {SoC.min():.1f}%', 
+            horizontalalignment='center', verticalalignment='top')
 
     plt.tight_layout()
     plt.savefig('Question_C_130.png', dpi=200)
