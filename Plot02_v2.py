@@ -135,10 +135,6 @@ polarization_curve = df  # Ensure df is defined correctly
 A_cell = data['Area_stack']
 N_cells = data['N_cell']
 
-import pandas as pd
-from scipy.interpolate import interp1d
-from scipy.optimize import minimize_scalar
-
 # Load the WLTC and polarization curve data
 wltc_data = pd.read_excel('Plot01.xlsx', header=0)  # Ensure the path is correct
 polarization_curve = df  # Ensure df is defined correctly
