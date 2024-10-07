@@ -150,7 +150,7 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_b
     time = 300
 
     
-    plt.figure(figsize=(6, 8))
+    plt.figure(figsize=(15, 12))
 
     # Plot speed and forces
     plt.subplot(5, 1, 1)
