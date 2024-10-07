@@ -436,28 +436,24 @@ As show in Figure (\ref{13}), we can assume that vehicle at this speed character
 	\begin{itemize}
 		\item The hybrid power increases sharply from 0 to about \textbf{17.45 kW} within the first few seconds.
 		\item After this peak, the power stabilizes around \textbf{16 kW} and remains constant for the rest of the 300-second interval.
-		\item This curve represents the total power output from the hybrid system.
 	\end{itemize}
 	
 	\item \textbf{Battery Power (kW) - Orange Curve (Second Plot):}
 	\begin{itemize}
 		\item The battery power rises rapidly to a maximum value of \textbf{5.24 kW} at the beginning and then drops slightly, stabilizing around \textbf{4.5 kW}.
 		\item The battery maintains this output throughout the time period shown.
-		\item This shows the power contribution from the battery over time.
 	\end{itemize}
 	
 	\item \textbf{Fuel Cell Power (kW) - Green Curve (Third Plot):}
 	\begin{itemize}
 		\item The fuel cell power ramps up initially to about \textbf{12.22 kW}.
 		\item After reaching this maximum value, the fuel cell output drops slightly and stabilizes at around \textbf{10 kW} for the remainder of the time.
-		\item This reflects the power contribution from the fuel cell system.
 	\end{itemize}
 	
 	\item \textbf{State of Charge (SoC \%) - Red Curve (Bottom Plot):}
 	\begin{itemize}
 		\item The SoC starts at \textbf{60.0\%} and decreases gradually over time.
 		\item By the end of the 300-second period, the SoC has dropped to \textbf{58.5\%}.
-		\item This represents the decline in the battery's charge level over the duration of operation.
 	\end{itemize}
 \end{itemize}
 
@@ -488,14 +484,9 @@ We assume that the fuel cell system of the vehicle has the following characteris
 
 \begin{itemize}
 	\item Air compressor's efficiency is 60\% (comprising both compression efficiency and electric motor efficiency)
-	\item The air pressure inside the stack is variable, depending on the current density (data available in the file "BEfuelcellsystem.xlsx")
-	\item The parasitic power consumed by the system auxiliaries depends on the stack current (data available in the file "BEfuelcellsystem.xlsx")
 	\item The stack is composed of 330 cells of 273 cm\(^2\)
-	\item The cell polarization curve has been studied during the vehicle operation. A simplified version is given below (data available in the file "BEfuelcellsystem.xlsx"):
+
 \end{itemize}
-
-\newpage
-
 
 %% ======================================= a . =========================================
 
@@ -528,11 +519,253 @@ Where we got :
 Get Equation (\ref{eq2.2}), Equation (\ref{eq2.3}), Equation (\ref{eq2.4}) Substitution into Equation (\ref{eq2.1})
 
 \begin{equation}
-	P_{comp}(t) = \frac{1}{\eta_{sys}(t)} \frac{v_{air}}{x_{O_2}}\frac{N_{cell}I(t)}{4\mathscr{F}} \frac{\gamma}{\gamma-1}RT_e(\tau^{\frac{\gamma-1}{\gamma}}-1)\label{eq2.1}
+	P_{comp}(t) = \frac{1}{\eta_{sys}(t)} \frac{v_{air}}{x_{O_2}}\frac{N_{cell}I(t)}{4\mathscr{F}} \frac{\gamma}{\gamma-1}RT_e(\tau^{\frac{\gamma-1}{\gamma}}-1)\label{eq2.5}
+\end{equation}
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_of_Air_compressor.png}
+	\caption{\small {Power of Air Compressor}}
+	\label{15}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Figure (\ref{15}) Top Plot: Power vs. Voltage (Yellow Dashed Curve)}
+	\begin{itemize}
+		\item The curve shows a downward trend as the voltage increases. It starts high on the left (at around 15 kW for a voltage near 0.65 V) and gradually declines, approaching zero as the voltage nears 0.85 V.
+		\item The decrease is non-linear, with a steep drop at first and then leveling off as the voltage approaches higher values. This suggests that as voltage increases, the power output of the air compressor significantly reduces, particularly more rapidly at lower voltage values.
+	\end{itemize}
+	\item \textbf{Figure (\ref{15}) Bottom Plot: Power vs. Index (Green Solid Curve)}
+	\begin{itemize}
+		\item The curve exhibits a steady upward trend as the index increases. Starting close to 0 kW at a low index, it rises continuously, reaching around 15 kW at the highest index value.
+		\item The increase appears almost linear, with a constant or slightly accelerating rate of power increase as the index progresses.
+	\end{itemize}
+\end{itemize}
+
+
+
+%=======================================================================================================================
+
+
+\subsubsection{The electrical power delivered by fuel cell system.}
+
+To calculate the fuel cell that consumption in the system, we used: 
+To find the hydrogen consumption, we will use: 
+\begin{equation}
+	P_{comp}(t) = U_{cell}\times i(t) \times N_{cell} \times A_{cell} \label{eq2.6}
+\end{equation}
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_of_Fuel_Cell.png}
+	\caption{\small {The electrical power delivered by fuel cell system}}
+	\label{16}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Figure (\ref{16}) : Top Plot}
+	\begin{itemize}
+		\item The x-axis represents the \textbf{Voltage (V)} of the fuel cell, ranging from approximately 0.65V to 0.85V.
+		\item The y-axis represents the \textbf{Power output} in watts, ranging from 0 to around 120 watts.
+		\item The plot shows a \textbf{decreasing trend} as voltage increases, suggesting that power output drops as voltage rises. The line is \textbf{dash-dotted and blue}, indicating a measured or calculated trend of power with respect to voltage.
+	\end{itemize}
+	
+	\item \textbf{Figure (\ref{16}) : Bottom Plot}
+	\begin{itemize}
+		\item The x-axis represents the \textbf{Index}, possibly indicating the step number or data point (e.g., time or sequence index), ranging from 0 to 90.
+		\item The y-axis again represents \textbf{Power output} in watts, similar to the top plot.
+		\item The plot shows a \textbf{steady increase} in power as the index increases, potentially reflecting the increase in power over time or due to increasing load. The line is \textbf{solid red}, representing a direct correlation between index and power output.
+	\end{itemize}
+\end{itemize}
+
+
+
+%=======================================================================================================================
+
+
+\subsubsection{The hydorgen consumption by the duel cell system. Fit the curve with a fifth degree polynomial.}
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hydrogen Consumption vs Current Density in fit with fifth degree polynomial.png}
+	\caption{\small {Hydrogen Consumption vs Current Density fit with fifth degree polynomial}}
+	\label{17}
+\end{figure}
+\begin{itemize}
+	\item Find the mole flow in the system : 
+	\begin{equation}
+		\dot{m}_{H_2} = \frac{I}{2\mathscr{F}}\times M_{H_2} \times N_{Cell} \times A_{cell} \label{eq2.7}
+	\end{equation}
+
+	\item Fifth-Degree Polynomial Equation
+	\begin{equation}
+		P(x) = a_5 x^5 + a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0
+	\end{equation}
+	\item Hydrogen Consumption as a Function of Current Density:
+	\begin{equation}
+		P(i) = a_5 (i)^5 + a_4 (i)^4 + a_3 (i)^3 + a_2 (i)^2 + a_1 (i) + a_0
+	\end{equation}
+	\item $(a_0, a_1, a_2, a_3, a_4, a_5)$ : Coefficients of the polynomial, determined through the fitting process. These coefficients define the shape of the polynomial curve.
+\end{itemize}
+This graph displays in Figure (\ref{17}) the relationship between hydrogen consumption (in grams) and current density (in A/cm²)
+\begin{itemize}
+	\item \textbf{Data Points (Blue)}:
+	\begin{itemize}
+		\item The blue markers represent the experimental hydrogen consumption data at various current densities.
+		\item A clear linear trend is observed, where hydrogen consumption increases as the current density increases.
+	\end{itemize}
+	
+	\item \textbf{Polynomial Fit (Red Curve)}:
+	\begin{itemize}
+		\item The red line represents a 5th-degree polynomial fit to the data.
+		\item Despite being a higher-order polynomial, the fit closely resembles a straight line, indicating a strong linear relationship between current density and hydrogen consumption.
+	\end{itemize}
+	
+	\item \textbf{Linear Trend}:
+	\begin{itemize}
+		\item The plot shows that hydrogen consumption increases almost linearly with the current density in the range of 0 to 2 A/cm².
+		\item This is expected in electrochemical systems, where fuel consumption is proportional to the current density.
+	\end{itemize}
+	
+	\item \textbf{Accuracy of Fit}:
+	\begin{itemize}
+		\item The data points closely align with the polynomial fit, indicating a high degree of accuracy.
+		\item The minimal deviation between the data and the fit suggests that a linear or near-linear model accurately describes the relationship.
+	\end{itemize}
+	
+	\item \textbf{Practical Implication}:
+	\begin{itemize}
+		\item Increasing the current density results in a proportional increase in hydrogen consumption.
+		\item This insight is important for fuel cell applications, where controlling current density helps manage fuel consumption.
+	\end{itemize}
+	
+\end{itemize}
+
+The graph effectively communicates that hydrogen consumption increases linearly with the current density over the given range.
+
+%================================================2. b =======================================================================
+
+
+
+\subsection{Considering the WLTC drive cycle, calculate and plot the instant hydrogen consumption in kg/s
+as a function of time. Give the total amount of hydrogen consumed for one complete cycle. 
+Calculate the average hydrogen consumption of the vehicle in kgH2/100 km. Deduce the vehicle 
+operating range, and the average energetic efficiency.}
+
+To Calculate the value in this question, we will use servals equation :
+
+\begin{itemize}
+	\item To calculate the mass flow rate of hydrogen, we obtained :
+	\begin{equation}
+		\dot{m}_{H_2}(t) = \frac{I_{cell}(t)\times N_{cell}\times M_{H_2}}{2\mathscr{F}}
+	\end{equation}
+	\item To determine the Current of the cell, we used
+	\begin{equation}
+		I_{cell}(t) = \frac{\text{Power demand} (t)}{U_{cell}(t)}
+	\end{equation}
+	\item To obtained the Cell voltage, we use one of optimization method to fine the optimal voltage of the each cell depend on speed, time and power demand of the vehicle. We will Minimize Scalar Optimization to do it.
+\begin{itemize}
+	\item Let \( f(x) \) be a scalar function defined as:
+	\begin{equation}
+		f: \mathbb{R} \to \mathbb{R}
+	\end{equation}
+	
+	\item The goal is to find \( x^* \) such that:
+	\begin{equation}
+		x^* = \arg \min_{x \in [a, b]} f(x)
+	\end{equation}
+	
+	\item We may define constraints in optional bounds for \( x \):
+	\begin{equation}
+		a \leq x \leq b
+	\end{equation}
+	
+	\item The optimization seeks to minimize the function:
+	\begin{equation}
+		\min_{x \in [a, b]} f(x)
+	\end{equation}
+	
+	\item Several methods can be used in the \texttt{minimize\_scalar} function:
+	\begin{itemize}		
+		\item \textbf{Brent's Method}: A robust method that combines the bisection method, secant method, and inverse quadratic interpolation.
+		\item \textbf{Golden Section Search}: A technique that systematically narrows the interval containing the minimum point.
+		\item \textbf{Bounded Methods}: Enforces the constraints \( a \) and \( b \) while searching for the minimum.
+	\end{itemize}
+	
+	\item If the function \( f \) is differentiable, the first derivative condition is applied:
+	\begin{equation}
+		f'(x^*) = 0
+	\end{equation}
+	
+	\item To confirm that \( x^* \) is a local minimum, we use the second derivative condition:
+	\begin{equation}
+		f''(x^*) > 0
+	\end{equation}
+	
+	\item The optimization algorithm will typically terminate when:
+	\begin{itemize}
+		\item The change in the objective function value is less than a specified tolerance level, \( \epsilon \):
+		\begin{equation}
+			|f(x_{k+1}) - f(x_k)| < \epsilon
+		\end{equation}
+		
+		\item The change in \( x \) is less than a specified tolerance level, \( \delta \):
+		\begin{equation}
+			|x_{k+1} - x_k| < \delta
+		\end{equation}
+	\end{itemize}
+\end{itemize}
+\item To find the total hydorgen consumed, we can use :
+
+	\begin{equation}
+		\text{Total Hydrogen Consumption} = \int_{0}^{T}\dot{m}_{H_2}(t)dt
+	\end{equation}
+
+\item To detemine System Efficiency, we do :
+
+\begin{equation}
+	E_{\text{from H2}} = \frac{m_{\text{hydro}}[i] \cdot LHV_{\text{hydrogen}}}{M_{\text{olar mass H2}}} \quad \text{if } m_{\text{hydro}}[i] > 0
+\end{equation}
+
+\begin{equation}
+	\eta[i] = 
+	\begin{cases} 
+		\frac{P_{\text{fuel cell}}}{E_{\text{from H2}}} & \text{if } E_{\text{from H2}} > 0 \\
+		0 & \text{if } E_{\text{from H2}} \leq 0 
+	\end{cases}
+\end{equation}
+\item To calculate the range operation of the vehicle:
+	\begin{equation}
+		d_{\text{traveled}} = v_s[1:] \cdot \Delta t
+	\end{equation}
+	
+	\begin{equation}
+		D_{\text{total}} = \frac{\sum d_{\text{traveled}}}{1000}
+	\end{equation}
+	
+	\begin{equation}
+		\text{Consumption of Hydrogen Average} = 
+		\begin{cases} 
+			\frac{{\text{Consumption of Hydrogen total}} \cdot 100}{D_{\text{total}}} & \text{if } D_{\text{total}} > 0 \\
+			0 & \text{if } D_{\text{total}} \leq 0 
+		\end{cases}
+	\end{equation}
+	
+\begin{equation}
+	R_{\text{operation}} = 
+	\begin{cases} 
+		\frac{\text{Capacity tank}}{\text{Consumption of Hydrogen Average}}} / 100} & \text{if }\text{Consumption of Hydrogen Average} > 0 \\
+		0 & \text{if } \text{Consumption of Hydrogen Average} \leq 0 
+	\end{cases}
 \end{equation}
 
 
+\end{itemize}
 
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hydrogen_Mass_and_Efficiency.png}
+	\caption{\small {Mass Flow rate of the Hydrogen and Efficiency of the System}}
+	\label{18}
+\end{figure}
 
 
 

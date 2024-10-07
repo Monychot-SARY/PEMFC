@@ -13,7 +13,7 @@ df = pd.read_excel(file, header=0)
 
 # Fuel cell system parameters
 data = pd.DataFrame({
-    "M_tank": [5.6],  # kg
+    "M_tank": [5.66],  # kg
     "P_H2": [700],  # bar
     "Molar_mass_dihydrogen": [2.016],  # g/mol
     "LHV": [242],  # kJ/mol
@@ -102,13 +102,15 @@ i_fit = np.linspace(min(df['i (A/cm²)']), max(df['i (A/cm²)']), 1000)
 hydro_fit = polynomial(i_fit)
 
 # Plot hydrogen consumption vs current density
-plt.figure(figsize=(6, 6))
+plt.figure(figsize=(6,4))
 plt.plot(df['i (A/cm²)'], Hydro_com, 'bo', label='Hydrogen Consumption Data')
-plt.plot(i_fit, hydro_fit, 'r-', label='5th Degree Polynomial Fit')
+plt.plot(i_fit, hydro_fit, 'r-', label='5thx Degree Polynomial Fit')
 plt.title('Hydrogen Consumption vs Current Density')
 plt.xlabel('Current Density (A/cm²)')
 plt.ylabel('Hydrogen Consumption (g)')
 plt.legend()
+plt.tight_layout()
+plt.savefig('Hydrogen Consumption vs Current Density in fit with fifth degree polynomial.png', dpi=200)
 plt.show()
 
 #-------------------- Drive Cycle Hydrogen Consumption Calculation ----------------------------#
@@ -269,14 +271,14 @@ operation_range = hydrogen_capacity / (average_hydrogen_consumption / 100) if av
 # Print results
 print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
 print(f'Average System Efficiency: {average_efficiency:.2f}%')
-print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/km')
+print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/100km')
 print(f'Operation Range: {operation_range:.2f} km')
 # Create a figure with two subplots
 plt.figure(figsize=(10, 8))
 # Plot hydrogen mass consumption over time (subplot 1)
 plt.subplot(2, 1, 1)
 plt.plot(time, mass_hydro, 'b-', label='Hydrogen Mass (kg/s)')
-plt.title(f'Hydrogen Mass Consumption over Time\nTotal hydrogen consumed: {total_hydrogen_consumed:.6f} kg', fontsize=12)
+plt.title(f'Hydrogen Mass Consumption over Time\nTotal hydrogen consumed: {total_hydrogen_consumed:.6f} kg \n Average Hydrogen Consumption : {average_hydrogen_consumption:.6f} kg(H2)/100km', fontsize=12)
 plt.xlabel('Time (s)')
 plt.ylabel('Hydrogen Mass (kg/s)')
 plt.ylim([min(mass_hydro),max(mass_hydro)*1.1])
@@ -285,7 +287,7 @@ plt.legend()
 # Plot system efficiency over time (subplot 2)
 plt.subplot(2, 1, 2)
 plt.plot(time, efficiency * 100, 'm-', label='System Efficiency (%)')
-plt.title(f'System Efficiency over Time\nAverage System Efficiency: {average_efficiency:.2f}%', fontsize=12)
+plt.title(f'System Efficiency over Time\nAverage System Efficiency: {average_efficiency:.2f}% \n Operation Range : {operation_range:.2f} km' , fontsize=12)
 plt.xlabel('Time (s)')
 plt.ylabel('Efficiency (%)')
 plt.xlim([time[0],len(time)])
