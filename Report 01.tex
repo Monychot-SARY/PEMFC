@@ -1,12 +1,15 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{blindtext}\usepackage{accsupp}
-% Packages for various functionalities
+
 \usepackage{amssymb}
 \usepackage{wasysym}
+\usepackage{mathrsfs}
 \usepackage[utf8]{inputenc}
 \usepackage{physics} % Assuming you resolved the package conflicts
 \usepackage{anyfontsize}
 \usepackage{amsmath,mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
 \usepackage[margin=0.65in]{geometry}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
@@ -183,7 +186,11 @@
 	\begin{itemize}[label=-]
 		\item For calculate $F_{air}$ by using Equation (\ref{eq1}) , we got :
 			\begin{equation}
-			F_{air}(t) = \frac{1}{2}\rho_{air}v^2CA = \frac{1}{2}\times1.2\times 	v^2_{m/s}_{,t}\times0.29\times 2.25 \label{eq7}
+
+
+
+
+				F_{air}(t) = \frac{1}{2}\rho_{air}v^2CA = \frac{1}{2}\times1.2\times 	v^2_{m/s}_{,t}\times0.29\times 		2.25 \label{eq7}
 			\end{equation}
 			In this section, to calculate $F_{air}$ we need to get the speed in each time $t$ in $m/s^2$ to analyze in the Equation (\ref{eq7})
 			By using the Equation (\ref{eq1}), we got the result of the force air penetration by shown in below graph.
@@ -312,38 +319,41 @@ The energy management strategy of the hybridization between the battery and the 
 
 %% ======================================= d . =========================================
 
-\subsection{Make the same analysis with the road cycle "130 kmh". Consider two different cases : $\alpha = 0^\circ$ and $\alpha = 2^\circ$ } 	
+\subsection{Make the same analysis with the road cycle "130 kmh". Consider two different cases : $\alpha = 0^\circ$ and $\alpha = 2^\circ$ } 
+	
 	\subsubsection{Analysis $\alpha = 0^\circ$}
 		\begin{figure}[h]
 			\centering 
-			\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130.png}
-			\caption{\small {Plots related to Speed, acceleration, air resistance, and rolling resistance over time}}
+			\includegraphics[width=0.83\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130.png}
+			\caption{\small {Plots related to Speed, acceleration, air resistance, and Total Force over time}}
 			\label{9}
 		\end{figure}
-	
+
 	In the Figure (\ref{9}), it was shown the data curve about the speed within $km/h$ and $m/s$, acceleration in $m/s^2$, Air Resistance and Rolling Resistance.
-	
-		\begin{itemize}
-			\item The first red and blue curve in the Figure (\ref{9}) represented to the speed of the vehicle drive over time in $km/h$ and $m/s$.
-			\item The green curve in the Figure (\ref{9}) presented to the acceleration of the vehicle that show the characteristic of the vehicle drive. (Increase or Decrease Speed)
-			\item The air resistance calculated by using Equation (\ref{eq1})  and (\ref{eq8}) . The result of the calculate shown in the yellow curve of the Figure (\ref{9}).
-			\item The total Force or Motor Force determined by usig Equation (\ref{eq5}) and the result of the calculation displayed at the black curve shown that the maximum motor force is \textbf{2.74 kN}.
-		\end{itemize}
-	
-	
-	\begin{figure}[h]
-		\centering 
-		\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_B_130.png}
-		\caption{\small {Hybrid working in Power transfer in Vehicle 130kmh}}
-		\label{10}
-	\end{figure}
+
+\begin{itemize}
+	\item The first red and blue curve in the Figure (\ref{9}) represented to the speed of the vehicle drive over time in $km/h$ and $m/s$.
+	\item The green curve in the Figure (\ref{9}) presented to the acceleration of the vehicle that show the characteristic of the vehicle drive. (Increase or Decrease Speed)
+	\item The air resistance calculated by using Equation (\ref{eq1})  and (\ref{eq8}) . The result of the calculate shown in the yellow curve of the Figure (\ref{9}).
+	\item The total Force or Motor Force determined by usig Equation (\ref{eq5}) and the result of the calculation displayed at the black curve shown that the maximum motor force is \textbf{2.74 kN}.
+\end{itemize}
+
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_B_130.png}
+	\caption{\small {Hybrid working in Power transfer in Vehicle 130kmh}}
+	\label{10}
+\end{figure}
 As show in Figure (\ref{10}), we can assume that vehicle at this speed characteristic shown that the Hybrid system did not receive any power from the motor but it provided full power to the motor.
-	\begin{figure}[h]
-		\centering 
-		\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_C_130.png}
-		\caption{\small {Hybrid system, Battery Management, Fuel Cell power and State of Charge in the Vehicle}}
-		\label{11}
-	\end{figure}
+
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_C_130.png}
+	\caption{\small {Hybrid system, Battery Management, Fuel Cell power and State of Charge in the Vehicle}}
+	\label{11}
+\end{figure}
 \begin{itemize}
 	\item \textbf{Hybrid Power (kW)}:
 	\begin{itemize}
@@ -377,32 +387,153 @@ As show in Figure (\ref{10}), we can assume that vehicle at this speed character
 
 
 
+% ======================================C .  ALPHA 2 =====================================================\\
+
+\subsubsection{Analysis $\alpha = 2^\circ$}
 
 
-% ======================================C .  ALPHA 2 =====================================================
-	\subsubsection{Analysis $\alpha = 2^\circ$}
-	
-	
-	\begin{figure}[h]
-		\centering 
-		\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130_V2.png}
-		\caption{\small {Hybrid system, Battery Management, Fuel Cell power and State of Charge in the Vehicle}}
-		\label{12}
-	\end{figure}
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.87\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130_V2.png}
+	\caption{\small {Plots related to Speed, acceleration, air resistance, and Total Force over time}}
+	\label{12}
+\end{figure}
 
 The speed and acceleration are the same from the pervious but there are some change on the air resistance, rolling resistance and climbing	resistance. 
 
 \begin{itemize}
 	\item For the Air resistance using Equation (\ref{eq1}), we got the result shown in the Figure (\ref{12}).
 	\item The Rolling Resistance using Equation (\ref{eq2}), as the result we can write :
-		\begin{equation}
-			F_{rolling}(t) = 200kg\times9.81m/s^2\times0.0115\times \cos(0^\circ) = \textbf{225.4926 N}\label{eq13}
-		\end{equation}
+	\begin{equation}
+		F_{rolling}(t) = 200kg\times9.81m/s^2\times0.0115\times \cos(0^\circ) = \textbf{225.4926 N}\label{eq13}
+	\end{equation}
 	\item The Climbing Resistance using Equation (\ref{eq3}), as the result we computed :
+	\begin{equation}
+		F_{climb}(t) = Mg\sin(\alpha) = 2000kg \times 9.81m/s^2 \times \sin(2^\circ) = \textbf{684.811 N} \label{eq14}
+	\end{equation}
+	\item The total Force or Motor Force determined by usig Equation (\ref{eq5}) and the result of the calculation displayed at the black curve shown that the maximum motor force is \textbf{3.43 kN}.
+\end{itemize}
+
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.83\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_B_130_V2.png}
+	\caption{\small {Hybrid working in Power transfer in Vehicle 130kmh}}
+	\label{13}
+\end{figure}
+
+As show in Figure (\ref{13}), we can assume that vehicle at this speed characteristic shown that the Hybrid system did not receive any power from the motor but it provided full power to the motor.
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_C_130_V2.png}
+	\caption{\small {Hybrid working in Power transfer in Vehicle 130kmh}}
+	\label{14}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Hybrid Power (kW) - Blue Curve (Top Plot):}
+	\begin{itemize}
+		\item The hybrid power increases sharply from 0 to about \textbf{17.45 kW} within the first few seconds.
+		\item After this peak, the power stabilizes around \textbf{16 kW} and remains constant for the rest of the 300-second interval.
+		\item This curve represents the total power output from the hybrid system.
+	\end{itemize}
+	
+	\item \textbf{Battery Power (kW) - Orange Curve (Second Plot):}
+	\begin{itemize}
+		\item The battery power rises rapidly to a maximum value of \textbf{5.24 kW} at the beginning and then drops slightly, stabilizing around \textbf{4.5 kW}.
+		\item The battery maintains this output throughout the time period shown.
+		\item This shows the power contribution from the battery over time.
+	\end{itemize}
+	
+	\item \textbf{Fuel Cell Power (kW) - Green Curve (Third Plot):}
+	\begin{itemize}
+		\item The fuel cell power ramps up initially to about \textbf{12.22 kW}.
+		\item After reaching this maximum value, the fuel cell output drops slightly and stabilizes at around \textbf{10 kW} for the remainder of the time.
+		\item This reflects the power contribution from the fuel cell system.
+	\end{itemize}
+	
+	\item \textbf{State of Charge (SoC \%) - Red Curve (Bottom Plot):}
+	\begin{itemize}
+		\item The SoC starts at \textbf{60.0\%} and decreases gradually over time.
+		\item By the end of the 300-second period, the SoC has dropped to \textbf{58.5\%}.
+		\item This represents the decline in the battery's charge level over the duration of operation.
+	\end{itemize}
+\end{itemize}
+
+
+
+
+
+
+%% =======================================1 . =========================================
+% Sections and Subsections
+\section{\underline{Analysis of the fuel cell system with WLTC profile}}
+
+We assume that the fuel cell system of the vehicle has the following characteristics, based on some specifications of the Mirai 2 and an experimental study of the Mirai 1:
+
+\begin{itemize}
+	\item Hydrogen storage: 5.6 kg stored at 700 bars
+	\item Molar mass of dihydrogen: 2.016 g/mol
+	\item Enthalpy of hydrogen combustion in oxygen:
+	\begin{itemize}
+		\item LHV: 242 kJ/mol
+		\item HHV: 285 kJ/mol
+	\end{itemize}
+	\item The hydrogen loss (mainly in the purge) represents 2\% of the consumed hydrogen
+	\item Air stoichiometry is 1.5
+	\item Atmospheric pressure is 1 bar
+	\item Oxygen molar fraction in ambient air is 21\%
+\end{itemize}
+
+\begin{itemize}
+	\item Air compressor's efficiency is 60\% (comprising both compression efficiency and electric motor efficiency)
+	\item The air pressure inside the stack is variable, depending on the current density (data available in the file "BEfuelcellsystem.xlsx")
+	\item The parasitic power consumed by the system auxiliaries depends on the stack current (data available in the file "BEfuelcellsystem.xlsx")
+	\item The stack is composed of 330 cells of 273 cm\(^2\)
+	\item The cell polarization curve has been studied during the vehicle operation. A simplified version is given below (data available in the file "BEfuelcellsystem.xlsx"):
+\end{itemize}
+
+\newpage
+
+
+%% ======================================= a . =========================================
+
+\subsection{Calculate and Plot as a function of the stack current: }
+\subsubsection{The electrical power consumed by the air compressor}
+
+To calculate of the compression power are proportional to the current:
+\begin{equation}
+	P_{comp}(t) = \frac{1}{\eta_{sys}(t)}q_{m_{air}(t)}c_pT_e(\tau^{\frac{\gamma-1}{\gamma}}-1)\label{eq2.1}
+\end{equation}
+
+Where we got :
+
+\begin{itemize}
+	\item Air mass Flow : 
 		\begin{equation}
-			F_{climb}(t) = Mg\sin(\alpha) = 2000kg \times 9.81m/s^2 \times \sin(2^\circ) = \textbf{684.811 N} \label{eq14}
+			q_{m_{air}}(t) = M_{air}F_{air}(t) = M_{air} \frac{v_{air}}{x_{O_2}}\frac{N_{cell}I(t)}{4\mathscr{F}} = M_{air} \frac{v_{air}}{x_{O_2}}\frac{P_{sys}(t)}{2v_{H_2}(t)\rho_{sys}\Delta H} 
+			\label{eq2.2}
+		\end{equation}
+	\item Heat Capacity:
+		\begin{equation}
+			c_p =\frac{\gamma}{\gamma-1}\frac{R}{M} \label{eq2.3}
+		\end{equation}
+	\item Compression ratio:
+		\begin{equation}
+			\tau = \frac{\textit{p}_{out}}{\textit{p}_{in}} \label{eq2.4}
 		\end{equation}
 \end{itemize}
+
+Get Equation (\ref{eq2.2}), Equation (\ref{eq2.3}), Equation (\ref{eq2.4}) Substitution into Equation (\ref{eq2.1})
+
+\begin{equation}
+	P_{comp}(t) = \frac{1}{\eta_{sys}(t)} \frac{v_{air}}{x_{O_2}}\frac{N_{cell}I(t)}{4\mathscr{F}} \frac{\gamma}{\gamma-1}RT_e(\tau^{\frac{\gamma-1}{\gamma}}-1)\label{eq2.1}
+\end{equation}
+
+
+
+
 
 
 

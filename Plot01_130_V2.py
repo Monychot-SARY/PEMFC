@@ -202,7 +202,7 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, F_total, InP, SoC, pow
     plt.annotate(f'Max: {max(F_total / 1000):.2f} kN', xy=(t[np.argmax(F_total)], max(F_total / 1000)), fontsize=6, color='black')
     plt.legend()
     plt.tight_layout()
-    plt.savefig('Question_A_130.png', dpi=200)
+    plt.savefig('Question_A_130_V2.png', dpi=200)
     plt.show()
 
     # Plot Hybrid received power (kW)

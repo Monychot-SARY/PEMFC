@@ -6,3 +6,6 @@
 \BOOKMARK [2][-]{subsection.1.4}{Make the same analysis with the road cycle "130 kmh". Consider two different cases : = 0 and = 2 }{section.1}% 6
 \BOOKMARK [3][-]{subsubsection.1.4.1}{Analysis = 0}{subsection.1.4}% 7
 \BOOKMARK [3][-]{subsubsection.1.4.2}{Analysis = 2}{subsection.1.4}% 8
+\BOOKMARK [1][-]{section.2}{Analysis of the fuel cell system with WLTC profile}{}% 9
+\BOOKMARK [2][-]{subsection.2.1}{Calculate and Plot as a function of the stack current: }{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.1}{The electrical power consumed by the air compressor}{subsection.2.1}% 11

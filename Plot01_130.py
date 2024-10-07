@@ -205,7 +205,7 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, F_total, InP, SoC, pow
     plt.savefig('Question_A_130.png', dpi=200)
     plt.show()
 
-    plt.figure(figsize=(8, 10))
+    plt.figure(figsize=(8, 8))
 
     # Plot Hybrid received power (kW)
     
