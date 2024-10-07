@@ -26,7 +26,7 @@
 \usepackage{enumitem}
 % Custom headers and footers using fancyhdr package
 \pagestyle{fancy}
-\fancyhead[L]{\footnotesize Institute of Polytechique of Grenoble}
+\fancyhead[L]{\footnotesize INP-UGA ENES3 M2 SGB}
 \fancyhead[R]{\footnotesize New Sustainable Technoglogies}
 \fancyhead[C]{\footnotesize 2024 - 2025}
 \renewcommand{\headrulewidth}{0.5pt}
@@ -257,7 +257,7 @@
 \newpage
 	\begin{figure}[h]
 		\centering 
-		\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_B.png}
+		\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_B.png}
 		\caption{\small {Hybrid working system in power transfer}}
 		\label{7}
 	\end{figure}
@@ -280,7 +280,7 @@ The energy management strategy of the hybridization between the battery and the 
 
 	\begin{figure}[h]
 	\centering 
-	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_C.png}
+	\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_C.png}
 	\caption{\small {Hybrid system, Battery Management, Fuel Cell power and State of Charge in the Vehicle}}
 	\label{8}
 	\end{figure}
@@ -290,7 +290,13 @@ The energy management strategy of the hybridization between the battery and the 
 		\item The first plot of the Figure (\ref{8}) (represented by the by blue curve) show about the \textbf{Hybrid Power} working in the system.
 		\item The second plot of the Figure (\ref{8}) (represented by the by yellow curve) show the characteristic of the charging and discharging of the Battery in the vehicle. The maximum power discharging is \textbf{12.4 kW} and the maximum power charging is \textbf{7.44 kW}. The status of charge and discharge ws depend on the time and speed per second.
 		\item  The third plot of the Figure (\ref{8}) (represented by the by green curve) show the fuel cell consumption that will be use in the system. The maximum fuel cell consumption is \textbf{46.42 kW}. The consumption of the fuel cell variable depend on the time.
-		\item The fourth plot in Figure (\ref{8}) (represented by the by red curve) illustrates the State of Charge (SoC) of the battery system. It starts with an initial SoC of approximately \textbf{60\%} and gradually decreases to \textbf{56.28\%} over time, depending on the driving characteristics. The SoC can fluctuate, increasing or decreasing based on the motor's operation and the dynamics of the hybrid system.m
+		\item The fourth plot in Figure (\ref{8}) (represented by the by red curve) illustrates the State of Charge (SoC) of the battery system. By using formula to determine State of Charge in the system, we do it by : 
+	\begin{equation}
+			\text{SoC}_i = \min\left( \text{SoC}_{\text{max}}, \max\left( \text{SoC}_{\text{min}}, \text{SoC}_{i-1} - \frac{\text{power bat}_i}{3600 \cdot \text{batcapacity}} + \frac{\text{demand}_i}{3600 \cdot \text{batcapacity}} \right) \right)
+	\end{equation}
+
+		
+		It starts with an initial SoC of approximately \textbf{60\%} and gradually decreases to \textbf{56.28\%} over time, depending on the driving characteristics. The SoC can fluctuate, increasing or decreasing based on the motor's operation and the dynamics of the hybrid system.
 		
 	\end{itemize}
 
@@ -301,7 +307,7 @@ The energy management strategy of the hybridization between the battery and the 
 	\subsubsection{Analysis $\alpha = 0^\circ$}
 		\begin{figure}[h]
 			\centering 
-			\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Complete_Plots_130_Speed.png}
+			\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130.png}
 			\caption{\small {Plots related to Speed, acceleration, air resistance, and rolling resistance over time}}
 			\label{9}
 		\end{figure}
@@ -309,9 +315,58 @@ The energy management strategy of the hybridization between the battery and the 
 	In the Figure (\ref{9}), it was shown the data curve about the speed within $km/h$ and $m/s$, acceleration in $m/s^2$, Air Resistance and Rolling Resistance.
 	
 		\begin{itemize}
-			\item The first red curve in the Figure (\ref{9})
+			\item The first red and blue curve in the Figure (\ref{9}) represented to the speed of the vehicle drive over time in $km/h$ and $m/s$.
+			\item The green curve in the Figure (\ref{9}) presented to the acceleration of the vehicle that show the characteristic of the vehicle drive. (Increase or Decrease Speed)
+			\item The air resistance calculated by using Equation (\ref{eq1})  and (\ref{eq8}) . The result of the calculate shown in the yellow curve of the Figure (\ref{9}).
+			\item Rolling Resistance determined by usig Equation (\ref{eq2}) and the result of the calculation displayed at the Equation (\ref{eq9}) and shown at the black curve.
 		\end{itemize}
 	
+	
+	\begin{figure}[h]
+		\centering 
+		\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_B_130.png}
+		\caption{\small {Hybrid working in Power transfer in Vehicle 130kmh}}
+		\label{10}
+	\end{figure}
+As show in Figure (\ref{10}), we can assume that vehicle at this speed characteristic shown that the Hybrid system did not receive any power from the motor but it provided full power to the motor.
+	\begin{figure}[h]
+		\centering 
+		\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_C_130.png}
+		\caption{\small {Hybrid system, Battery Management, Fuel Cell power and State of Charge in the Vehicle}}
+		\label{11}
+	\end{figure}
+\begin{itemize}
+	\item \textbf{Hybrid Power (kW)}:
+	\begin{itemize}
+		\item This plot shows the total hybrid power delivered by the system.
+		\item The power reaches a peak of approximately 3.17 kW at the start.
+		\item It rapidly drops to 0 kW after around 25 seconds and remains flat for the rest of the 300-second period.
+	\end{itemize}
+	
+	\item \textbf{Battery Power (kW)}:
+	\begin{itemize}
+		\item This plot shows the power supplied by the battery alone.
+		\item Initially, the battery power spikes to a peak of around 3.31 kW.
+		\item It sharply decreases to 0 kW after about 25 seconds, staying at that level for the rest of the duration.
+	\end{itemize}
+	
+	\item \textbf{Fuel Cell Power (kW)}:
+	\begin{itemize}
+		\item This plot shows the power generated by the fuel cell.
+		\item The fuel cell power reaches a maximum of about 2.76 kW early in the period.
+		\item It drops rapidly to 2.5 kW within 25 seconds and remains constant at this level for the remainder of the time.
+	\end{itemize}
+	
+	\item \textbf{State of Charge (SoC) (\%)}:
+	\begin{itemize}
+		\item This plot represents the battery’s state of charge (SoC) over time.
+		\item The SoC starts at approximately 60\% and decreases gradually over time.
+		\item By the end of the 300-second period, it reaches around 59.3\%.
+	\end{itemize}
+\end{itemize}
+
+
+
 	
 	
 	
