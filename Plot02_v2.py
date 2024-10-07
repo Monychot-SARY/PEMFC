@@ -217,7 +217,7 @@ def compute_results_optimization(time, Power_demand, A_cell, polarization_curve,
 lb = 0  # Lower bound for U_cell
 ub = 0.85 # Upper bound for U_cell
 error =10e-10
-Result_optimization = compute_results_optimization(time, Instant_power, A_cell, polarization_curve, N_cells, lb, ub, error)
+Result_optimization = compute_results_optimization(time, InP_Hybrid, A_cell, polarization_curve, N_cells, lb, ub, error)
 Result_optimization = pd.DataFrame(Result_optimization)
 I_cell = np.zeros(len(time))
 

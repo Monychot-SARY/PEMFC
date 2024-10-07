@@ -74,7 +74,7 @@
 \begin{document}
 	\title{\textbf{PEM Fuel Cell system analysis }}
 	\author{SARY Monychot \& NIANG Bora }
-	\date{\today}
+	%\date{\today}
 	\maketitle
 		% Table of Contents
 	\tableofcontents
@@ -99,15 +99,15 @@
 	\begin{itemize}
 		\item Air penetration : 
 		\begin{equation}
-				F = \frac{1}{2}\rho_{air}v^2CA  \label{eq1}
+				F{(t)} = \frac{1}{2}\rho_{air}v^2_{(t)}CA  \label{eq1}
 		\end{equation} with $\rho_{air} = 1.2    kg/m^3$
 		\item Rolling resistance :	
 		\begin{equation}
-			 F = MgC_r\cos{\alpha} \label{eq2}
+			 F(t) = MgC_r\cos{\alpha} \label{eq2}
 		\end{equation}with $g = 9.81 m/s^2$ and $\alpha$ the slope angle
 		\item Climbing or descent : 
 		\begin{equation}
-			F = Mg\sin{\alpha} \label{eq3}
+			F(t) = Mg\sin{\alpha} \label{eq3}
 		\end{equation} 
 		
 	\end{itemize}
@@ -183,13 +183,13 @@
 	\begin{itemize}[label=-]
 		\item For calculate $F_{air}$ by using Equation (\ref{eq1}) , we got :
 			\begin{equation}
-2				F_{air} = \frac{1}{2}\rho_{air}v^2CA = \frac{1}{2}\times1.2\times 	v^2_{m/s}_{,t}\times0.29\times 2.25 \label{eq7}
+			F_{air}(t) = \frac{1}{2}\rho_{air}v^2CA = \frac{1}{2}\times1.2\times 	v^2_{m/s}_{,t}\times0.29\times 2.25 \label{eq7}
 			\end{equation}
 			In this section, to calculate $F_{air}$ we need to get the speed in each time $t$ in $m/s^2$ to analyze in the Equation (\ref{eq7})
 			By using the Equation (\ref{eq1}), we got the result of the force air penetration by shown in below graph.
 		\item For calculate $F_{rolling}$, we will be using the Equation (\ref{eq2}), we got :
 			\begin{equation}
-				F_{rolling} = MgC_r\cos(\alpha) = 2000kg\times9.81m/s^2\times0.0115\times\cos(0^\circ) = \textbf{225.630} \label{eq8}
+				F_{rolling}(t) = MgC_r\cos(\alpha) = 2000kg\times9.81m/s^2\times0.0115\times\cos(0^\circ) = \textbf{225.630} \label{eq8}
 			\end{equation}
 			For this force, it will be constant in time $(t)$ becuase there is not any parameter in the Equation (\ref{eq8}) will change in which time.
 			
@@ -197,7 +197,7 @@
 		\item For calculate $F_{climb}$, we will use Equation (\ref{eq4}) then we got:
 		
 			\begin{equation}
-				F = Mg\sin(\alpha) = 2000kg \times 9.81m/s^2 \times \sin(0^\circ) = 0 \label{eq9}
+				F_{climb}(t) = Mg\sin(\alpha) = 2000kg \times 9.81m/s^2 \times \sin(0^\circ) = 0 \label{eq9}
 			\end{equation}		
 	\end{itemize}
 
@@ -327,7 +327,7 @@ The energy management strategy of the hybridization between the battery and the 
 			\item The first red and blue curve in the Figure (\ref{9}) represented to the speed of the vehicle drive over time in $km/h$ and $m/s$.
 			\item The green curve in the Figure (\ref{9}) presented to the acceleration of the vehicle that show the characteristic of the vehicle drive. (Increase or Decrease Speed)
 			\item The air resistance calculated by using Equation (\ref{eq1})  and (\ref{eq8}) . The result of the calculate shown in the yellow curve of the Figure (\ref{9}).
-			\item Rolling Resistance determined by usig Equation (\ref{eq2}) and the result of the calculation displayed at the Equation (\ref{eq9}) and shown at the black curve.
+			\item The total Force or Motor Force determined by usig Equation (\ref{eq5}) and the result of the calculation displayed at the black curve shown that the maximum motor force is \textbf{2.74 kN}.
 		\end{itemize}
 	
 	
@@ -385,14 +385,24 @@ As show in Figure (\ref{10}), we can assume that vehicle at this speed character
 	
 	\begin{figure}[h]
 		\centering 
-		\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130_V2.png}
+		\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Question_A_130_V2.png}
 		\caption{\small {Hybrid system, Battery Management, Fuel Cell power and State of Charge in the Vehicle}}
 		\label{12}
 	\end{figure}
 
+The speed and acceleration are the same from the pervious but there are some change on the air resistance, rolling resistance and climbing	resistance. 
 
-
-
+\begin{itemize}
+	\item For the Air resistance using Equation (\ref{eq1}), we got the result shown in the Figure (\ref{12}).
+	\item The Rolling Resistance using Equation (\ref{eq2}), as the result we can write :
+		\begin{equation}
+			F_{rolling}(t) = 200kg\times9.81m/s^2\times0.0115\times \cos(0^\circ) = \textbf{225.4926 N}\label{eq13}
+		\end{equation}
+	\item The Climbing Resistance using Equation (\ref{eq3}), as the result we computed :
+		\begin{equation}
+			F_{climb}(t) = Mg\sin(\alpha) = 2000kg \times 9.81m/s^2 \times \sin(2^\circ) = \textbf{684.811 N} \label{eq14}
+		\end{equation}
+\end{itemize}
 
 
 

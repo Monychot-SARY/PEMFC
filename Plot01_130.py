@@ -80,7 +80,7 @@ def calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl):
     for i in range(len(t)):
         InP_Hybrid[i] = Bat[i] + Bat_motor_gen[i] + Bat_motor_demand[i]  # in Watts
         
-    return InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand
+    return InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand,F_total
 
 # Function to simulate battery SoC and fuel cell dynamics
 def simulate_soc_and_power(t, InP_Hybrid):
@@ -146,7 +146,7 @@ def simulate_soc_and_power(t, InP_Hybrid):
     return SoC, power_battery, power_fuel_cell, power_hybrid
 
 # Function to plot results
-def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid,Bat_motor_gen,Bat_motor_demand,InP_Hybrid):
+def plot_results(t, v, v_s, acceleration, Fair, Frolling, F_total, InP, SoC, power_battery, power_fuel_cell, power_hybrid,Bat_motor_gen,Bat_motor_demand,InP_Hybrid,):
     time = 300
 
     
@@ -194,10 +194,12 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_b
     plt.annotate(f'Max: {max(Fair / 1000):.2f} kN', xy=(t[np.argmax(Fair)], max(Fair / 1000)), fontsize=6, color='black')
 
     plt.subplot(5, 1, 5)
-    plt.plot(t, Frolling * np.ones_like(t) / 1000, 'k-', label='Rolling Resistance (kN)')
+    plt.plot(t, F_total / 1000, 'k-', label='Total Force(kN)')
     plt.xlabel('Time (s)')
-    plt.ylabel('Rolling Resistance (kN)')
+    plt.ylabel('Total Force (kN)')
     plt.xlim([t[0], time])
+    plt.annotate(f'Min: {min(F_total / 1000):.2f} kN', xy=(t[np.argmin(F_total)], min(F_total / 1000)), fontsize=6, color='black')
+    plt.annotate(f'Max: {max(F_total / 1000):.2f} kN', xy=(t[np.argmax(F_total)], max(F_total / 1000)), fontsize=6, color='black')
     plt.legend()
     plt.tight_layout()
     plt.savefig('Question_A_130.png', dpi=200)
@@ -206,37 +208,39 @@ def plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_b
     plt.figure(figsize=(8, 10))
 
     # Plot Hybrid received power (kW)
+    
+    # Plot Instant Power (kW)
     plt.subplot(3, 1, 1)
+    plt.plot(t, InP / 1000, 'g-', label='Instant Power (kW)')
+    plt.xlim([0, time])
+    plt.xlabel('Time (s)')
+    plt.ylabel('Hy(kW)')
+    plt.legend()
+    # Annotate min and max values without arrows
+    plt.annotate(f'Min: {min(InP/1000):.2f} kW', xy=(t[np.argmin(InP)], min(InP/1000)), fontsize=6, color='black')
+    plt.annotate(f'Max: {max(InP/1000):.2f} kW', xy=(t[np.argmax(InP)], max(InP/1000)), fontsize=6, color='black')
+    
+    
+    plt.subplot(3, 1, 2)
     plt.plot(t, Bat_motor_gen / 1000, 'r-', label='Hybrid received power (kW)')
     plt.xlim([0, time])
     plt.xlabel('Time (s)')
-    plt.ylabel('Hybrid power (kW)')
+    plt.ylabel('Power (kW)')
     plt.legend()
     # Annotate min and max values without arrows
     plt.annotate(f'Min: {min(Bat_motor_gen/1000):.2f} kW', xy=(t[np.argmin(Bat_motor_gen)], min(Bat_motor_gen/1000)), fontsize=6, color='black')
     plt.annotate(f'Max: {max(Bat_motor_gen/1000):.2f} kW', xy=(t[np.argmax(Bat_motor_gen)], max(Bat_motor_gen/1000)), fontsize=6, color='black')
 
     # Plot Hybrid provided power (kW)
-    plt.subplot(3, 1, 2)
+    plt.subplot(3, 1, 3)
     plt.plot(t, Bat_motor_demand / 1000, 'b-', label='Hybrid provided power (kW)')
     plt.xlim([0, time])
     plt.xlabel('Time (s)')
-    plt.ylabel('Hybrid power (kW)')
+    plt.ylabel('Power (kW)')
     plt.legend()
     # Annotate min and max values without arrows
     plt.annotate(f'Min: {min(Bat_motor_demand/1000):.2f} kW', xy=(t[np.argmin(Bat_motor_demand)], min(Bat_motor_demand/1000)), fontsize=6, color='black')
     plt.annotate(f'Max: {max(Bat_motor_demand/1000):.2f} kW', xy=(t[np.argmax(Bat_motor_demand)], max(Bat_motor_demand/1000)), fontsize=6, color='black')
-
-    # Plot Instant Power (kW)
-    plt.subplot(3, 1, 3)
-    plt.plot(t, InP_Hybrid / 1000, 'g-', label='Instant Power (kW)')
-    plt.xlim([0, time])
-    plt.xlabel('Time (s)')
-    plt.ylabel('Instant Power (kW)')
-    plt.legend()
-    # Annotate min and max values without arrows
-    plt.annotate(f'Min: {min(InP_Hybrid/1000):.2f} kW', xy=(t[np.argmin(InP_Hybrid)], min(InP_Hybrid/1000)), fontsize=6, color='black')
-    plt.annotate(f'Max: {max(InP_Hybrid/1000):.2f} kW', xy=(t[np.argmax(InP_Hybrid)], max(InP_Hybrid/1000)), fontsize=6, color='black')
 
     plt.tight_layout()
     plt.savefig('Question_B_130.png', dpi=200)
@@ -295,10 +299,10 @@ def main():
         return  # Exit if no data
 
     v_s, acceleration, Fair, Frolling, Fcl = calculate_forces(t, v)
-    InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl)
+    InP, InP_Hybrid, Bat_motor_gen, Bat_motor_demand,F_total = calculate_power(t, v_s, acceleration, Fair, Frolling, Fcl)
     SoC, power_battery, power_fuel_cell, power_hybrid = simulate_soc_and_power(t, InP_Hybrid)
 
-    plot_results(t, v, v_s, acceleration, Fair, Frolling, Fcl, InP, SoC, power_battery, power_fuel_cell, power_hybrid,Bat_motor_gen,Bat_motor_demand,InP_Hybrid)
+    plot_results(t, v, v_s, acceleration, Fair, Frolling, F_total, InP, SoC, power_battery, power_fuel_cell, power_hybrid,Bat_motor_gen,Bat_motor_demand,InP_Hybrid)
 
 # Execute the main function
 if __name__ == "__main__":
