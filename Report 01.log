@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  8 OCT 2024 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  8 OCT 2024 22:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1480,7 +1480,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 88.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Speed_
-1.png, id=113, 413.74574pt x 299.1978pt>
+1.png, id=137, 413.74574pt x 299.1978pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/S
 peed_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Sp
@@ -1489,7 +1489,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Speed_1.png  used on input line 128.
 (pdftex.def)             Requested size: 241.70557pt x 174.79031pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Speed 
-ms-1_1.png, id=115, 410.4936pt x 299.1978pt>
+ms-1_1.png, id=139, 410.4936pt x 299.1978pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/S
 peed ms-1_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Sp
@@ -1503,7 +1503,7 @@ Overfull \hbox (33.35315pt too wide) in paragraph at lines 127--133
  []
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/2.png,
- id=117, 273.68916pt x 117.10417pt>
+ id=141, 273.68916pt x 117.10417pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/2
 .png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/2.
@@ -1518,7 +1518,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ed_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PE
 MFC/Speed ms-1_1.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Accele
-ration_1.png, id=136, 425.30894pt x 298.4751pt>
+ration_1.png, id=160, 425.30894pt x 298.4751pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/A
 cceleration_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Ac
@@ -1603,7 +1603,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fair_1
-.png, id=162, 413.02306pt x 299.1978pt>
+.png, id=187, 413.02306pt x 299.1978pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/F
 air_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Fa
@@ -1612,7 +1612,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Fair_1.png  used on input line 216.
 (pdftex.def)             Requested size: 241.70557pt x 175.09619pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Total_
-Force_1.png, id=163, 428.5611pt x 302.8113pt>
+Force_1.png, id=188, 428.5611pt x 302.8113pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/T
 otal_Force_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/To
@@ -1629,7 +1629,7 @@ Overfull \hbox (33.35315pt too wide) in paragraph at lines 215--221
 r_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEM
 FC/Total_Force_1.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_
-1.png, id=180, 426.93503pt x 303.71468pt>
+1.png, id=204, 426.93503pt x 303.71468pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/P
 ower_1.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Po
@@ -1638,7 +1638,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Power_1.png  used on input line 247.
 (pdftex.def)             Requested size: 352.48889pt x 250.76695pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC.jpg
-, id=181, 927.465pt x 560.0925pt>
+, id=205, 927.465pt x 560.0925pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/D
 C.jpg Graphic file (type jpg)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/DC
@@ -1650,7 +1650,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
 wer_1.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/P
 EMFC/DC.jpg>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_B.png, id=188, 867.24pt x 578.16pt>
+on_B.png, id=212, 867.24pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_B.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1661,7 +1661,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  [6 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_B.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_C.png, id=197, 722.7pt x 578.16pt>
+on_C.png, id=221, 722.7pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_C.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1732,7 +1732,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 324.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_A_130.png, id=212, 433.62pt x 578.16pt>
+on_A_130.png, id=236, 433.62pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_A_130.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1743,7 +1743,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
 [8 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Que
 stion_A_130.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_B_130.png, id=226, 578.16pt x 578.16pt>
+on_B_130.png, id=250, 578.16pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_B_130.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1752,7 +1752,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Question_B_130.png  used on input line 344.
 (pdftex.def)             Requested size: 453.19891pt x 453.19495pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_C_130.png, id=228, 578.16pt x 578.16pt>
+on_C_130.png, id=252, 578.16pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_C_130.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1788,7 +1788,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 392.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_A_130_V2.png, id=241, 578.16pt x 722.7pt>
+on_A_130_V2.png, id=265, 578.16pt x 722.7pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_A_130_V2.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1799,7 +1799,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
 [11 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
 estion_A_130_V2.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_B_130_V2.png, id=253, 578.16pt x 722.7pt>
+on_B_130_V2.png, id=277, 578.16pt x 722.7pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_B_130_V2.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1808,7 +1808,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Question_B_130_V2.png  used on input line 420.
 (pdftex.def)             Requested size: 417.95386pt x 522.43883pt.
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Questi
-on_C_130_V2.png, id=255, 578.16pt x 578.16pt>
+on_C_130_V2.png, id=279, 578.16pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Q
 uestion_C_130_V2.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Qu
@@ -1872,7 +1872,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 467.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_
-of_Air_compressor.png, id=275, 433.62pt x 433.62pt>
+of_Air_compressor.png, id=299, 433.62pt x 433.62pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/P
 ower_of_Air_compressor.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Po
@@ -1886,7 +1886,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [14] [15 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEM
 FC/Power_of_Air_compressor.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Power_
-of_Fuel_Cell.png, id=298, 433.62pt x 433.62pt>
+of_Fuel_Cell.png, id=322, 433.62pt x 433.62pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/P
 ower_of_Fuel_Cell.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Po
@@ -1898,7 +1898,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
 ower_of_Fuel_Cell.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hydrog
 en Consumption vs Current Density in fit with fifth degree polynomial.png, id=3
-08, 433.62pt x 289.08pt>
+32, 433.62pt x 289.08pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/H
 ydrogen Consumption vs Current Density in fit with fifth degree polynomial.png 
 Graphic file (type png)
@@ -1930,7 +1930,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hydrog
-en_Mass_and_Efficiency.png, id=343, 722.7pt x 578.16pt>
+en_Mass_and_Efficiency.png, id=367, 722.7pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/H
 ydrogen_Mass_and_Efficiency.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hy
@@ -1940,48 +1940,8 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
 (pdftex.def)             Requested size: 503.55777pt x 402.8478pt.
 [20 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hy
 drogen_Mass_and_Efficiency.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 823.
-
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Que
-stion_A.png, id=355, 867.24pt x 722.7pt>
+stion_A.png, id=379, 867.24pt x 722.7pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 1/Question_A.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1
@@ -1989,10 +1949,10 @@ File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/C1/Question_A.png  used on input line 827.
 (pdftex.def)             Requested size: 503.55777pt x 419.64047pt.
-[21] [22 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEM
-FC/C1/Question_A.png>]
+ [21] [22 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PE
+MFC/C1/Question_A.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Que
-stion_C.png, id=374, 722.7pt x 578.16pt>
+stion_C.png, id=398, 722.7pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 1/Question_C.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1
@@ -2003,7 +1963,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  [23 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 1/Question_C.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Hyd
-rogen_Mass_and_Efficiency.png, id=394, 722.7pt x 578.16pt>
+rogen_Mass_and_Efficiency.png, id=418, 722.7pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 1/Hydrogen_Mass_and_Efficiency.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1
@@ -2011,50 +1971,11 @@ File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/C1/Hydrogen_Mass_and_Efficiency.png  used on input line 879.
 (pdftex.def)             Requested size: 503.55777pt x 402.8478pt.
- [24 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
-1/Hydrogen_Mass_and_Efficiency.png>]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 894.
-
+[24 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1
+/Hydrogen_Mass_and_Efficiency.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2/Que
-stion_A.png, id=404, 867.24pt x 722.7pt>
+stion_A.png, id=429, 867.24pt x 722.7pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 2/Question_A.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2
@@ -2062,10 +1983,10 @@ File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/C2/Question_A.png  used on input line 901.
 (pdftex.def)             Requested size: 503.55777pt x 419.64047pt.
-[25 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2
-/Question_A.png>]
+ [25 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+2/Question_A.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2/Que
-stion_C.png, id=419, 722.7pt x 578.16pt>
+stion_C.png, id=444, 722.7pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 2/Question_C.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2
@@ -2076,7 +1997,7 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  [26 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 2/Question_C.png>]
 <E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2/Hyd
-rogen_Mass_and_Efficiency.png, id=438, 722.7pt x 578.16pt>
+rogen_Mass_and_Efficiency.png, id=462, 722.7pt x 578.16pt>
 File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 2/Hydrogen_Mass_and_Efficiency.png Graphic file (type png)
 <use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2
@@ -2084,27 +2005,172 @@ File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
 Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/C2/Hydrogen_Mass_and_Efficiency.png  used on input line 952.
 (pdftex.def)             Requested size: 478.37834pt x 382.70717pt.
- [27 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
-2/Hydrogen_Mass_and_Efficiency.png>]
-[28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 971.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 971.
- (./Report 01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 971.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 971.
+
+[27 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2
+/Hydrogen_Mass_and_Efficiency.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 975.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 975.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 975.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 975.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 975.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\circ' on input line 975.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 975.
+
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3/Que
+stion_3.png, id=472, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+3/Question_3.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3
+/Question_3.png>
+Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
+ Technology/PEMFC/C3/Question_3.png  used on input line 979.
+(pdftex.def)             Requested size: 478.37834pt x 382.70717pt.
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3/Hyd
+rogen_Mass_and_Efficiency.png, id=473, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+3/Hydrogen_Mass_and_Efficiency.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3
+/Hydrogen_Mass_and_Efficiency.png>
+Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
+ Technology/PEMFC/C3/Hydrogen_Mass_and_Efficiency.png  used on input line 985.
+(pdftex.def)             Requested size: 322.27666pt x 257.82294pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 992.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 992.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 992.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\circ' on input line 992.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 992.
+
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4/Hyd
+rogen_Mass_and_Efficiency.png, id=474, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+4/Hydrogen_Mass_and_Efficiency.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4
+/Hydrogen_Mass_and_Efficiency.png>
+Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
+ Technology/PEMFC/C4/Hydrogen_Mass_and_Efficiency.png  used on input line 995.
+(pdftex.def)             Requested size: 317.24385pt x 253.79129pt.
+[28 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3
+/Question_3.png>] [29 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New T
+echnology/PEMFC/C3/Hydrogen_Mass_and_Efficiency.png> <e:/07. Master_Degree_ITC+
+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4/Hydrogen_Mass_and_Efficiency.
+png>]
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4/Que
+stion_3.png, id=489, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+4/Question_3.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4
+/Question_3.png>
+Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
+ Technology/PEMFC/C4/Question_3.png  used on input line 1002.
+(pdftex.def)             Requested size: 302.13773pt x 241.70514pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1006.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 1006.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 1006.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\circ' on input line 1006.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1006.
+
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C5/Que
+stion_3.png, id=490, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+5/Question_3.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C5
+/Question_3.png>
+Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
+ Technology/PEMFC/C5/Question_3.png  used on input line 1009.
+(pdftex.def)             Requested size: 302.13773pt x 241.70514pt.
+<E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C5/Hyd
+rogen_Mass_and_Efficiency.png, id=491, 722.7pt x 578.16pt>
+File: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C
+5/Hydrogen_Mass_and_Efficiency.png Graphic file (type png)
+<use E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C5
+/Hydrogen_Mass_and_Efficiency.png>
+Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
+ Technology/PEMFC/C5/Hydrogen_Mass_and_Efficiency.png  used on input line 1017.
+
+(pdftex.def)             Requested size: 302.13773pt x 241.70514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[30 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4
+/Question_3.png> <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Techno
+logy/PEMFC/C5/Question_3.png>] [31 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_
+UGA/02. New Technology/PEMFC/C5/Hydrogen_Mass_and_Efficiency.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1026.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1026.
+
+(./Report 01.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1026.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1026.
+
 Package rerunfilecheck Info: File `"Report 01".out' has not changed.
-(rerunfilecheck)             Checksum: 1455BBAA03416ABDE5975FD6B8B2C3ED;2360.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 971.
+(rerunfilecheck)             Checksum: 4468C9A95083F82CB05C2127AAE318BB;2985.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1026.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 243 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25115 strings out of 480608
- 474038 string characters out of 5907536
+ 25172 strings out of 480608
+ 477606 string characters out of 5907536
  914021 words of memory out of 5000000
- 40362 multiletter control sequences out of 15000+600000
+ 40402 multiletter control sequences out of 15000+600000
  547214 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,14n,71p,932b,680s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2125,10 +2191,10 @@ ublic/amsfonts/cm/cmti12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmtt12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
 <c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "Report 01.pdf" (28 pages, 5758974 bytes).
+Output written on "Report 01.pdf" (31 pages, 6717474 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 433 compressed objects within 5 object streams
- 110 named destinations out of 1000 (max. 500000)
- 279 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 594 PDF objects out of 1000 (max. 8388607)
+ 475 compressed objects within 5 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 

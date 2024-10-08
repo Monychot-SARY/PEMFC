@@ -15,3 +15,7 @@
 \BOOKMARK [2][-]{subsection.2.3}{Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}{section.2}% 15
 \BOOKMARK [3][-]{subsubsection.2.3.1}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh}{subsection.2.3}% 16
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Second : C = 0.40 , Cr = 0.014, Battery Charging = 5C,20C and Battery Capacity = 1.86 kWh}{subsection.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.4}{Using the same method as in question 2, calculate and plot as a function of time for both slope angle values:}{section.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.4.1}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh, \040= 0}{subsection.2.4}% 19
+\BOOKMARK [3][-]{subsubsection.2.4.2}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh, = 2}{subsection.2.4}% 20
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Second : C = 0.40 , Cr = 0.014, Battery Charging = 5C,20C and Battery Capacity = 1.86 kWh, \040= 0}{subsection.2.4}% 21

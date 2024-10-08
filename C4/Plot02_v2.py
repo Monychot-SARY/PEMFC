@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
-from Plot01_130 import calculate_forces, calculate_power, simulate_soc_and_power
+from Plot01_V1 import calculate_forces, calculate_power, simulate_soc_and_power
 from scipy.optimize import minimize_scalar
 import os
 #-------------------- Parameter Initialization ----------------------------#
@@ -268,14 +268,14 @@ P_thermal = np.ones(len(time))
 for i in range (len(time)):
     P_thermal[i] = power_fuel_cell[i]/((1/efficiency[i])-1)
 # Print result
-t = 300
+
 print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
 print(f'Average System Efficiency: {average_efficiency:.2f}%')
 print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/100km')
 print(f'Operation Range: {operation_range:.2f} km')
 # Create a figure with two subplots
 
-
+t =300
 
 
 
@@ -294,12 +294,12 @@ plt.xlim([time[0],t])
 plt.legend()
 # Plot system efficiency over time (subplot 2)
 plt.subplot(2, 1, 2)
-plt.plot(time, P_thermal, 'y-', label='Thermal power produced by the fuel cell')
-plt.title('Thermal power produced by the fuel cell')
+plt.plot(time, efficiency * 100, 'm-', label='System Efficiency (%)')
+plt.title(f'System Efficiency over Time\nAverage System Efficiency: {average_efficiency:.2f}% \n Operation Range : {operation_range:.2f} km' , fontsize=12)
 plt.xlabel('Time (s)')
-plt.ylabel('Thermal power produced by the fuel cell  (kW)')
+plt.ylabel('Efficiency (%)')
 plt.xlim([time[0],t])
-plt.ylim([min(P_thermal), max(P_thermal) * 1.1])  # Corrected here
+plt.ylim([min(efficiency * 100), max(efficiency * 100) * 1.1])  # Corrected here
 plt.legend()
 
 plt.tight_layout()  # Adjust the rect parameter to leave space for the suptitle
@@ -308,4 +308,80 @@ plt.show()
 
 
 #==================================================================================================
+plt.figure(figsize=(10, 8))  # Increased figure size
 
+# Subplot 1: Air Resistance
+plt.subplot(2, 2, 1)
+plt.plot(time, power_fuel_cell / 1000, 'y-', label='Fuel Cell Power (kW)')
+plt.xlabel('Time (s)')
+plt.ylabel('Fuel Cell Power (kW)')
+plt.xlim([0, time[-1]])
+plt.legend()
+
+# Shortened arrows by adjusting xytext
+plt.annotate(f'Min: {min(power_fuel_cell / 1000):.2f} kW', 
+             xy=(time[np.argmin(power_fuel_cell)], min(power_fuel_cell / 1000)), 
+             xytext=(time[np.argmin(power_fuel_cell)]+0.00005, min(power_fuel_cell / 1000)+0.00000005),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+plt.annotate(f'Max: {max(power_fuel_cell / 1000):.2f} kW', 
+             xy=(time[np.argmax(power_fuel_cell)], max(power_fuel_cell / 1000)), 
+             xytext=(time[np.argmax(power_fuel_cell)]-0.0000005, max(power_fuel_cell / 1000)-0.000005),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+
+# Subplot 2: Instant hydrogen consumption
+plt.subplot(2, 2, 2)
+plt.plot(time, mass_hydro, 'k-', label='Instant hydrogen consumption (kg/s)')
+plt.xlabel('Time (s)')
+plt.ylabel('Instant hydrogen consumption (kg/s)')
+plt.xlim([0, time[-1]])
+plt.legend()
+
+# Shortened arrows by adjusting xytext
+plt.annotate(f'Min: {min(mass_hydro):.6f} kg/s', 
+             xy=(time[np.argmin(mass_hydro)], min(mass_hydro)), 
+             xytext=(time[np.argmin(mass_hydro)] + 0.051, min(mass_hydro) + 0.00005),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+plt.annotate(f'Max: {max(mass_hydro):.6f} kg/s', 
+             xy=(time[np.argmax(mass_hydro)], max(mass_hydro)), 
+             xytext=(time[np.argmax(mass_hydro)] - 0.051, max(mass_hydro) - 0.00005),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+
+# Subplot 3: State of Charge (SOC)
+plt.subplot(2, 2, 3)
+plt.plot(time, SoC, 'g-', label='State of Charge (%)')
+plt.xlabel('Time (s)')
+plt.ylabel('SOC (%)')
+plt.xlim([0, time[-1]])
+plt.legend()
+
+# Shortened arrows by adjusting xytext
+plt.annotate(f'Min: {min(SoC):.2f} %', 
+             xy=(time[np.argmin(SoC)], min(SoC)), 
+             xytext=(time[np.argmin(SoC)] + 0.11, min(SoC) + 0.1),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+plt.annotate(f'Max: {max(SoC):.2f} %', 
+             xy=(time[np.argmax(SoC)], max(SoC)), 
+             xytext=(time[np.argmax(SoC)] - 0.1, max(SoC) - 0.1),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+
+# Subplot 4: Thermal Power
+plt.subplot(2, 2, 4)
+plt.plot(time, P_thermal, 'b-', label='Thermal Power (kW)')
+plt.xlabel('Time (s)')
+plt.ylabel('Thermal Power (kW)')
+plt.xlim([0, time[-1]])
+plt.legend()
+
+# Shortened arrows by adjusting xytext
+plt.annotate(f'Min: {min(P_thermal):.2f} kW', 
+             xy=(time[np.argmin(P_thermal)], min(P_thermal)), 
+             xytext=(time[np.argmin(P_thermal)] + 1, min(P_thermal) + 2),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+plt.annotate(f'Max: {max(P_thermal):.2f} kW', 
+             xy=(time[np.argmax(P_thermal)], max(P_thermal)), 
+             xytext=(time[np.argmax(P_thermal)] - 1, max(P_thermal) - 2),
+             arrowprops=dict(facecolor='black', arrowstyle='->'), fontsize=8, color='black')
+
+plt.tight_layout()
+plt.savefig('Question_3.png', dpi=200)
+plt.show()
