@@ -12,4 +12,6 @@
 \contentsline {subsubsection}{\numberline {2.1.2}The electrical power delivered by fuel cell system.}{16}{subsubsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {2.1.3}The hydorgen consumption by the duel cell system. Fit the curve with a fifth degree polynomial.}{17}{subsubsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.2}Considering the WLTC drive cycle, calculate and plot the instant hydrogen consumption in kg/s as a function of time. Give the total amount of hydrogen consumed for one complete cycle. Calculate the average hydrogen consumption of the vehicle in kgH2/100 km. Deduce the vehicle operating range, and the average energetic efficiency. }{18}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}{21}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}{21}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}First : $C = 0.25$ , $Cr = 0.01$, Battery Charging = $5C$,$20C$ and Battery Capacity = $0.62 kWh$}{22}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Second : $C = 0.40$ , $Cr = 0.014$, Battery Charging = $5C$,$20C$ and Battery Capacity = $1.86 kWh$}{25}{subsubsection.2.3.2}%

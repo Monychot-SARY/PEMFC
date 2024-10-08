@@ -13,7 +13,7 @@ df = pd.read_excel(file, header=0)
 
 # Fuel cell system parameters
 data = pd.DataFrame({
-    "M_tank": [5.66],  # kg
+    "M_tank": [5.6],  # kg
     "P_H2": [700],  # bar
     "Molar_mass_dihydrogen": [2.016],  # g/mol
     "LHV": [242],  # kJ/mol

@@ -648,7 +648,8 @@ The graph effectively communicates that hydrogen consumption increases linearly 
 \subsection{Considering the WLTC drive cycle, calculate and plot the instant hydrogen consumption in kg/s
 as a function of time. Give the total amount of hydrogen consumed for one complete cycle. 
 Calculate the average hydrogen consumption of the vehicle in kgH2/100 km. Deduce the vehicle 
-operating range, and the average energetic efficiency.}
+operating range, and the average energetic efficiency.
+}
 
 To Calculate the value in this question, we will use servals equation :
 
@@ -783,7 +784,7 @@ From Figure (\ref{18}), the plot presents two graphs that examine hydrogen mass 
 
 
 
-\subsubsection{Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}
+\subsection{Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}
 \begin{itemize}
 	\item Varation of C:
 	\begin{itemize}
@@ -815,10 +816,82 @@ From Figure (\ref{18}), the plot presents two graphs that examine hydrogen mass 
 In this question , we will devided the input parameter into two main part: 
 
 \begin{itemize}
-	\item First : $C = 0.25$ , $Cr = 0.01$, Battery Charging = $5C$ and Battery Capacity = $0.62 kWh$
-	\item Second : $C = 0.40$ , $Cr = 0.014$, Battery Charging = $20C$ and Battery Capacity = $1.86 kWh$
+	\item First : $C = 0.25$ , $Cr = 0.01$, Battery Charging = $5C$,$20C$ and Battery Capacity = $0.62 kWh$
+	\item Second : $C = 0.40$ , $Cr = 0.014$, Battery Charging = $5C$,$20C$ and Battery Capacity = $1.86 kWh$
 \end{itemize}
 
+
+\subsubsection{First : $C = 0.25$ , $Cr = 0.01$, Battery Charging = $5C$,$20C$ and Battery Capacity = $0.62 kWh$}
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Question_A.png}
+	\caption{\small {Curve of Air Resistance, Total Force, Instant Power, Hybrid Provided and Received Power}}
+	\label{19}
+\end{figure}
+As, we used to do at the previous Section(1) we assumed that:
+\begin{itemize}
+	\item By looking between the Figure (\ref{4})a with Figure (\ref{19}) yellow curve, we can see that air resistance likely decrease while the maximum air resistance force at Figure (\ref{4})a was around \textbf{500 N} but in Figure (\ref{19}) is around \textbf{450 N}.
+	\item For the total resistance force of vehicle from previous question in Figure (\ref{4})b slightly the same value of maximum and minimum of the value that we calculate in this question shown on the Figure (\ref{19}) black curve. 
+	\item As the result of the Total force resistance of previous question between this question calculation likely the same. We can assumed that the Instant power, Hybrid power received and provided of pervious question shown by Figure (\ref{7}) with this question calculation shown by Figure (\ref{19}) (Green, Blue and Red curve) are slightly the same characteristic as pervious one.
+	\begin{itemize}
+		\item The maximum, minimun of Instant Power of this question around \textbf{57.37 kW} and \textbf{34.60 kW} . So, we can said that the maximum of hybrid system will provided to the system is around \textbf{57.37 kW} and received \textbf{34.60 kW}.
+		\item The maximum, minimun of Instant Power of this question around \textbf{58.488 kW} and \textbf{34.365 kW}
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Question_C.png}
+	\caption{\small {Hydrid System, Battery Manangement, Fuel Cell Power and State of Charge of the Vehicle}}
+	\label{20}
+\end{figure}
+\begin{itemize}
+	\item \textbf{Hybrid Power (kW):}
+	\begin{itemize}
+		\item {Figure (\ref{20}):} The range goes up to maximum about \textbf{57.37 kW}, with frequent fluctuations between 0 and 60 kW, and a few drops below 0 kW to the minimum of \textbf{24.80 kW}. Moreover, this figure is more dynamic behavior where power transitions between positive and negative more frequently, showing a more active power management system that involves energy recovery (negative power).
+		\item {Figure (\ref{8}):} The hybrid power fluctuates significantly between 0 and \textbf{58.82 kW} and the minimum is just \textbf{7.44 kW} below 0. There are high peaks with fewer negative values, implying a system that mostly generates or draws power in positive ranges.
+	\end{itemize}
+	
+	\item \textbf{Battery Power (kW):}
+	\begin{itemize}
+		\item {Figure (\ref{20}):} Similarly, the maximum range of charging is \textbf{24.8 kW} and and discharging range is \textbf{12.4 kW}. While in {Figure (\ref{8}):} the maximum chargine is juat \textbf{7.44 kW} and maximum range of discharge almost \textbf{12.40 kW}. 
+		\item For the Figure (\ref{8}) lightly broader range with more focus on discharging power.
+		On the other hand, For the Figure (\ref{20}) is clearer fluctuations between charging and discharging, emphasizing a balance in battery management between supplying and recovering energy.
+	\end{itemize}
+	
+	\item \textbf{Fuel Cell Power (kW):}
+	\begin{itemize}
+		\item {Figure (\ref{20}):} The data shows similar behavior, with sharp spikes and a max value of \textbf{44.97 kW}. The power stays within the same range.
+		\item {Figure (\ref{8}):} Tuel cell power remains mostly positive, fluctuating between 0 and max value of \textbf{46.42 kW}. The curve is characterized by sharp peaks followed by rapid declines.
+	\end{itemize}
+	
+	\item \textbf{State of Charge (SoC):}
+	\begin{itemize}
+		\item {Figure (\ref{8}):} he SoC starts around \textbf{60\%} and drops steadily over time, reaching a minimum of \textbf{56.28\%}. The curve shows a consistent decline, with a larger total drop in SoC.
+		\item {Figure (\ref{20}):} The SoC also starts at \textbf{60\%} but drops more slowly, reaching a minimum of \textbf{53.60\%}. The decline is less pronounced compared to the Figure (\ref{8}) and SoC has drop deeply than Figure (\ref{8}) because of the capacity of battery is 0.62 kWh compare with Figure (\ref{8}) is 1.24kWh
+	\end{itemize}
+
+	
+\end{itemize}
+
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Hydrogen_Mass_and_Efficiency.png}
+	\caption{\small {Hydrid System, Battery Manangement, Fuel Cell Power and State of Charge of the Vehicle}}
+	\label{21}
+\end{figure}
+
+At the Previous question that shown in the Figure (\ref{18}) and our calculation at the moment in the Figure(\ref{21}):
+
+\begin{itemize}
+	\item For the Total Hydrogen Consumed at the Figure (\ref{18}) is around \textbf{0.2045 kg} with \textbf{0.8791 kg(H$_2$)/100km} while the Total Hydrogen Consumed at this question is around \textbf{0.189 kg} with \textbf{0.8148 kg(H$_2$)/100km} and it is coming from the Power of the Hybrid system based on time decreased.
+	
+	\item Average System Efficiency is \textbf{61.74\%} with \textbf{643.82km} Operation Range at the previous question. In contract, at moment the Average System Efficiency is slightly dropped to \textbf{61.06\%} but the operation range is approximately increasing to \textbf{687.28 km} because of the Power demand decreasing becuase of the total force and other main reasons.
+	
+\end{itemize} 
+
+\subsubsection{Second : $C = 0.40$ , $Cr = 0.014$, Battery Charging = $5C$,$20C$ and Battery Capacity = $1.86 kWh$}
 
 
 
