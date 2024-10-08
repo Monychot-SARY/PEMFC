@@ -752,8 +752,7 @@ To Calculate the value in this question, we will use servals equation :
 	
 \begin{equation}
 	R_{\text{operation}} = 
-	\begin{cases} 
-		\frac{\text{Capacity tank}}{\text{Consumption of Hydrogen Average}}} / 100} & \text{if }\text{Consumption of Hydrogen Average} > 0 \\
+	\begin{cases} 		\frac{\text{Capacity tank}}{\text{Consumption of Hydrogen Average}}} / 100} & \text{if }\text{Consumption of Hydrogen Average} > 0 \\
 		0 & \text{if } \text{Consumption of Hydrogen Average} \leq 0 
 	\end{cases}
 \end{equation}
@@ -878,7 +877,7 @@ As, we used to do at the previous Section(1) we assumed that:
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C1/Hydrogen_Mass_and_Efficiency.png}
-	\caption{\small {Hydrid System, Battery Manangement, Fuel Cell Power and State of Charge of the Vehicle}}
+	\caption{\small {Plot of the hydrogen consumption in kg/s and Systen Efficiency in \%}}
 	\label{21}
 \end{figure}
 
@@ -888,6 +887,7 @@ At the Previous question that shown in the Figure (\ref{18}) and our calculation
 	\item For the Total Hydrogen Consumed at the Figure (\ref{18}) is around \textbf{0.2045 kg} with \textbf{0.8791 kg(H$_2$)/100km} while the Total Hydrogen Consumed at this question is around \textbf{0.189 kg} with \textbf{0.8148 kg(H$_2$)/100km} and it is coming from the Power of the Hybrid system based on time decreased.
 	
 	\item Average System Efficiency is \textbf{61.74\%} with \textbf{643.82km} Operation Range at the previous question. In contract, at moment the Average System Efficiency is slightly dropped to \textbf{61.06\%} but the operation range is approximately increasing to \textbf{687.28 km} because of the Power demand decreasing becuase of the total force and other main reasons.
+	\item The efficiency of the system comes from the characteristics, behavior of the driver, characteristics of component of the system and any varible parameters that we input or do calculation.
 	
 \end{itemize} 
 
@@ -896,14 +896,76 @@ At the Previous question that shown in the Figure (\ref{18}) and our calculation
 
 
 
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=1\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2/Question_A.png}
+	\caption{\small {Curve of Air Resistance, Total Force, Instant Power, Hybrid Provided and Received Power}}
+	\label{22}
+\end{figure}
+As, we used to do at the previous Section(1) we assumed that:
+\begin{itemize}
+	\item By looking between the Figure (\ref{4})a with Figure (\ref{22}) yellow curve, we can see that air resistance likely increasing deeply while the maximum air resistance force at Figure (\ref{4})a was around \textbf{500 N} but in Figure (\ref{22}) is around \textbf{720 N}.
+	\item For the total resistance force of vehicle from previous question in Figure (\ref{4})b slightly the lower value of maximum and minimum of the value that we calculate in this question shown on the Figure (\ref{22}) black curve. 
+	\item According to sightly increasing amount of the total force resistance in the system because increasing the value of drag coefficient (C) and Rolling Resistance coefficient C($_r$) so, it make the power demand that represented the green curve in the Figure (\ref{22}) are increasing significantly. The maximum and minimum value are about \textbf{63.97 kW} and \textbf{32.90 kW} below 0 while in previous question just around \textbf{58.48 kW} max and \textbf{34.365 kW} min.
+
+\end{itemize}
 
 
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2/Question_C.png}
+	\caption{\small {Hydrid System, Battery Manangement, Fuel Cell Power and State of Charge of the Vehicle}}
+	\label{23}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Hybrid Power (kW):}
+	\begin{itemize}
+		\item {Figure (\ref{23}):} The range goes up to maximum about \textbf{63.97 kW}, with frequent fluctuations between 0 and 65 kW, and a few drops below 0 kW to the minimum of \textbf{6.2 kW}. While {Figure (\ref{8}):} The hybrid power fluctuates significantly between 0 and \textbf{58.82 kW} and the minimum is just \textbf{7.44 kW} below 0. There are high peaks with fewer negative values, implying a system that mostly generates or draws power in positive ranges.
+		\item For the maximum Hybrid power consumption was much increasing from the previous one in term of change parameter of the coefficient.
+	\end{itemize}
+	
+	
+	\item \textbf{Battery Power (kW):}
+	\begin{itemize}
+		\item {Figure (\ref{23}):} Similarly, the maximum range of charging is just \textbf{6.23 kW} and and discharging range is \textbf{12.4 kW}. While in {Figure (\ref{8}):} the maximum chargine is juat \textbf{7.44 kW} and maximum range of discharge almost \textbf{12.40 kW}. 
+		\item For the Figure (\ref{8}) lightly broader range with more focus on discharging power.
+		On the other hand, For the Figure (\ref{23}) is clearer fluctuations between charging and discharging, emphasizing a balance in battery management between supplying and recovering energy.
+	\end{itemize}
+	
+		\item \textbf{Fuel Cell Power (kW):}
+	\begin{itemize}
+		\item {Figure (\ref{23}):} The data shows similar behavior, with sharp spikes and a max value of \textbf{51.57 kW}. The power stays within the same range.
+		\item {Figure (\ref{8}):} Tuel cell power remains mostly positive, fluctuating between 0 and max value of \textbf{46.42 kW}. The curve is characterized by sharp peaks followed by rapid declines.
+	\end{itemize}
+	
+		\item \textbf{State of Charge (SoC):}
+	\begin{itemize}
+		\item {Figure (\ref{8}):} he SoC starts around \textbf{60\%} and drops steadily over time, reaching a minimum of \textbf{56.28\%}. The curve shows a consistent decline, with a larger total drop in SoC.
+		\item {Figure (\ref{20}):} The SoC also starts at \textbf{60\%} but drops more slowly, reaching a minimum of \textbf{56.93\%}. SoC has a little bit higher than Figure (\ref{8}) event we have increasing the capacity of battery to \textbf{1.86 kWh}. The reason of this problem because of coefficient is highly in crease to make the power demand increasing significantly.
+	\end{itemize}
+\end{itemize}
 
 
+\begin{figure}[h]
+	\centering 
+	\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C2/Hydrogen_Mass_and_Efficiency.png}
+	\caption{\small {Plot of the hydrogen consumption in kg/s and Systen Efficiency in \%}}
+	\label{24}
+\end{figure}
 
 
+At the Previous question that shown in the Figure (\ref{18}) and our calculation at the moment in the Figure(\ref{24}):
+\begin{itemize}
+	\item For the Total Hydrogen Consumed at the Figure (\ref{18}) is around \textbf{0.2045 kg} with \textbf{0.8791 kg(H$_2$)/100km} while the Total Hydrogen Consumed at this question is around \textbf{0.23859 kg} with \textbf{1.0256 kg(H$_2$)/100km} and it is coming from the sum of Power of the Hybrid system based on time decreased.
+	
+	\item Average System Efficiency is \textbf{61.74\%} with \textbf{643.82km} Operation Range at the previous question. In contract, at moment the Average System Efficiency is slightly dropped to \textbf{62.23\%} but the operation range is approximately increasing to \textbf{551.84 km} because of the Power demand increasing deeping becuase of the total force and other main reasons.
+	\item The efficiency of the system comes from the characteristics, behavior of the driver, characteristics of component of the system and any varible parameters that we input or do calculation.
+
+\end{itemize}
 
 
+In Summary after we change varible of the vehicle or system, we saw that the system of the vehicle change as much as the amount of parameter you changed and the main parameter that mostly effect to the vehicle are \textbf{Drag Coefficient} and \textbf{Rolling Resistance Coefficient}.
 
 
 \end{document} 
