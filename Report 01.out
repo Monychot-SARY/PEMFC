@@ -1,21 +1,24 @@
 \BOOKMARK [1][-]{section.1}{Calculation of the power demand inside the vechicle}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Calculate and plot the instant power provided by the vechicle powertrain for the road cycles " WLTC " }{section.1}% 2
-\BOOKMARK [3][-]{subsubsection.1.1.1}{Calculation}{subsection.1.1}% 3
-\BOOKMARK [2][-]{subsection.1.2}{Calculate the instant power provide \(positive\) or received \(negative\) by the electric hybrid power source. }{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.3}{Calculate and Plot as a function of time : The power of the battery \(kW\), The power of the fuel cell system \(kW\), The SOC battery \(\045\) }{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.4}{Make the same analysis with the road cycle "130 kmh". Consider two different cases : = 0 and = 2 }{section.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.4.1}{Analysis = 0}{subsection.1.4}% 7
-\BOOKMARK [3][-]{subsubsection.1.4.2}{Analysis = 2}{subsection.1.4}% 8
-\BOOKMARK [1][-]{section.2}{Analysis of the fuel cell system with WLTC profile}{}% 9
-\BOOKMARK [2][-]{subsection.2.1}{Calculate and Plot as a function of the stack current: }{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.1.1}{The electrical power consumed by the air compressor}{subsection.2.1}% 11
-\BOOKMARK [3][-]{subsubsection.2.1.2}{The electrical power delivered by fuel cell system.}{subsection.2.1}% 12
-\BOOKMARK [3][-]{subsubsection.2.1.3}{The hydorgen consumption by the duel cell system. Fit the curve with a fifth degree polynomial.}{subsection.2.1}% 13
-\BOOKMARK [2][-]{subsection.2.2}{Considering the WLTC drive cycle, calculate and plot the instant hydrogen consumption in kg/s as a function of time. Give the total amount of hydrogen consumed for one complete cycle. Calculate the average hydrogen consumption of the vehicle in kgH2/100 km. Deduce the vehicle operating range, and the average energetic efficiency. }{section.2}% 14
-\BOOKMARK [2][-]{subsection.2.3}{Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}{section.2}% 15
-\BOOKMARK [3][-]{subsubsection.2.3.1}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh}{subsection.2.3}% 16
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Second : C = 0.40 , Cr = 0.014, Battery Charging = 5C,20C and Battery Capacity = 1.86 kWh}{subsection.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.4}{Using the same method as in question 2, calculate and plot as a function of time for both slope angle values:}{section.2}% 18
-\BOOKMARK [3][-]{subsubsection.2.4.1}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh, \040= 0}{subsection.2.4}% 19
-\BOOKMARK [3][-]{subsubsection.2.4.2}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh, = 2}{subsection.2.4}% 20
-\BOOKMARK [3][-]{subsubsection.2.4.3}{Second : C = 0.40 , Cr = 0.014, Battery Charging = 5C,20C and Battery Capacity = 1.86 kWh, \040= 0}{subsection.2.4}% 21
+\BOOKMARK [2][-]{subsection.1.2}{Calculate the instant power provide \(positive\) or received \(negative\) by the electric hybrid power source. }{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Calculate and Plot as a function of time : The power of the battery \(kW\), The power of the fuel cell system \(kW\), The SOC battery \(\045\) }{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Make the same analysis with the road cycle "130 kmh". Consider two different cases : = 0 and = 2 }{section.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.4.1}{Analysis = 0}{subsection.1.4}% 6
+\BOOKMARK [3][-]{subsubsection.1.4.2}{Analysis = 2}{subsection.1.4}% 7
+\BOOKMARK [1][-]{section.2}{Analysis of the fuel cell system with WLTC profile}{}% 8
+\BOOKMARK [2][-]{subsection.2.1}{Calculate and Plot as a function of the stack current: }{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.1.1}{The electrical power consumed by the air compressor}{subsection.2.1}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.2}{The electrical power delivered by fuel cell system.}{subsection.2.1}% 11
+\BOOKMARK [3][-]{subsubsection.2.1.3}{The hydorgen consumption by the duel cell system.}{subsection.2.1}% 12
+\BOOKMARK [2][-]{subsection.2.2}{Considering the WLTC drive cycle, calculate and plot the instant hydrogen consumption in kg/s as a function of time. }{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.3}{Sensitivity analysis - observe the effect of the following variations on the results obtained in the previous question}{section.2}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.1}{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh}{subsection.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Second : C = 0.40 , Cr = 0.014, Battery Charging = 5C,20C and Battery Capacity = 1.86 kWh}{subsection.2.3}% 16
+\BOOKMARK [1][-]{section.3}{Analysis of the fuel cell system at 130 km/h}{}% 17
+\BOOKMARK [2][-]{subsection.3.1}{Calculate and plot as a function of time for both slope angle values:}{section.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.1.1}{First: C = 0.25, Cr = 0.01, Battery Charging = 5C, 20C, Battery Capacity = 0.62 kWh, = 0}{subsection.3.1}% 19
+\BOOKMARK [3][-]{subsubsection.3.1.2}{First: C = 0.25, Cr = 0.01, Battery Charging = 5C, 20C, Battery Capacity = 0.62 kWh, = 2}{subsection.3.1}% 20
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Second: C = 0.40, Cr = 0.014, Battery Charging = 5C, 20C, Battery Capacity = 1.86 kWh, = 0}{subsection.3.1}% 21
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Second: C = 0.40, Cr = 0.014, Battery Charging = 5C, 20C, Battery Capacity = 1.86 kWh, = 2}{subsection.3.1}% 22
+\BOOKMARK [3][-]{subsubsection.3.1.5}{Conclude on the effect of the slope of the road on the vehicle consumption.}{subsection.3.1}% 23
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 24

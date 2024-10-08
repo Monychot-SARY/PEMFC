@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{blindtext}\usepackage{accsupp}
-
+\usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{wasysym}
 \usepackage{mathrsfs}
@@ -30,11 +30,11 @@
 % Custom headers and footers using fancyhdr package
 \pagestyle{fancy}
 \fancyhead[L]{\footnotesize INP-UGA ENES3 M2 SGB}
-\fancyhead[R]{\footnotesize New Sustainable Technoglogies}
+\fancyhead[R]{\footnotesize NEW SUSTAINABLE TECHNOLOGIES}
 \fancyhead[C]{\footnotesize 2024 - 2025}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
-\fancyfoot[R]{\textcolor{black}{\footnotesize SARY MONYCHOT \& NIANG BORA}}
+\fancyfoot[R]{\textcolor{black}{\footnotesize SARY MONYCHOT \& NAING BORA}}
 \fancyfoot[L]{\footnotesize}
 
 % Set up table formatting
@@ -76,8 +76,8 @@
 
 \begin{document}
 	\title{\textbf{PEM Fuel Cell system analysis }}
-	\author{SARY Monychot \& NIANG Bora }
-	%\date{\today}
+	\author{SARY Monychot \& NAING Bora }
+	\date{\today}
 	\maketitle
 		% Table of Contents
 	\tableofcontents
@@ -136,7 +136,6 @@
 	\end{figure}
 
 %% ========================================================================================================
-	\subsubsection{Calculation}
 	
 	To calculate the \textbf{Instant Power}, we need to study of the \textit{force} that have action on the car. By using second Newton's law with the Figure (\ref{2}) shown below, we can assume that there are 4 forces that have action on thecar while driving.
 	
@@ -582,7 +581,7 @@ To find the hydrogen consumption, we will use:
 %=======================================================================================================================
 
 
-\subsubsection{The hydorgen consumption by the duel cell system. Fit the curve with a fifth degree polynomial.}
+\subsubsection{The hydorgen consumption by the duel cell system.}
 \begin{figure}[h]
 	\centering 
 	\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hydrogen Consumption vs Current Density in fit with fifth degree polynomial.png}
@@ -646,9 +645,7 @@ The graph effectively communicates that hydrogen consumption increases linearly 
 
 
 \subsection{Considering the WLTC drive cycle, calculate and plot the instant hydrogen consumption in kg/s
-as a function of time. Give the total amount of hydrogen consumed for one complete cycle. 
-Calculate the average hydrogen consumption of the vehicle in kgH2/100 km. Deduce the vehicle 
-operating range, and the average energetic efficiency.
+as a function of time.
 }
 
 To Calculate the value in this question, we will use servals equation :
@@ -967,60 +964,80 @@ At the Previous question that shown in the Figure (\ref{18}) and our calculation
 
 In Summary after we change varible of the vehicle or system, we saw that the system of the vehicle change as much as the amount of parameter you changed and the main parameter that mostly effect to the vehicle are \textbf{Drag Coefficient} and \textbf{Rolling Resistance Coefficient}.
 
+\section{\underline{Analysis of the fuel cell system at 130 km/h}}
+\subsection{Calculate and plot as a function of time for both slope angle values:}
 
-\subsection{Using the same method as in question 2, calculate and plot as a function of time for both slope 
-	angle values:}
 
+\subsubsection{First: C = 0.25, Cr = 0.01, Battery Charging = 5C, 20C, Battery Capacity = 0.62 kWh, $\alpha = 0^{\circ}$}
 
-\subsubsection{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh, $\alpha$ = 0$^{\circ}$}
-
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering 
-	\includegraphics[width=0.95\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3/Question_3.png}
-	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC and Thermal Power}}
+	\includegraphics[width=0.8\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3/Question_3.png}
+	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC, and Thermal Power}}
 	\label{25}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering 
 	\includegraphics[width=0.64\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C3/Hydrogen_Mass_and_Efficiency.png}
-	\caption{\small {Plot of the hydrogen consumption in kg/s and Systen Efficiency in \%}}
+	\caption{\small {Plot of hydrogen consumption in kg/s and System Efficiency in \%}}
 	\label{26}
 \end{figure}
 
-
-
-\subsubsection{First : C = 0.25 , Cr = 0.01, Battery Charging = 5C,20C and Battery Capacity = 0.62 kWh, $\alpha = 2^{\circ}$}
-\begin{figure}[h]
+\subsubsection{First: C = 0.25, Cr = 0.01, Battery Charging = 5C, 20C, Battery Capacity = 0.62 kWh, $\alpha = 2^{\circ}$}
+\begin{figure}[htbp]
 	\centering 
 	\includegraphics[width=0.63\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4/Hydrogen_Mass_and_Efficiency.png}
-	\caption{\small {Plot of the hydrogen consumption in kg/s and Systen Efficiency in \%}}
+	\caption{\small {Plot of hydrogen consumption in kg/s and System Efficiency in \%}}
 	\label{28}
 \end{figure}
 \newpage
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering 
 	\includegraphics[width=0.6\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C4/Question_3.png}
-	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC and Thermal Power}}
+	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC, and Thermal Power}}
 	\label{27}
 \end{figure}
-\subsubsection{Second : C = 0.40 , Cr = 0.014, Battery Charging = 5C,20C and Battery Capacity = 1.86 kWh, $ \alpha = 0^{\circ}$}
-\begin{figure}[h]
+
+\subsubsection{Second: C = 0.40, Cr = 0.014, Battery Charging = 5C, 20C, Battery Capacity = 1.86 kWh, $\alpha = 0^{\circ}$}
+\begin{figure}[htbp]
 	\centering 
 	\includegraphics[width=0.6\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C5/Question_3.png}
-	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC and Thermal Power}}
+	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC, and Thermal Power}}
 	\label{29}
 \end{figure}
-
-
-\begin{figure}[h]
+\newpage
+\begin{figure}[htbp]
 	\centering 
 	\includegraphics[width=0.6\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C5/Hydrogen_Mass_and_Efficiency.png}
-	\caption{\small {Plot of the hydrogen consumption in kg/s and Systen Efficiency in \%}}
+	\caption{\small {Plot of hydrogen consumption in kg/s and System Efficiency in \%}}
 	\label{30}
 \end{figure}
 
+\subsubsection{Second: C = 0.40, Cr = 0.014, Battery Charging = 5C, 20C, Battery Capacity = 1.86 kWh, $\alpha = 2^{\circ}$}
+\begin{figure}[htbp]
+	\centering 
+	\includegraphics[width=0.6\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C6/Question_3.png}
+	\caption{\small {Fuel Cell Power, Instant hydro consumption SOC, and Thermal Power}}
+	\label{31}
+\end{figure}
+\newpage
+\begin{figure}[htbp]
+	\centering 
+	\includegraphics[width=0.9\linewidth]{E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/C6/Hydrogen_Mass_and_Efficiency.png}
+	\caption{\small {Plot of hydrogen consumption in kg/s and System Efficiency in \%}}
+	\label{32}
+\end{figure}
 
 
+\subsubsection{Conclude on the effect of the slope of the road on the vehicle consumption.}
 
+After testing the case study of slope road, we can assumed that the slope angel of the road will have a huge effect to the vehicle consumption. If the slope of road got bigger and bigger so, the consumption will got higher and higher.
+\section{\underline{Conclusion}}
+
+Hydrogen consumption is closely linked to power demand and the stack current in the fuel cell, with the relationship between current and hydrogen use being nearly linear. During the WLTC drive cycle, hydrogen consumption spikes when the vehicle is under higher power loads, and system efficiency varies between 30\% and 70\%, averaging around 61.74\%. This results in an operational range of about 643.82 km. Sensitivity analysis shows that factors like the drag coefficient and rolling resistance have a significant effect on power demand—higher values for either lead to more hydrogen use and reduced driving range. Larger battery capacity helps manage energy better by keeping the SoC more stable, which can slightly improve efficiency. Road conditions, especially the slope, also play a major role; steeper roads require more power, reducing both fuel efficiency and range compared to flat roads.
+The performance of a PEM fuel cell hybrid vehicle is shaped by multiple factors, primarily related to power demand and energy distribution. The vehicle’s power demand arises from forces such as air resistance, rolling resistance, and the climbing force due to road inclines. Power fluctuates depending on driving conditions, like flat or sloped roads, and is calculated based on speed, acceleration, and these resistance forces. A steeper road grade, for instance, dramatically increases the required power, thereby raising hydrogen consumption and lowering fuel efficiency. In such conditions, the vehicle’s fuel cell and battery hybrid system work in tandem, distributing power effectively to ensure smooth operation. The battery, typically a Li-ion type, supplements the fuel cell during periods of high power demand, especially during acceleration or steep climbs, while the fuel cell delivers the bulk of power during sustained high-demand scenarios. This ensures that the battery’s state of charge (SoC) remains within the safe range of 50\%-65\%. When the SoC dips too low, the fuel cell compensates, safeguarding battery longevity while maximizing vehicle performance.
+
+\section*{Code of the report and Exercise}
+\url{https://github.com/Monychot-SARY/PEMFC}
 
 \end{document} 

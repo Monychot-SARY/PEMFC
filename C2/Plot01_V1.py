@@ -9,7 +9,7 @@ A = 2.25  # Vehicle cross-sectional area (m^2)
 mass = 2000  # Vehicle mass (kg)
 Cr = 0.014  # Rolling resistance coefficient
 g = 9.81  # Gravitational acceleration (m/s^2)
-alpha = 0  # Incline angle (rad)
+
 converter_efficiency = 0.9
 aux_output_power = 300  # in Watts
 battery_capacity = 1.86  # Battery capacity in kWh
@@ -19,7 +19,7 @@ discharge_power_battery = 12.4   # Discharge power in Watts
 charge_power_battery_10C = 24.8   # Charge power for SoC < 55% (10C)
 charge_power_battery_6C = 6.2   # Charge power for SoC > 55% (5C)
 fuel_cell_min_power = 2.5  # Minimum fuel cell power in kW
-
+alpha = 0  # Incline angle (rad)
 # Function to read and filter data
 def read_data(file_name, sheet_name='Sheet1', time_limit=1800):
     try:

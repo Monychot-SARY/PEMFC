@@ -5,21 +5,23 @@ import numpy as np
 # Constants
 
 rho = 1.2  # Air density (kg/m^3)
-Cd = 0.25  # Drag coefficient
+Cd = 0.4  # Drag coefficient
 A = 2.25  # Vehicle cross-sectional area (m^2)
 mass = 2000  # Vehicle mass (kg)
-Cr = 0.01  # Rolling resistance coefficient
+Cr = 0.014  # Rolling resistance coefficient
 g = 9.81  # Gravitational acceleration (m/s^2)
-alpha = np.radians(2)  # Incline angle (rad)
+
 converter_efficiency = 0.9
 aux_output_power = 300  # in Watts
+battery_capacity = 1.86  # Battery capacity in kWh
 SoC_min = 50  # Minimum SoC percentage
 SoC_max = 65  # Maximum SoC percentage
 discharge_power_battery = 12.4   # Discharge power in Watts
-battery_capacity = 0.62  # Battery capacity in kWh
 charge_power_battery_10C = 24.8   # Charge power for SoC < 55% (10C)
 charge_power_battery_6C = 6.2   # Charge power for SoC > 55% (5C)
 fuel_cell_min_power = 2.5  # Minimum fuel cell power in kW
+
+alpha = np.radians(2)  # Incline angle (rad)
 # Function to read and filter data
 def read_data(file_name, sheet_name='Sheet1', time_limit=1800):
     try:
