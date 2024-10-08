@@ -242,8 +242,3 @@ for C in C_variations:
         for power in battery_charging_powers:
             for capacity in battery_capacities:
 
-                v_s, acceleration, Fair, Frolling, Fcl = calculate_forces1(time, speed, C,Cr)
-
-                Instant_power, Hybrid, Bat_motor_gen, Bat_motor_demand = calculate_power1(time, v_s, acceleration, Fair, Frolling, Fcl)
-
-
