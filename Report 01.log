@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  8 OCT 2024 22:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2024.9.10)  8 OCT 2024 23:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1926,9 +1926,23 @@ Package pdftex.def Info: E:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New
  Technology/PEMFC/Hydrogen Consumption vs Current Density in fit with fifth deg
 ree polynomial.png  used on input line 588.
 (pdftex.def)             Requested size: 402.84775pt x 268.57695pt.
- [17 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/H
-ydrogen Consumption vs Current Density in fit with fifth degree polynomial.png>
-] [18] [19]
+
+
+! Package inputenc Error: Unicode character  (U+000B)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.604 ...-07 x^3 + 4E-05 x^2 + 0.0055 x + 0.002, 
+                                                  R^2 = 1
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[17 <e:/07. Master_Degree_ITC+UGA/02. ENES3_SGB_UGA/02. New Technology/PEMFC/Hy
+drogen Consumption vs Current Density in fit with fifth degree polynomial.png>]
+[18] [19]
 ! Extra }, or forgotten $.
 l.753 ...{\text{Consumption of Hydrogen Average}}}
                                                    / 100} & \text{if }\text{...
@@ -2325,10 +2339,6 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1044.
 
 Package rerunfilecheck Info: File `"Report 01".out' has not changed.
 (rerunfilecheck)             Checksum: 359F0CA661DE9D62C18D778DB51CE3D2;3004.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1044.
  )
 (\end occurred inside a group at level 1)
@@ -2360,7 +2370,7 @@ ublic/amsfonts/cm/cmti12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmtt12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
 <c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on "Report 01.pdf" (33 pages, 7028057 bytes).
+Output written on "Report 01.pdf" (33 pages, 7028125 bytes).
 PDF statistics:
  621 PDF objects out of 1000 (max. 8388607)
  496 compressed objects within 5 object streams
