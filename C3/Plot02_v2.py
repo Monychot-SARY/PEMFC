@@ -260,8 +260,13 @@ if total_distance > 0:
     average_hydrogen_consumption = (total_hydrogen_consumed * 100) / total_distance
 else:
     average_hydrogen_consumption = 0
+    
 hydrogen_capacity = data['M_tank'][0]  # Hydrogen tank capacity in kg
 operation_range = hydrogen_capacity / (average_hydrogen_consumption / 100) if average_hydrogen_consumption > 0 else 0  # Range in km
+P_thermal = np.ones(len(time))
+
+for i in range (len(time)):
+    P_thermal[i] = power_fuel_cell[i]/((1/efficiency[i])-1)
 # Print result
 t = 300
 print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
@@ -270,10 +275,7 @@ print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/
 print(f'Operation Range: {operation_range:.2f} km')
 # Create a figure with two subplots
 
-P_thermal = np.ones(len(time))
 
-for i in range (len(time)):
-    P_thermal[i] = power_fuel_cell[t]/((1/efficiency[i])-1)
 
 
 
@@ -283,7 +285,7 @@ for i in range (len(time)):
 plt.figure(figsize=(10, 8))
 # Plot hydrogen mass consumption over time (subplot 1)
 plt.subplot(2, 1, 1)
-plt.plot(time, mass_hydro, 'b-', label='Hydrogen Mass (kg/s)')
+plt.plot(time, mass_hydro, 'r-', label='Hydrogen Mass (kg/s)')
 plt.title(f'Hydrogen Mass Consumption over Time\nTotal hydrogen consumed: {total_hydrogen_consumed:.6f} kg \n Average Hydrogen Consumption : {average_hydrogen_consumption:.6f} kg(H2)/100km', fontsize=12)
 plt.xlabel('Time (s)')
 plt.ylabel('Hydrogen Mass (kg/s)')
@@ -292,10 +294,10 @@ plt.xlim([time[0],t])
 plt.legend()
 # Plot system efficiency over time (subplot 2)
 plt.subplot(2, 1, 2)
-plt.plot(time, P_thermal, 'm-', label='System Efficiency (%)')
-plt.title(f'System Efficiency over Time\nAverage System Efficiency: {average_efficiency:.2f}% \n Operation Range : {operation_range:.2f} km' , fontsize=12)
+plt.plot(time, P_thermal, 'y-', label='Thermal power produced by the fuel cell')
+plt.title('Thermal power produced by the fuel cell')
 plt.xlabel('Time (s)')
-plt.ylabel('Efficiency (%)')
+plt.ylabel('Thermal power produced by the fuel cell  (kW)')
 plt.xlim([time[0],t])
 plt.ylim([min(P_thermal), max(P_thermal) * 1.1])  # Corrected here
 plt.legend()
