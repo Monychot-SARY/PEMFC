@@ -114,7 +114,7 @@ plt.savefig('Hydrogen Consumption vs Current Density in fit with fifth degree po
 plt.show()
 
 #-------------------- Drive Cycle Hydrogen Consumption Calculation ----------------------------#
-WLTC = pd.read_excel('Plot01.xlsx', sheet_name='Sheet1', header=0)
+WLTC = pd.read_excel('Plot01_130.xlsx', sheet_name='Sheet1', header=0)
 speed = WLTC.iloc[:, 1].values
 time = WLTC.iloc[:, 0].values
 
@@ -129,16 +129,10 @@ Instant_power, InP_Hybrid, Bat_motor_gen, Bat_motor_demand, F_total = calculate_
 SoC, power_battery,power_fuel_cell, power_hybrid = simulate_soc_and_power(time, InP_Hybrid)
 
 #-------------------- WLTC and Polarization Curve Analysis ----------------------------#
-# Load the WLTC and polarization curve data
-wltc_data = pd.read_excel('Plot01_130.xlsx', header=0)  # Ensure the path is correct
-polarization_curve = df  # Ensure df is defined correctly
 
-# Define parameters
-A_cell = data['Area_stack']
-N_cells = data['N_cell']
 
 # Load the WLTC and polarization curve data
-wltc_data = pd.read_excel('Plot01.xlsx', header=0)  # Ensure the path is correct
+wltc_data = WLTC  # Ensure the path is correct
 polarization_curve = df  # Ensure df is defined correctly
 
 # Define parameters
@@ -268,12 +262,24 @@ else:
     average_hydrogen_consumption = 0
 hydrogen_capacity = data['M_tank'][0]  # Hydrogen tank capacity in kg
 operation_range = hydrogen_capacity / (average_hydrogen_consumption / 100) if average_hydrogen_consumption > 0 else 0  # Range in km
-# Print results
+# Print result
+t = 300
 print(f'Total hydrogen consumed: {total_hydrogen_consumed:.6f} kg')
 print(f'Average System Efficiency: {average_efficiency:.2f}%')
 print(f'Average Hydrogen Consumption: {average_hydrogen_consumption:.6f} kg(H2)/100km')
 print(f'Operation Range: {operation_range:.2f} km')
 # Create a figure with two subplots
+
+P_thermal = np.ones(len(time))
+
+for i in range (len(time)):
+    P_thermal[i] = power_fuel_cell[t]/((1/efficiency[i])-1)
+
+
+
+
+
+
 plt.figure(figsize=(10, 8))
 # Plot hydrogen mass consumption over time (subplot 1)
 plt.subplot(2, 1, 1)
@@ -282,18 +288,22 @@ plt.title(f'Hydrogen Mass Consumption over Time\nTotal hydrogen consumed: {total
 plt.xlabel('Time (s)')
 plt.ylabel('Hydrogen Mass (kg/s)')
 plt.ylim([min(mass_hydro),max(mass_hydro)*1.1])
-plt.xlim([time[0],len(time)])
+plt.xlim([time[0],t])
 plt.legend()
 # Plot system efficiency over time (subplot 2)
 plt.subplot(2, 1, 2)
-plt.plot(time, efficiency * 100, 'm-', label='System Efficiency (%)')
+plt.plot(time, P_thermal, 'm-', label='System Efficiency (%)')
 plt.title(f'System Efficiency over Time\nAverage System Efficiency: {average_efficiency:.2f}% \n Operation Range : {operation_range:.2f} km' , fontsize=12)
 plt.xlabel('Time (s)')
 plt.ylabel('Efficiency (%)')
-plt.xlim([time[0],len(time)])
-plt.ylim([min(efficiency * 100), max(efficiency * 100) * 1.1])  # Corrected here
+plt.xlim([time[0],t])
+plt.ylim([min(P_thermal), max(P_thermal) * 1.1])  # Corrected here
 plt.legend()
 
 plt.tight_layout()  # Adjust the rect parameter to leave space for the suptitle
 plt.savefig('Hydrogen_Mass_and_Efficiency.png', dpi=200)
 plt.show()
+
+
+#==================================================================================================
+
