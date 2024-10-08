@@ -435,19 +435,19 @@ As show in Figure (\ref{13}), we can assume that vehicle at this speed character
 	\item \textbf{Hybrid Power (kW) - Blue Curve (Top Plot):}
 	\begin{itemize}
 		\item The hybrid power increases sharply from 0 to about \textbf{17.45 kW} within the first few seconds.
-		\item After this peak, the power stabilizes around \textbf{16 kW} and remains constant for the rest of the 300-second interval.
+		\item After this peak, the power stabilizes around \textbf{10.917 kW} and remains constant for the rest of the 300-second interval.
 	\end{itemize}
 	
 	\item \textbf{Battery Power (kW) - Orange Curve (Second Plot):}
 	\begin{itemize}
-		\item The battery power rises rapidly to a maximum value of \textbf{5.24 kW} at the beginning and then drops slightly, stabilizing around \textbf{4.5 kW}.
+		\item The battery power rises rapidly to a maximum value of \textbf{5.24 kW} at the beginning and then drops slightly, stabilizing around \textbf{3.27 kW}.
 		\item The battery maintains this output throughout the time period shown.
 	\end{itemize}
 	
 	\item \textbf{Fuel Cell Power (kW) - Green Curve (Third Plot):}
 	\begin{itemize}
 		\item The fuel cell power ramps up initially to about \textbf{12.22 kW}.
-		\item After reaching this maximum value, the fuel cell output drops slightly and stabilizes at around \textbf{10 kW} for the remainder of the time.
+		\item After reaching this maximum value, the fuel cell output drops slightly and stabilizes at around \textbf{7.64 kW} for the remainder of the time.
 	\end{itemize}
 	
 	\item \textbf{State of Charge (SoC \%) - Red Curve (Bottom Plot):}
@@ -722,11 +722,11 @@ To Calculate the value in this question, we will use servals equation :
 \item To detemine System Efficiency, we do :
 
 \begin{equation}
-	E_{\text{from H2}} = \frac{m_{\text{hydro}}[i] \cdot LHV_{\text{hydrogen}}}{M_{\text{olar mass H2}}} \quad \text{if } m_{\text{hydro}}[i] > 0
+	E_{\text{from H2}} = \frac{m_{\text{hydro}}[t] \cdot LHV_{\text{hydrogen}}}{M_{\text{olar mass H2}}} \quad \text{if } m_{\text{hydro}}[t] > 0
 \end{equation}
 
 \begin{equation}
-	\eta[i] = 
+	\eta[t] = 
 	\begin{cases} 
 		\frac{P_{\text{fuel cell}}}{E_{\text{from H2}}} & \text{if } E_{\text{from H2}} > 0 \\
 		0 & \text{if } E_{\text{from H2}} \leq 0 
