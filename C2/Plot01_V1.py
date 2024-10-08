@@ -17,7 +17,7 @@ SoC_min = 50  # Minimum SoC percentage
 SoC_max = 65  # Maximum SoC percentage
 discharge_power_battery = 12.4   # Discharge power in Watts
 charge_power_battery_10C = 24.8   # Charge power for SoC < 55% (10C)
-charge_power_battery_6C = 7.44   # Charge power for SoC > 55% (5C)
+charge_power_battery_6C = 6.2   # Charge power for SoC > 55% (5C)
 fuel_cell_min_power = 2.5  # Minimum fuel cell power in kW
 
 # Function to read and filter data
